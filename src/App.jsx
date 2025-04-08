@@ -1,4 +1,5 @@
 import './App.css'
+import AstrologyHero from './Components/AstrologyHero'
 import Footer from './Components/Footer'
 import Gallery from './Components/Gallery'
 import ChakraWithImage from './Components/Hero'
@@ -11,6 +12,8 @@ function App() {
     <>
       <Navbar/>
       <ChakraWithImage/>
+      <AstrologyHero/>
+
       <Gallery images={[
         { id: 1, url: 'https://adinathtrust.org/assets/img/gallery/CC_S1677.jpg', title: 'Modern Operating Theater', description: 'State-of-the-art surgical facilities' },
         { id: 2, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.58_316908dd.webp', title: 'Comfortable Patient Rooms', description: 'Private rooms with scenic views' },
