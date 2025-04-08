@@ -2,3 +2,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+/* Animation for chakra spin */
+@keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spin-slow-animation {
+    animation: spin-slow 20s linear infinite;
+  }
+  
+  /* Animation for murti gentle pulse */
+  @keyframes gentle-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.02);
+      opacity: 0.98;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .gentle-pulse-animation {
+    animation: gentle-pulse 4s ease-in-out infinite;
+  }
+
+  /* Add to your global CSS */
+#tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }

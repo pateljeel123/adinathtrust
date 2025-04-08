@@ -1,7 +1,7 @@
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import spaceGif from "../assets/spacegif.gif"; // Renamed file to remove spaces
+import spaceGif from "../assets/spacegif.gif";
 import chakraImg from "../assets/Chakra.png";
 import murtiImg from "../assets/murti.png";
 
@@ -12,99 +12,91 @@ const ChakraWithParticles = () => {
 
   return (
     <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-black">
-      {/* Particles Background */}
-      <div className="absolute inset-0 z-0">
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={{
-            particles: {
-              number: {
-                value: 150,
-                density: {
-                  enable: true,
-                  area: 800,
-                },
-              },
-              color: {
-                value: "#ffffff",
-              },
-              shape: {
-                type: "circle",
-              },
-              opacity: {
-                value: 0.5,
-                random: true,
-                animation: {
-                  enable: true,
-                  speed: 1,
-                  minimumValue: 0.1,
-                  sync: false,
-                },
-              },
-              size: {
-                value: 3,
-                random: true,
-                animation: {
-                  enable: true,
-                  speed: 2,
-                  minimumValue: 0.1,
-                  sync: false,
-                },
-              },
-              links: {
+      {/* Particles Background - now with proper configuration */}
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        options={{
+          background: {
+            color: {
+              value: "transparent", // Make sure background is transparent
+            },
+          },
+          particles: {
+            number: {
+              value: 150, // Reduced from 355 for better performance
+              density: {
                 enable: true,
-                distance: 150,
-                color: "#ffffff",
-                opacity: 0.2,
-                width: 1,
+                value_area: 800,
               },
-              move: {
+            },
+            color: {
+              value: "#ffffff", // White particles
+            },
+            shape: {
+              type: "circle",
+            },
+            opacity: {
+              value: 0.5,
+              random: true,
+              anim: {
                 enable: true,
                 speed: 1,
-                direction: "none",
-                random: true,
-                straight: false,
-                outMode: "out",
+                opacity_min: 0.1,
+                sync: false,
               },
             },
-            interactivity: {
-              events: {
-                onHover: {
-                  enable: true,
-                  mode: "bubble",
-                },
-                onClick: {
-                  enable: true,
-                  mode: "push",
-                },
-                resize: true,
-              },
-              modes: {
-                bubble: {
-                  distance: 100,
-                  size: 4,
-                  duration: 2,
-                  opacity: 0.8,
-                  speed: 3,
-                },
-                push: {
-                  quantity: 4,
-                },
+            size: {
+              value: 3,
+              random: true,
+              anim: {
+                enable: true,
+                speed: 2,
+                size_min: 0.3,
+                sync: false,
               },
             },
-            detectRetina: true,
-          }}
-        />
-      </div>
+            move: {
+              enable: true,
+              speed: 0.5,
+              direction: "none",
+              random: true,
+              straight: false,
+              out_mode: "out",
+              bounce: false,
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: true,
+                mode: "repulse",
+              },
+              onclick: {
+                enable: true,
+                mode: "push",
+              },
+            },
+          },
+        }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 1, // Between background and content
+        }}
+      />
 
-      {/* Space GIF Background */}
-      <div className="absolute inset-0 z-10">
+      {/* Space GIF Background - moved behind particles */}
+      <div className="absolute inset-0 z-0">
         <img
           src={spaceGif}
           alt="Space Background"
           className="w-full h-full object-cover"
-          style={{ opacity: 0.3, filter: "brightness(0.7)" }}
+          style={{ opacity: 0.5, filter: "brightness(0.7)" }}
         />
       </div>
 
@@ -117,7 +109,6 @@ const ChakraWithParticles = () => {
             className="w-[110%] h-[110%] object-contain spin-slow-animation"
             style={{
               filter: "drop-shadow(0 0 15px rgba(255, 215, 0, 0.8))",
-              willChange: "transform",
             }}
           />
         </div>
