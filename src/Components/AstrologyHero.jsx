@@ -2,7 +2,7 @@ import React from "react";
 
 const AstrologyHero = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between bg-[#fdf9f4] min-h-screen px-6 md:px-20 py-16">
+    <div className="flex flex-col md:flex-row items-center justify-between  min-h-screen px-6 md:px-20 py-16" style={{backgroundColor:'#F6F5EC'}}>
       {/* Left Section */}
       <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
         <p className="text-sm uppercase tracking-wide text-gray-600">

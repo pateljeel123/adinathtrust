@@ -107,7 +107,7 @@ const OurStory = () => {
         >
           <h2 className="text-5xl font-bold text-amber-700 mb-4 relative inline-block">
             <span className="relative z-10">
-              Our Journey
+              Our Story
               <span className="absolute bottom-0 left-0 w-full h-1 bg-amber-400 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500"></span>
             </span>
           </h2>
