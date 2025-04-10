@@ -1,8 +1,8 @@
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import spaceGif from "../assets/spacegif.gif";
-import chakraImg from "../assets/Chakra.png";
+import spaceGif from "../assets/space.gif";
+import chakraImg from "../assets/Chakra4.png";
 import murtiImg from "../assets/murti.png";
 
 const ChakraWithParticles = () => {
