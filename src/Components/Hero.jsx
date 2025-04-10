@@ -58,13 +58,16 @@ const ChakraWithParticles = () => {
         }}
       />
 
-      {/* Space GIF overlay */}
+      {/* Space GIF overlay with adjusted opacity */}
       <div className="absolute inset-0 z-0">
         <img
           src={spaceGif}
           alt="Space Background"
           className="w-full h-full object-cover"
-          style={{ opacity: 0.12, filter: "brightness(0.3)" }}
+          style={{ 
+            opacity: 0.2,
+            filter: "brightness(0.5) contrast(1.2)"
+          }}
         />
       </div>
 
@@ -103,6 +106,25 @@ const ChakraWithParticles = () => {
           />
         </div>
       </div>
+
+      {/* Custom animations */}
+      <style jsx>{`
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .spin-slow-animation {
+          animation: spin-slow 40s linear infinite;
+        }
+        @keyframes gentle-pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.02); }
+          100% { transform: scale(1); }
+        }
+        .gentle-pulse-animation {
+          animation: gentle-pulse 6s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };
