@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="app" style={{backgroundColor: '#F6F5EC'}}>
-      <Navbar/>
+      <Navbar/><br /><br /><br />
       <ChakraWithImage/>
       <AstrologyHero/>
       <OurStory />
