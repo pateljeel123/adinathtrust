@@ -6,15 +6,17 @@ import Footer from './Components/Footer'
 import Gallery from './Components/Gallery'
 import ChakraWithImage from './Components/Hero'
 import Navbar from './Components/Navbar'
+import OurStory from './Components/OurStory'
 
 
 function App() {
 
   return (
-    <>
+    <div className="app" style={{backgroundColor: '#F6F5EC'}}>
       <Navbar/>
       <ChakraWithImage/>
       <AstrologyHero/>
+      <OurStory />
     <MedicalReport/>
     <CenterOfExcellence/>
       <Gallery images={[
@@ -36,7 +38,7 @@ function App() {
         { id: 13, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.56_75380886.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
       ]} />
       <Footer />
-    </>
+    </div>
   )
 }
 
