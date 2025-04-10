@@ -1,7 +1,7 @@
 import React from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-import spaceGif from "../assets/space.gif";
+import spaceGif from "../assets/Lx0q (1).gif";
 import chakraImg from "../assets/Chakra2.png";
 import murtiImg from "../assets/murti.png";
 
@@ -11,72 +11,40 @@ const ChakraWithParticles = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-black">
-      {/* Particles Background - now with proper configuration */}
+    <div
+      className="relative flex items-center justify-center min-h-screen overflow-hidden"
+      style={{
+        background: "radial-gradient(circle at center, #0f172a 0%, #1e293b 80%)",
+      }}
+    >
+      {/* Particles */}
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
-          background: {
-            color: {
-              value: "transparent", // Make sure background is transparent
-            },
-          },
+          background: { color: { value: "transparent" } },
           particles: {
-            number: {
-              value: 150, // Reduced from 355 for better performance
-              density: {
-                enable: true,
-                value_area: 800,
-              },
-            },
-            color: {
-              value: "#ffffff", // White particles
-            },
-            shape: {
-              type: "circle",
-            },
+            number: { value: 100, density: { enable: true, value_area: 800 } },
+            color: { value: ["#ffffff", "#FFD700", "#00FFFF"] },
+            shape: { type: "circle" },
             opacity: {
-              value: 0.5,
+              value: 0.6,
               random: true,
-              anim: {
-                enable: true,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false,
-              },
+              anim: { enable: true, speed: 0.4, opacity_min: 0.1, sync: false },
             },
             size: {
-              value: 3,
+              value: 2,
               random: true,
-              anim: {
-                enable: true,
-                speed: 2,
-                size_min: 0.3,
-                sync: false,
-              },
+              anim: { enable: true, speed: 1.5, size_min: 0.3, sync: false },
             },
             move: {
               enable: true,
-              speed: 0.5,
+              speed: 0.6,
               direction: "none",
               random: true,
               straight: false,
               out_mode: "out",
               bounce: false,
-            },
-          },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onhover: {
-                enable: true,
-                mode: "repulse",
-              },
-              onclick: {
-                enable: true,
-                mode: "push",
-              },
             },
           },
         }}
@@ -86,40 +54,51 @@ const ChakraWithParticles = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          zIndex: 1, // Between background and content
+          zIndex: 1,
         }}
       />
 
-      {/* Space GIF Background - moved behind particles */}
+      {/* Space GIF overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={spaceGif}
           alt="Space Background"
           className="w-full h-full object-cover"
-          style={{ opacity: 0.5, filter: "brightness(0.7)" }}
+          style={{ opacity: 0.12, filter: "brightness(0.3)" }}
         />
       </div>
 
-      {/* Chakra & Murti Animations */}
+      {/* Radial spinning beams */}
+      <div className="absolute z-10 w-[700px] h-[700px] rounded-full animate-spin-slow">
+        <div className="w-full h-full rounded-full bg-gradient-to-tr from-yellow-300 via-transparent to-yellow-100 blur-3xl opacity-20"></div>
+      </div>
+
+      {/* Glow ring */}
+      <div className="absolute z-10 w-[600px] h-[600px] border-[50px] border-yellow-400 rounded-full opacity-10 blur-2xl"></div>
+
+      {/* Floating golden aura */}
+      <div className="absolute z-10 w-[500px] h-[500px] rounded-full bg-yellow-300 blur-[100px] opacity-20 animate-pulse"></div>
+
+      {/* Chakra & Murti content */}
       <div className="relative z-20 w-[500px] h-[500px] md:w-[700px] md:h-[700px]">
+        {/* Chakra */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src={chakraImg}
-            alt="Spiritual Chakra"
+            alt="Chakra"
             className="w-[110%] h-[110%] object-contain spin-slow-animation"
-            style={{
-              filter: "drop-shadow(0 0 15px rgba(255, 215, 0, 0.8))",
-            }}
+            style={{ filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.9))" }}
           />
         </div>
 
+        {/* Murti */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src={murtiImg}
-            alt="Divine Murti"
-            className="w-4/5 h-4/5 object-contain pointer-events-none gentle-pulse-animation"
+            alt="Murti"
+            className="w-4/5 h-4/5 object-contain gentle-pulse-animation"
             style={{
-              filter: "drop-shadow(0 0 20px rgba(0, 0, 0, 0.8))",
+              filter: "drop-shadow(0 0 25px rgba(255, 255, 255, 0.8))",
             }}
           />
         </div>
