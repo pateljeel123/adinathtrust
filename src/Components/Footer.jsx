@@ -9,6 +9,7 @@ import {
   FaLinkedin,
   FaPaperPlane
 } from 'react-icons/fa';
+import FooterImg from "../assets/FooterImg.jpeg"
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -108,18 +109,19 @@ const Footer = () => {
       ></div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
+        {/* Form and Image Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
           {/* Contact Form Section */}
-          <section className="lg:col-span-2 p-5 rounded-xl" aria-labelledby="contact-form-heading">
+          <section className="p-5 rounded-xl bg-white" aria-labelledby="contact-form-heading">
             <h2 id="contact-form-heading" className="text-3xl font-bold font-sans mb-8 relative inline-block">
-              <span className="relative z-10 font-normal text-white">
+              <span className="relative z-10 font-normal" style={{ color: '#A48B4B' }}>
                 DROP YOUR QUERY!
               </span>
               <span className="absolute bottom-0 left-0 w-full h-1 bg-[#A48B4B] opacity-30 transform -translate-y-1" aria-hidden="true"></span>
             </h2>
 
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans" aria-label="Contact form">
+              {/* Form fields remain the same as before */}
               {/* First Name */}
               <div className="relative">
                 <input
@@ -245,8 +247,9 @@ const Footer = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-bold font-sans transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A48B4B] font-normal border border-white"
+                  className="flex items-center justify-center gap-2 px-8 py-3 rounded-lg font-bold font-sans transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A48B4B] font-normal"
                   style={{
+                    backgroundColor: '#A48B4B',
                     color: '#F6F5EC',
                     opacity: isSubmitting ? 0.7 : 1
                   }}
@@ -265,65 +268,70 @@ const Footer = () => {
             </form>
           </section>
 
-          {/* Contact Info */}
-          <section aria-labelledby="contact-info-heading" className="p-5 font-sans bg-white rounded-xl">
-            <h2 id="contact-info-heading" className="text-3xl font-bold mb-8 relative inline-block font-sans">
-              <span className="relative z-10 font-normal" style={{ color: '#A48B4B' }}>
-                GET IN TOUCH WITH US!
+          {/* Image Section - Same height as form */}
+          <div className="hidden lg:block h-full">
+            <div className="h-full rounded-xl overflow-hidden bg-[#E0DBC7] flex items-center justify-center p-1">
+              {/* Replace with your actual image */}
+              <img
+                src={FooterImg}
+                alt="Aadinath Trust"
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Ultra Compact Contact Info Section */}
+        <section aria-labelledby="contact-info-heading" className="w-full p-4 rounded-xl mb-6" style={{ backgroundColor: '#E0DBC7' }}>
+          <div className="flex justify-between items-center mb-4"> {/* Horizontal layout for heading and social */}
+            <h2 id="contact-info-heading" className="text-2xl font-bold relative inline-block font-sans"> {/* Reduced text size */}
+              <span className="relative z-10 font-normal text-[#5D5342]">
+                GET IN TOUCH
               </span>
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-[#A48B4B] opacity-30 transform -translate-y-1" aria-hidden="true"></span>
             </h2>
 
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start group">
-                  <div
-                    className="p-2 rounded-full mr-4 transition-all duration-300"
-                    style={{ backgroundColor: '#E0DBC7' }}
-                    aria-hidden="true"
-                  >
-                    {info.icon}
-                  </div>
-                  <div>
-                    <p className="font-medium font-sans">{info.title}</p>
-                    {info.details.map((detail, i) => (
-                      <p key={i} className="text-lg font-sans">{detail}</p>
-                    ))}
-                  </div>
-                </div>
+            {/* Social Media moved to same row */}
+            <div className="flex space-x-2">
+              {socialMediaLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  className="p-1.5 rounded-full transition-all duration-300"
+                  style={{
+                    backgroundColor: social.color,
+                    color: '#F6F5EC'
+                  }}
+                  aria-label={`Follow us on ${social.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {React.cloneElement(social.icon, { size: 14 })} {/* Tiny icons */}
+                </a>
               ))}
             </div>
+          </div>
 
-            {/* Social Media */}
-            <div className="mt-12" aria-labelledby="social-media-heading">
-              <h3 id="social-media-heading" className="text-xl font-bold mb-6 relative inline-block font-sans">
-                <span className="relative z-10" style={{ color: '#A48B4B' }}>
-                  FOLLOW US
-                </span>
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-[#A48B4B] opacity-30 transform -translate-y-1" aria-hidden="true"></span>
-              </h3>
-
-              <div className="flex space-x-4">
-                {socialMediaLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    className="p-3 rounded-full transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#F6F5EC]"
-                    style={{
-                      backgroundColor: social.color,
-                      color: '#F6F5EC'
-                    }}
-                    aria-label={`Follow us on ${social.name}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {social.icon}
-                  </a>
-                ))}
+          {/* Super Compact Contact Info Row */}
+          <div className="grid grid-cols-3 gap-2 ps-10"> {/* Minimal gap */}
+            {contactInfo.map((info, index) => (
+              <div key={index} className="flex items-center"> {/* Horizontal layout */}
+                <div
+                  className="p-1.5 rounded-full mr-2" /* Tiny icon container */
+                  style={{ backgroundColor: '#A48B4B', color: '#F6F5EC' }}
+                  aria-hidden="true"
+                >
+                  {React.cloneElement(info.icon, { size: 20 })}
+                </div>
+                <div className="overflow-hidden">
+                  <p className="font-medium text-md text-[#5D5342] truncate">{info.title}</p>
+                  {info.details.map((detail, i) => (
+                    <p key={i} className="text-md text-[#5D5342] truncate">{detail}</p> /* Tiny text */
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
-        </div>
+            ))}
+          </div>
+        </section>
 
         {/* Copyright */}
         <div className="mt-16 pt-6 border-t border-[#E0DBC7] text-center">
