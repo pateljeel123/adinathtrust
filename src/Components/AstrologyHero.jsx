@@ -1,6 +1,8 @@
 import React from "react";
+import MyImage from "../assets/edited.png"
 
 const AstrologyHero = () => {
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-between  min-h-screen px-6 md:px-20 py-16" style={{backgroundColor:'#F6F5EC'}}>
       {/* Left Section */}
@@ -22,14 +24,14 @@ const AstrologyHero = () => {
 
       {/* Right Section */}
       <div className="w-full md:w-1/2 mt-10 md:mt-0 relative">
-        <div className="rounded-tl-[150px] overflow-hidden shadow-md">
-          <img
-            src="https://huggingface.co/datasets/huggingfacejs/tasks/resolve/main/zero-shot-image-classification/image-classification-input.jpeg"
-            alt="Meditating Woman"
-            className="w-full object-cover h-full"
-          />
-        </div>
-      </div>
+  <div className="rounded-tl-[150px] overflow-hidden shadow-md w-2/4 mx-auto rounded-br-[150px]"> 
+    <img
+      src={MyImage}
+      alt="Meditating Woman"
+      className="w-full object-cover h-full"
+    />
+  </div>
+</div>
     </div>
   );
 };
