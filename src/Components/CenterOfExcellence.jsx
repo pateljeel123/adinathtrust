@@ -213,7 +213,7 @@ const LocationsListPopup = ({ category, locations, onClose, onLocationSelect }) 
 };
 
 const ExcellenceCard = ({ title, icon, color, onClick }) => (
-  <div className="bg-white shadow-md rounded-2xl p-6 hover:shadow-xl transform hover:-translate-y-1 transition duration-300 border border-gray-100 hover:border-green-500">
+  <div className="bg-[#EAE8DC] shadow-md rounded-2xl p-6 hover:shadow-xl transform hover:-translate-y-1 transition duration-300 border border-gray-100 hover:border-[#727B4E]-500">
     <div className="flex flex-col items-center justify-center text-center gap-3">
       <div className={`p-4 rounded-full shadow-sm ${color}`}>
         {icon}
@@ -221,7 +221,7 @@ const ExcellenceCard = ({ title, icon, color, onClick }) => (
       <h3 className="text-xl font-bold text-gray-800">Aadinath</h3>
       <p className="text-sm text-gray-600 uppercase tracking-wide">{title}</p>
       <button
-        className="mt-3 px-4 py-1 text-sm font-medium bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full hover:from-green-700 hover:to-green-800 transition"
+        className="mt-3 px-4 py-1 text-sm font-medium bg-green-600 text-white rounded-full hover:bg-green-700 transition"
         onClick={onClick}
       >
         Read More
