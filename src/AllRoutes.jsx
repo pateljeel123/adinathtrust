@@ -9,6 +9,7 @@ import Footer from './Components/Footer'
 import Gallery from './Components/Gallery'
 import ChakraWithImage from './Components/Hero'
 import OurStory from './Components/OurStory'
+import Document from './Components/Document'
 
 const FirstPages = () => {
     return (
@@ -28,6 +29,7 @@ const AllRoutes = () => {
         <div>
             <Routes>
                 <Route path='/doctors' element={<Doctors />} />
+                <Route path='/document' element={<Document />} />
                 <Route path="/" element={<FirstPages />} />
             </Routes>
         </div>
