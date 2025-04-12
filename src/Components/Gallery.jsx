@@ -55,7 +55,7 @@ const Gallery = ({ images }) => {
   };
 
   return (
-    <div className="w-full py-8">
+    <div className="w-full py-8" id='gallery'>
       {/* Header */}
       <div className="flex items-center justify-center mb-8 px-4">
         <FaHospital className="text-[#727B4E] text-4xl mr-3" />

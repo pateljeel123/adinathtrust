@@ -96,7 +96,7 @@ const OurStory = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br  py-16 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{backgroundColor:'#F6F5EC'}}>
+    <div className="min-h-screen bg-gradient-to-br  py-16 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{backgroundColor:'#F6F5EC'}} id='story'>
       <div className="max-w-7xl mx-auto">
         {/* Enhanced Header */}
         <motion.div 

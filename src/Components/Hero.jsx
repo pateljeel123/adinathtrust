@@ -16,7 +16,7 @@ const ChakraWithParticles = () => {
       style={{
         background: "radial-gradient(circle at center, #0f172a 0%, #1e293b 80%)",
       }}
-    >
+    id="hero">
       {/* Particles */}
       <Particles
         id="tsparticles"

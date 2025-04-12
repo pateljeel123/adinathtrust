@@ -102,7 +102,7 @@ const Footer = () => {
         borderTop: '1px solid rgba(164, 139, 75, 0.2)'
       }}
       aria-label="Website footer"
-    >
+      id='contact'>
       <div
         className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#A48B4B] to-transparent opacity-20"
         aria-hidden="true"

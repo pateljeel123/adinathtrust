@@ -6,11 +6,11 @@ import Navbar from './Components/Navbar'
 function App() {
 
   return (
-    <>
+    <div className="App bg-[#F6F5EC] min-h-screen flex flex-col justify-between">
       <Navbar />
       <AllRoutes />
       <Footer />
-    </>
+    </div>
   )
 }
 
