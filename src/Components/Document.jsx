@@ -5,7 +5,7 @@ const Document = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className="w-full py-8 px-4 bg-gray-50 min-h-screen pt-25">
+        <div className="w-full py-8 px-4 bg-gray-50 min-h-screen pt-25"> 
             {/* Header - Matching your gallery style */}
             <div className="text-center mb-12">
                 <div className="flex items-center justify-center mb-4">

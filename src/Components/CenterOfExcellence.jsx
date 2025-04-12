@@ -27,7 +27,7 @@ const LocationPopup = ({ location, onClose, onBack }) => {
   };
 
   return (
-    <motion.div
+      <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -298,7 +298,7 @@ const CenterOfExcellence = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16 bg-[#F6F5EC]">
+    <div className="max-w-7xl mx-auto px-4 py-16 bg-[#F6F5EC]" id="service">
       <div className="text-center mb-12">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}

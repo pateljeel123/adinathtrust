@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import NavItem from '../utiles/NavItem';
 import DonateButton from '../utiles/DonateButton';
 import { smoothScrollTo } from '../utiles/smoothScroll';
+import { Link } from 'react-router-dom';
+import { path } from 'framer-motion/client';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +16,7 @@ const Navbar = () => {
     { name: 'ABOUT', path: '#story' },
     { name: 'SERVICES', path: '#service' },
     { name: 'GALLERY', path: '#gallery' },
-    { name: 'DOCUMENT', path: '#document' },
+    { name: 'DOCUMENT', path: '/document' },
     { name: 'CONTACTS', path: '#contact' }
   ];
 
@@ -248,6 +250,7 @@ const Navbar = () => {
                     {item.name}
                   </motion.a>
                 ))}
+                
                 <motion.div
                   className="px-4 pt-2"
                   variants={itemVariants}
