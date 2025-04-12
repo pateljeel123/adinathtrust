@@ -16,7 +16,7 @@ const ChakraWithParticles = () => {
       style={{
         background: "radial-gradient(circle at center, #0f172a 0%, #1e293b 80%)",
       }}
-    id="hero">
+    >
       {/* Particles */}
       <Particles
         id="tsparticles"
@@ -89,7 +89,7 @@ const ChakraWithParticles = () => {
           <img
             src={chakraImg}
             alt="Chakra"
-            className="w-[110%] h-[110%] object-contain spin-slow-animation"
+            className="w-[90%] h-[90%] object-contain spin-slow-animation"
             style={{ filter: "drop-shadow(0 0 25px rgba(255, 215, 0, 0.9))" }}
           />
         </div>
