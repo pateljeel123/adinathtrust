@@ -119,8 +119,7 @@ const SpecialServicePopup = ({ location, onClose, onBack }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-      onClick={(e) => e.target === e.currentTarget && onClose()}
-      id="services">
+      onClick={(e) => e.target === e.currentTarget && onClose()} id="service">
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -244,7 +243,7 @@ const LocationsListPopup = ({ category, locations, onClose, onLocationSelect }) 
   );
 };
 
-const ExcellenceCard = ({ title, icon, color, bgColor, onClick }) => (
+const ExcellenceCard = ({ title, icon, color, bgColor, onClick, isHealthCare = false }) => (
   <motion.div
     whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
     whileTap={{ scale: 0.98 }}
@@ -263,7 +262,7 @@ const ExcellenceCard = ({ title, icon, color, bgColor, onClick }) => (
         className="mt-3 px-4 py-2 text-sm font-medium bg-green-800 text-white rounded-full hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
         onClick={onClick}
       >
-        Read More
+        {isHealthCare ? "Find Doctors" : "Read More"}
       </motion.button>
     </div>
   </motion.div>
@@ -274,6 +273,12 @@ const CenterOfExcellence = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCardClick = (title) => {
+    if (title === "Health Care") {
+      // Redirect to doctor page for Health Care only
+      window.location.href = '/doctors'; // or your doctor page route
+      return;
+    }
+    
     if (medicalLocations && medicalLocations[title]) {
       setSelectedCategory(title);
     }
@@ -337,6 +342,7 @@ const CenterOfExcellence = () => {
             color={item.color}
             bgColor={item.bgColor}
             onClick={() => handleCardClick(item.title)}
+            isHealthCare={item.title === "Health Care"}
           />
         ))}
       </motion.div>
