@@ -16,7 +16,7 @@ const ChakraWithParticles = () => {
       style={{
         background: "radial-gradient(circle at center, #0f172a 0%, #1e293b 80%)",
       }}
-    id="hero">
+    >
       {/* Particles */}
       <Particles
         id="tsparticles"
@@ -58,7 +58,6 @@ const ChakraWithParticles = () => {
         }}
       />
 
-      {/* Space GIF overlay with adjusted opacity */}
       <div className="absolute inset-0 z-0">
         <img
           src={spaceGif}
@@ -71,20 +70,15 @@ const ChakraWithParticles = () => {
         />
       </div>
 
-      {/* Radial spinning beams */}
       <div className="absolute z-10 w-[700px] h-[700px] rounded-full animate-spin-slow">
         <div className="w-full h-full rounded-full bg-gradient-to-tr from-yellow-300 via-transparent to-yellow-100 blur-3xl opacity-20"></div>
       </div>
 
-      {/* Glow ring */}
       <div className="absolute z-10 w-[600px] h-[600px] border-[50px] border-yellow-400 rounded-full opacity-10 blur-2xl"></div>
 
-      {/* Floating golden aura */}
       <div className="absolute z-10 w-[500px] h-[500px] rounded-full bg-yellow-300 blur-[100px] opacity-20 animate-pulse"></div>
 
-      {/* Chakra & Murti content */}
       <div className="relative z-20 w-[500px] h-[500px] md:w-[600px] md:h-[700px] md:mt-15">
-        {/* Chakra */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src={chakraImg}
@@ -94,7 +88,6 @@ const ChakraWithParticles = () => {
           />
         </div>
 
-        {/* Murti */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src={murtiImg}
@@ -107,7 +100,12 @@ const ChakraWithParticles = () => {
         </div>
       </div>
 
-      {/* Custom animations */}
+      {/* Sanskrit verse added as an absolutely positioned element */}
+      <div className="absolute bottom-10 left-0 right-0 z-30 text-center text-yellow-300 text-xl md:text-2xl">
+        "वर्धमानं महावीरं, अरिहंतं जिनेश्वरम्।<br />
+        शांतिं करुणामयं देवं, वन्दे जिनवरं सदा।।"
+      </div>
+
       <style jsx>{`
         @keyframes spin-slow {
           from { transform: rotate(0deg); }
