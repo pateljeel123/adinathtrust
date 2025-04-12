@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import NavItem from '../utiles/NavItem';
 import DonateButton from '../utiles/DonateButton';
 import { smoothScrollTo } from '../utiles/smoothScroll';
-import { Link } from 'react-router-dom';
-import { path } from 'framer-motion/client';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
-    { name: 'HOME', path: '#hero' },
-    { name: 'ABOUT', path: '#story' },
-    { name: 'SERVICES', path: '#service' },
-    { name: 'GALLERY', path: '#gallery' },
-    { name: 'DOCUMENT', path: '/document' },
-    { name: 'CONTACTS', path: '#contact' }
+    { name: 'HOME', path: '#hero', isHash: true },
+    { name: 'ABOUT', path: '#story', isHash: true },
+    { name: 'SERVICES', path: '#service', isHash: true },
+    { name: 'GALLERY', path: '#gallery', isHash: true },
+    { name: 'DOCUMENT', path: '/document', isHash: false },
+    { name: 'CONTACTS', path: '#contact', isHash: true }
   ];
 
   useEffect(() => {
@@ -32,7 +33,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', checkMobile);
     
-    // Initial check
     checkMobile();
     
     return () => {
@@ -105,6 +105,19 @@ const Navbar = () => {
     }
   };
 
+  const handleNavigation = (path, isHash, e) => {
+    if (isHash) {
+      e.preventDefault();
+      if (location.pathname === '/') {
+        smoothScrollTo(path);
+      } else {
+        navigate('/');
+        setTimeout(() => smoothScrollTo(path), 100);
+      }
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <motion.nav 
       initial={{ y: -100 }}
@@ -122,40 +135,41 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo and Trust Name */}
-          <motion.div 
-            className="flex items-center space-x-2 md:space-x-4 group cursor-pointer"
-            variants={logoVariants}
-            initial="initial"
-            animate="animate"
-            onClick={() => smoothScrollTo('#hero')}
-          >
-            {/* Logo Image */}
+          <Link to="/" className="flex items-center">
             <motion.div 
-              className="h-12 w-12 md:h-16 md:w-16 transition-all duration-300"
-              whileHover={{ scale: 1.05, rotate: -2 }}
-              whileTap={{ scale: 0.95 }}
+              className="flex items-center space-x-2 md:space-x-4 group"
+              variants={logoVariants}
+              initial="initial"
+              animate="animate"
             >
-              <img 
-                src="https://adinathtrust.org/assets/img/logos/Trust%20Logo.png" 
-                alt="Trust Logo"
-                className="h-full w-full object-contain drop-shadow-md"
-                loading="lazy"
-              />
+              {/* Logo Image */}
+              <motion.div 
+                className="h-12 w-12 md:h-16 md:w-16 transition-all duration-300"
+                whileHover={{ scale: 1.05, rotate: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <img 
+                  src="https://adinathtrust.org/assets/img/logos/Trust%20Logo.png" 
+                  alt="Trust Logo"
+                  className="h-full w-full object-contain drop-shadow-md"
+                  loading="lazy"
+                />
+              </motion.div>
+              
+              {/* Trust Name */}
+              <motion.div 
+                className="transition-all duration-300"
+                whileHover={{ x: 5 }}
+              >
+                <img 
+                  src="https://adinathtrust.org/assets/img/logos/Trust%20Name.webp" 
+                  alt="Trust Name"
+                  className="h-8 md:h-10 w-auto object-contain filter drop-shadow-sm"
+                  loading="lazy"
+                />
+              </motion.div>
             </motion.div>
-            
-            {/* Trust Name */}
-            <motion.div 
-              className="transition-all duration-300"
-              whileHover={{ x: 5 }}
-            >
-              <img 
-                src="https://adinathtrust.org/assets/img/logos/Trust%20Name.webp" 
-                alt="Trust Name"
-                className="h-8 md:h-10 w-auto object-contain filter drop-shadow-sm"
-                loading="lazy"
-              />
-            </motion.div>
-          </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <motion.div 
@@ -165,7 +179,25 @@ const Navbar = () => {
             animate="visible"
           >
             {navItems.map((item, i) => (
-              <NavItem key={item.name} item={item} index={i} />
+              <React.Fragment key={item.name}>
+                {item.isHash ? (
+                  <a
+                    href={item.path}
+                    onClick={(e) => handleNavigation(item.path, item.isHash, e)}
+                    className="px-3 py-2 rounded-full text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className="px-3 py-2 rounded-full text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </React.Fragment>
             ))}
           </motion.div>
 
@@ -229,26 +261,30 @@ const Navbar = () => {
                 transition={{ duration: 0.2 }}
               >
                 {navItems.map((item, index) => (
-                  <motion.a
-                    href={item.path}
+                  <motion.div
                     key={item.name}
-                    className="block px-6 py-3 text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/70 transition-colors duration-200"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      smoothScrollTo(item.path);
-                      setIsMenuOpen(false);
-                    }}
                     variants={itemVariants}
                     initial="hidden"
                     animate="visible"
-                    whileHover={{ 
-                      x: 5,
-                      transition: { duration: 0.2 }
-                    }}
-                    whileTap={{ scale: 0.95 }}
                   >
-                    {item.name}
-                  </motion.a>
+                    {item.isHash ? (
+                      <a
+                        href={item.path}
+                        onClick={(e) => handleNavigation(item.path, item.isHash, e)}
+                        className="block px-6 py-3 text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/70 transition-colors duration-200"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className="block px-6 py-3 text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/70 transition-colors duration-200"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </motion.div>
                 ))}
                 
                 <motion.div
