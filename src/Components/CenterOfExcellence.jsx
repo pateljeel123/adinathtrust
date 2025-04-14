@@ -254,8 +254,7 @@ const ExcellenceCard = ({ title, icon, color, bgColor, onClick, isHealthCare = f
       <div className={`p-4 rounded-full ${bgColor} transition-all duration-300 group-hover:scale-110`}>
         <div className={color}>{icon}</div>
       </div>
-      <h3 className="text-xl font-bold text-gray-800">Aadinath</h3>
-      <p className="text-sm text-gray-600 uppercase tracking-wider font-medium">{title}</p>
+      <h3 className="text-xl font-bold text-gray-800">{title}</h3>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
