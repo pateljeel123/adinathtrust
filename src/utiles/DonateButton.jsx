@@ -60,7 +60,7 @@ const DonateButton = ({ isMobile = false }) => {
         >
           ❤️
         </motion.span>
-        DONATE NOW
+        show your blessing
       </span>
       <motion.span
         className="absolute inset-0 bg-gradient-to-r from-[#d4a017] to-[#ef8a17] opacity-0"
