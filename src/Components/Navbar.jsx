@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import DonateButton from '../utiles/DonateButton';
@@ -8,8 +8,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const menuRef = useRef(null);
 
   const navItems = [
     { name: 'HOME', path: '#hero', isHash: true },
@@ -19,6 +21,27 @@ const Navbar = () => {
     { name: 'DOCUMENT', path: '/document', isHash: false },
     { name: 'CONTACTS', path: '#contact', isHash: true }
   ];
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -36,7 +59,7 @@ const Navbar = () => {
     };
   }, []);
 
-  // Smooth scroll when URL has a hash (and we're on home)
+  // Smooth scroll when URL has a hash
   useEffect(() => {
     if (location.hash && location.pathname === '/') {
       const timer = setTimeout(() => {
@@ -46,7 +69,9 @@ const Navbar = () => {
     }
   }, [location]);
 
-  const handleNavigation = (path, isHash, e) => {
+  const handleNavigation = (path, isHash, e, itemName) => {
+    setActiveItem(itemName);
+    
     if (isHash) {
       e?.preventDefault();
       if (location.pathname === '/') {
@@ -58,12 +83,14 @@ const Navbar = () => {
       navigate(path);
     }
 
-    setTimeout(() => {
-      setIsMenuOpen(false);
-    }, 200); // Delay to allow mobile nav animation
+    if (isMobileView) {
+      setTimeout(() => {
+        setIsMenuOpen(false);
+      }, 300);
+    }
   };
 
-  // Framer Motion Variants
+  // Animation variants
   const logoVariants = {
     initial: { opacity: 0, y: -20 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.6, -0.05, 0.01, 0.99] } }
@@ -82,23 +109,34 @@ const Navbar = () => {
   };
 
   const mobileMenuVariants = {
-    hidden: { opacity: 0, height: 0 },
+    hidden: { opacity: 0, y: -20 },
     visible: {
-      opacity: 1, height: 'auto',
-      transition: { duration: 0.3, ease: [0.6, -0.05, 0.01, 0.99] }
+      opacity: 1, y: 0,
+      transition: { 
+        type: "spring",
+        damping: 25,
+        stiffness: 120,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
     },
     exit: {
-      opacity: 0, height: 0,
-      transition: { duration: 0.2, ease: [0.6, -0.05, 0.01, 0.99] }
+      opacity: 0, y: -20,
+      transition: { duration: 0.2 }
     }
   };
 
   const itemVariants = {
-    hidden: { y: -10, opacity: 0 },
+    hidden: { x: -20, opacity: 0 },
     visible: {
-      y: 0, opacity: 1,
-      transition: { duration: 0.3, ease: "easeOut" }
+      x: 0, opacity: 1,
+      transition: { duration: 0.3 }
     }
+  };
+
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
   };
 
   return (
@@ -123,21 +161,21 @@ const Navbar = () => {
                 whileHover={{ scale: 1.05, rotate: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <img
+                <Link to={'#hero'}><img
                   src="https://adinathtrust.org/assets/img/logos/Trust%20Logo.png"
                   alt="Trust Logo"
                   className="h-full w-full object-contain drop-shadow-md"
                   loading="lazy"
-                />
+                /></Link>
               </motion.div>
 
               <motion.div whileHover={{ x: 5 }}>
-                <img
+                <Link to={'#hero'}><img
                   src="https://adinathtrust.org/assets/img/logos/Trust%20Name.webp"
                   alt="Trust Name"
                   className="h-8 md:h-10 w-auto object-contain filter drop-shadow-sm"
                   loading="lazy"
-                />
+                /></Link>
               </motion.div>
             </motion.div>
           </Link>
@@ -154,16 +192,19 @@ const Navbar = () => {
                 {item.isHash ? (
                   <a
                     href={item.path}
-                    onClick={(e) => handleNavigation(item.path, item.isHash, e)}
-                    className="px-3 py-2 rounded-full text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200"
+                    onClick={(e) => handleNavigation(item.path, item.isHash, e, item.name)}
+                    className={`px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017]' : 'text-[#5a4d3e]'} hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200`}
                   >
                     {item.name}
                   </a>
                 ) : (
                   <Link
                     to={item.path}
-                    className="px-3 py-2 rounded-full text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
+                    className={`px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017]' : 'text-[#5a4d3e]'} hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200`}
+                    onClick={() => {
+                      setActiveItem(item.name);
+                      setIsMenuOpen(false);
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -211,44 +252,69 @@ const Navbar = () => {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu with Backdrop */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              variants={mobileMenuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="lg:hidden overflow-hidden"
-              style={{ originY: 0 }}
-            >
-              <motion.div className="pt-2 pb-4 space-y-2 bg-[#F6F5EC]/95 backdrop-blur-md rounded-lg mt-2 shadow-lg border border-[#e8e6da]">
-                {navItems.map((item) => (
-                  <motion.div key={item.name} variants={itemVariants} initial="hidden" animate="visible">
-                    {item.isHash ? (
-                      <a
-                        href={item.path}
-                        onClick={(e) => handleNavigation(item.path, item.isHash, e)}
-                        className="block px-6 py-3 text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/70 transition-colors duration-200"
+            <>
+              <motion.div
+                className="fixed inset-0 bg-black/30 z-40 lg:hidden"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={backdropVariants}
+                transition={{ duration: 0.2 }}
+                onClick={() => setIsMenuOpen(false)}
+              />
+              
+              <motion.div
+                ref={menuRef}
+                variants={mobileMenuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="fixed lg:hidden w-full left-0 right-0 bg-[#F6F5EC] shadow-xl z-50"
+                style={{ top: '80px' }}
+              >
+                <div className="container mx-auto px-4 py-2">
+                  <motion.div className="space-y-1">
+                    {navItems.map((item) => (
+                      <motion.div 
+                        key={item.name} 
+                        variants={itemVariants}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        {item.name}
-                      </a>
-                    ) : (
-                      <Link
-                        to={item.path}
-                        className="block px-6 py-3 text-sm font-medium text-[#5a4d3e] hover:text-[#d4a017] hover:bg-[#F6F5EC]/70 transition-colors duration-200"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    )}
+                        {item.isHash ? (
+                          <a
+                            href={item.path}
+                            onClick={(e) => handleNavigation(item.path, item.isHash, e, item.name)}
+                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name ? 'bg-[#e8e6da] text-[#d4a017]' : 'text-[#5a4d3e]'} transition-colors duration-200`}
+                          >
+                            {item.name}
+                          </a>
+                        ) : (
+                          <Link
+                            to={item.path}
+                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name ? 'bg-[#e8e6da] text-[#d4a017]' : 'text-[#5a4d3e]'} transition-colors duration-200`}
+                            onClick={() => {
+                              setActiveItem(item.name);
+                              setIsMenuOpen(false);
+                            }}
+                          >
+                            {item.name}
+                          </Link>
+                        )}
+                      </motion.div>
+                    ))}
+                    <motion.div 
+                      className="px-4 py-3"
+                      variants={itemVariants}
+                    >
+                      <DonateButton isMobile />
+                    </motion.div>
                   </motion.div>
-                ))}
-                <motion.div className="px-4 pt-2" variants={itemVariants}>
-                  <DonateButton isMobile />
-                </motion.div>
+                </div>
               </motion.div>
-            </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>
