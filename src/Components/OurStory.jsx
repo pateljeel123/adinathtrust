@@ -1,9 +1,10 @@
 import React from 'react';
-import Ourstory from '../assets/ourstory.jpg';
 import harsh from '../assets/harsh.webp';
 import cow from '../assets/bafelow.webp';
 import healthcare from '../assets/healthcare.webp';
 import modi from '../assets/modi.webp';
+import content1 from '../assets/content1.png'
+import content2 from '../assets/content2.png'
 import { motion } from 'framer-motion';
 
 // Animation variants
@@ -92,7 +93,25 @@ const OurStory = () => {
       content: `Children and volunteers engaging in animal care at our Gaushala, promoting compassion and responsibility through community interaction. Our vision includes expanding our animal shelter facilities, implementing educational programs, and creating sustainable models for community development.`,
       year: "Future",
       icon: "🔮"
-    }
+    },
+    {
+      id: 5,
+      image: content1,
+      title: "Aadinath School",
+      subtitle: "Excellence in Education & Character Building",
+      content: `Aadinath School, managed by Shree Aadinath Yuva Charitable Trust, Surat, stands as a beacon of modern education. With a world-class infrastructure, lush green campus, and a commitment to holistic development, the school nurtures future leaders with knowledge, discipline, and values.`,
+      year: "Established 2010",
+      icon: "🏫"
+    },
+    {
+      id: 6,
+      image: content2,
+      title: "Aadinath Multi Speciality Hospital",
+      subtitle: "Seva • Sahayog • Samarpan",
+      content: `Aadinath Multi Speciality Hospital offers advanced medical care with compassion and dedication. Featuring state-of-the-art facilities, expert doctors, and a patient-first approach, the hospital is a trusted name in healthcare excellence.`,
+      year: "Inauguration Year (to be confirmed, can add later)",
+      icon: "🏥"
+    },
   ];
 
   return (
