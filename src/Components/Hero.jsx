@@ -184,16 +184,16 @@ const ChakraWithParticles = () => {
 
       {/* Floating Mantra Text */}
       <div className="absolute bottom-10 left-0 right-0 z-30 text-center px-4">
-        <div className="inline-block bg-black/40 backdrop-blur-md rounded-xl px-8 py-5 border border-yellow-500/40 shadow-lg hover:shadow-yellow-500/20 transition-all duration-500 hover:scale-[1.02]">
-          <p className="text-yellow-300 text-xl md:text-2xl font-sanskrit leading-relaxed tracking-wider">
-            "आदिनाथं नमस्तुभ्यं योगिनां पतिमव्ययम्।<br />
-            जिनं जिनेन्द्रं पूर्णार्थं विश्वनाथं नमो नमः॥"
-          </p>
-          <div className="mt-3 text-yellow-200/90 text-sm md:text-base font-light tracking-wider">
-            - Namokar Mantra
-          </div>
-        </div>
-      </div>
+  <div className="inline-block bg-black/40 backdrop-blur-md rounded-xl px-8 py-5 border border-yellow-500/40 shadow-lg hover:shadow-yellow-500/20 transition-all duration-500 hover:scale-[1.02] relative">
+    <p className="text-yellow-300 text-xl md:text-2xl font-sanskrit leading-relaxed tracking-wider">
+      "आदिनाथं नमस्तुभ्यं योगिनां पतिमव्ययम्।<br />
+      जिनं जिनेन्द्रं पूर्णार्थं विश्वनाथं नमो नमः॥"
+    </p>
+    <div className="absolute bottom-2 right-4 text-yellow-200/90 text-sm md:text-base font-light tracking-wider italic after:content-[''] after:absolute after:-bottom-1 after:right-0 after:w-8 after:h-px after:bg-yellow-500/50">
+      - aadinath dada
+    </div>
+  </div>
+</div>
 
       {/* Floating Sacred Symbols */}
       <div className="absolute inset-0 z-5 overflow-hidden pointer-events-none">

@@ -38,15 +38,9 @@ const AstrologyHero = () => {
 
           {/* English Translation */}
           <div className="space-y-4 text-center">
-            <p className="text-base lg:text-lg xl:text-xl text-gray-800 font-medium italic leading-relaxed">
-              "I bow to Lord Adinath, the great deity,
-              <br />
-              The supreme Tirthankara and master,
-              <br />
-              The bestower of the path to liberation,
-              <br />
-              The treasure of knowledge, the sage."
-            </p>
+          <p className="text-base lg:text-lg xl:text-xl text-gray-800 font-medium italic leading-relaxed">
+  "I worship Adinath, the great Lord, the supreme Tirthankara, the one who shows the path to liberation, and the sage who is a treasure house of knowledge."
+</p>
             
             {/* Decorative bottom elements */}
             <div className="mt-6 flex justify-center space-x-3">
