@@ -142,6 +142,13 @@ export const Hospitalimages = [
   { id: 13, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.56_75380886.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
 ]
 
+export const NewsImages= [
+  { id: 20, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.07_b9d7f7d2.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
+  { id: 21, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.05_8eeec80c.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
+  { id: 22, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.57_3de235cf.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
+  { id: 23, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.56_75380886.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
+]
+
 export const doctorsBySpecialty = {
   "Physician": [
     {
