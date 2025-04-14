@@ -3,11 +3,11 @@ import MyImage from "../assets/edited.png";
 
 const AstrologyHero = () => {
   const mahaviraText =
-    "Bhagwan Mahavira’s timeless principles of nonviolence, self-discipline, truth, and compassion continue to illuminate paths of peace and balance in the modern world. His teachings are a beacon for mindful living and inner liberation, reminding us to embrace simplicity and harmony in all aspects of life.";
+    "Adināth Dada, also known as Lord Rishabhdev, is the first Tirthankara of this era in Jainism — the original revealer of Dharma and the pioneer of civilization. As a spiritual teacher, yogi, and king, he taught the path of ahimsa (non-violence), self-discipline, and inner liberation. He is revered not only as a divine soul who attained Keval Jnana (infinite knowledge) but also as a world teacher who laid the foundation for ethical living and spiritual awakening.";
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 px-6 lg:px-16 xl:px-20 py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between relative overflow-hidden">
-      {/* Decorative elements - hidden on mobile */}
+      {/* Decorative elements */}
       <div className="hidden lg:block absolute top-0 left-0 w-32 lg:w-40 h-32 lg:h-40 bg-orange-100/30 rounded-full blur-xl animate-float"></div>
       <div className="hidden lg:block absolute bottom-20 right-20 lg:right-32 xl:right-40 w-48 lg:w-56 h-48 lg:h-56 bg-amber-100/40 rounded-full blur-xl animate-float-delayed"></div>
 
@@ -18,15 +18,15 @@ const AstrologyHero = () => {
           {/* Decorative top bar */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-orange-400 to-amber-500" />
 
-          {/* Sanskrit Verse - Om symbol hidden on mobile */}
+          {/* Sanskrit Verse - Om symbol */}
           <div className="mb-8 relative">
             <div className="hidden lg:block absolute -top-3 left-0 text-4xl lg:text-5xl xl:text-6xl text-orange-400">
               ॐ
             </div>
             <p className="text-2xl lg:text-3xl xl:text-4xl font-sanskrit text-orange-800 leading-tight text-center mb-6">
-              "कामक्रोधादिकं दोषं, जहंति जिनसासनात्।
+              "आदिनाथं महादेवं, तीर्थंकरवरं प्रभुम्।
               <br />
-              ते नमन्ति सदा लोके, महावीरप्रभावतः।।"
+              मुक्तिपथप्रदातारं, वन्दे ज्ञाननिधिं मुनेम्॥"
             </p>
             
             {/* Divider */}
@@ -39,11 +39,13 @@ const AstrologyHero = () => {
           {/* English Translation */}
           <div className="space-y-4 text-center">
             <p className="text-base lg:text-lg xl:text-xl text-gray-800 font-medium italic leading-relaxed">
-              "Those who follow the path of the Jinas renounce desires and anger.
+              "I bow to Lord Adinath, the great deity,
               <br />
-              Such is the influence of Bhagwan Mahavir,
+              The supreme Tirthankara and master,
               <br />
-              That they are revered across the world."
+              The bestower of the path to liberation,
+              <br />
+              The treasure of knowledge, the sage."
             </p>
             
             {/* Decorative bottom elements */}
@@ -63,7 +65,7 @@ const AstrologyHero = () => {
         <div className="mt-6 bg-white/90 p-6 rounded-xl shadow-lg border-2 border-orange-100 backdrop-blur-sm">
           <h3 className="text-xl lg:text-2xl xl:text-3xl font-semibold text-orange-700 mb-4 text-center flex items-center justify-center gap-3">
             <span className="text-2xl lg:text-3xl">🌺</span>
-            Mahavira's Eternal Wisdom
+            Adinath's Eternal Wisdom
             <span className="text-2xl lg:text-3xl">🌺</span>
           </h3>
           <p className="text-sm lg:text-base xl:text-lg text-gray-800 font-medium leading-relaxed text-justify">
@@ -72,24 +74,17 @@ const AstrologyHero = () => {
         </div>
       </div>
 
-      {/* Right Section: Image - hidden on mobile */}
-      <div className="hidden lg:flex w-full lg:w-[48%] xl:w-1/2 mt-12 lg:mt-0 justify-center relative z-10">
-        <div className="w-4/5 lg:w-full max-w-md lg:max-w-lg xl:max-w-xl relative group">
-          <div className="absolute inset-0 bg-orange-200/30 rounded-tl-[160px] lg:rounded-tl-[180px] rounded-br-[160px] lg:rounded-br-[180px] transform group-hover:rotate-2 transition duration-500" />
-          <div className="absolute inset-0 bg-orange-100/20 rounded-tl-[160px] lg:rounded-tl-[180px] rounded-br-[160px] lg:rounded-br-[180px] transform -rotate-2 group-hover:-rotate-3 transition duration-500" />
+      {/* Right Section: Image - visible on all screens */}
+      <div className="flex w-full lg:w-[48%] xl:w-1/2 mt-12 lg:mt-0 justify-center relative z-10">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl relative group">
+          <div className="absolute inset-0 bg-orange-200/30 rounded-tl-[120px] sm:rounded-tl-[140px] md:rounded-tl-[160px] lg:rounded-tl-[180px] rounded-br-[120px] sm:rounded-br-[140px] md:rounded-br-[160px] lg:rounded-br-[180px] transform group-hover:rotate-2 transition duration-500" />
+          <div className="absolute inset-0 bg-orange-100/20 rounded-tl-[120px] sm:rounded-tl-[140px] md:rounded-tl-[160px] lg:rounded-tl-[180px] rounded-br-[120px] sm:rounded-br-[140px] md:rounded-br-[160px] lg:rounded-br-[180px] transform -rotate-2 group-hover:-rotate-3 transition duration-500" />
           <img
             src={MyImage}
-            alt="Mahavira Meditation"
-            className="w-full h-auto rounded-tl-[160px] lg:rounded-tl-[180px] rounded-br-[160px] lg:rounded-br-[180px] shadow-2xl object-cover relative transform group-hover:scale-[1.02] transition duration-500"
+            alt="Adinath Dada Meditation"
+            className="w-full h-auto rounded-tl-[120px] sm:rounded-tl-[140px] md:rounded-tl-[160px] lg:rounded-tl-[180px] rounded-br-[120px] sm:rounded-br-[140px] md:rounded-br-[160px] lg:rounded-br-[180px] shadow-2xl object-cover relative transform group-hover:scale-[1.02] transition duration-500"
           />
         </div>
-      </div>
-
-      {/* Mobile-only message */}
-      <div className="lg:hidden w-full text-center py-8">
-        <p className="text-orange-700 font-medium">
-          Please view this content on a larger screen for the best experience
-        </p>
       </div>
     </div>
   );

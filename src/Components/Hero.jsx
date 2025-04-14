@@ -186,8 +186,8 @@ const ChakraWithParticles = () => {
       <div className="absolute bottom-10 left-0 right-0 z-30 text-center px-4">
         <div className="inline-block bg-black/40 backdrop-blur-md rounded-xl px-8 py-5 border border-yellow-500/40 shadow-lg hover:shadow-yellow-500/20 transition-all duration-500 hover:scale-[1.02]">
           <p className="text-yellow-300 text-xl md:text-2xl font-sanskrit leading-relaxed tracking-wider">
-            "वर्धमानं महावीरं, अरिहंतं जिनेश्वरम्।<br />
-            शांतिं करुणामयं देवं, वन्दे जिनवरं सदा।।"
+            "आदिनाथं नमस्तुभ्यं योगिनां पतिमव्ययम्।<br />
+            जिनं जिनेन्द्रं पूर्णार्थं विश्वनाथं नमो नमः॥"
           </p>
           <div className="mt-3 text-yellow-200/90 text-sm md:text-base font-light tracking-wider">
             - Namokar Mantra
