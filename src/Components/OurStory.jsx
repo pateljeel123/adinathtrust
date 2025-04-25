@@ -90,7 +90,8 @@ const OurStory = () => {
       image: cow,
       title: "FUTURE VISION",
       subtitle: "Sustainable Compassion",
-      content: `Children and volunteers engaging in animal care at our Gaushala, promoting compassion and responsibility through community interaction. Our vision includes expanding our animal shelter facilities, implementing educational programs, and creating sustainable models for community development.`,
+      content: `To build, operate and sustain charitable institutions in the field of Healthcare, Education and Social services while providing Highest quality of services without any discrimination to needy and marginalised classes of society. 
+`,
       year: "Future",
       icon: "🔮"
     },
