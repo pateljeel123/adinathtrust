@@ -12,6 +12,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navItems = [
     { name: 'HOME', path: '#hero', isHash: true },
@@ -71,7 +72,7 @@ const Navbar = () => {
 
   const handleNavigation = (path, isHash, e, itemName) => {
     setActiveItem(itemName);
-    
+
     if (isHash) {
       e?.preventDefault();
       if (location.pathname === '/') {
@@ -112,7 +113,7 @@ const Navbar = () => {
     hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1, y: 0,
-      transition: { 
+      transition: {
         type: "spring",
         damping: 25,
         stiffness: 120,
@@ -180,7 +181,7 @@ const Navbar = () => {
             </motion.div>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav */}+
           <motion.div
             className="hidden lg:flex items-center space-x-1 bg-[#F6F5EC]/80 backdrop-blur-sm rounded-full px-6 py-2"
             variants={navVariants}
@@ -193,7 +194,7 @@ const Navbar = () => {
                   <a
                     href={item.path}
                     onClick={(e) => handleNavigation(item.path, item.isHash, e, item.name)}
-                    className={`px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017]' : 'text-[#5a4d3e]'} hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200`}
+                    className={`px-2 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017]' : 'text-[#5a4d3e]'} hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200`}
                   >
                     {item.name}
                   </a>
@@ -215,12 +216,98 @@ const Navbar = () => {
 
           {/* Desktop Donate */}
           <motion.div
-            className="hidden lg:block"
+            className="hidden lg:flex items-center gap-4 relative"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.4, type: 'spring', stiffness: 100 }}
           >
-            <DonateButton />
+
+            <div className="relative">
+              <motion.button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                className="px-3 py-2 rounded-full text-sm font-medium hover:text-[#d4a017] hover:bg-[#F6F5EC]/60 transition-colors duration-200"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  <motion.span
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      transition: {
+                        duration: 1.5,
+                        repeat: Infinity
+                      }
+                    }}
+                  >
+                    🚑
+                  </motion.span>
+                  Ambulance
+                </span>
+                {/* <span className="absolute inset-0 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span> */}
+              </motion.button>
+
+              {/* Dropdown with Donation Amounts */}
+              {isDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-xl z-50 overflow-hidden"
+                >
+                  <div className="py-1">
+                    <button
+                      className="w-full px-4 py-3 text-left text-gray-800 hover:bg-amber-50 flex items-center justify-between"
+                      onClick={() => {
+                        console.log('100 donated');
+                        setIsDropdownOpen(false);
+                      }}
+                    >
+                      <span>100 INR</span>
+                      <span className="text-amber-500">🚑</span>
+                    </button>
+                    <button
+                      className="w-full px-4 py-3 text-left text-gray-800 hover:bg-amber-50 flex items-center justify-between"
+                      onClick={() => {
+                        console.log('200 donated');
+                        setIsDropdownOpen(false);
+                      }}
+                    >
+                      <span>200 INR</span>
+                      <span className="text-amber-500">🚑</span>
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </div>
+
+            {/* Show Your Blessing Button */}
+            <motion.button
+              whileHover={{
+                y: -2,
+                boxShadow: "0 5px 15px rgba(220, 38, 38, 0.3)"
+              }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              className="px-3 py-2.5 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-sm shadow-lg relative overflow-hidden group"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <motion.span
+                  animate={{
+                    rotate: [0, 15, -15, 0],
+                    transition: {
+                      duration: 0.6,
+                      repeat: Infinity,
+                      repeatDelay: 3
+                    }
+                  }}
+                >
+                  ❤️
+                </motion.span>
+                Show Your Blessing With Donation
+              </span>
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+            </motion.button>
+
           </motion.div>
 
           {/* Mobile menu toggle */}
@@ -253,48 +340,56 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu with Backdrop */}
+        {/* Mobile Menu with Backdrop */}
         <AnimatePresence>
           {isMenuOpen && (
             <>
+              {/* Backdrop */}
               <motion.div
                 className="fixed inset-0 bg-black/30 z-40 lg:hidden"
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={backdropVariants}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
                 onClick={() => setIsMenuOpen(false)}
               />
-              
+
+              {/* Mobile Menu Content */}
               <motion.div
                 ref={menuRef}
-                variants={mobileMenuVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 className="fixed lg:hidden w-full left-0 right-0 bg-[#F6F5EC] shadow-xl z-50"
                 style={{ top: '80px' }}
               >
-                <div className="container mx-auto px-4 py-2">
-                  <motion.div className="space-y-1">
+                <div className="container mx-auto px-4 py-4">
+                  {/* Navigation Items */}
+                  <motion.div className="space-y-2 mb-4">
                     {navItems.map((item) => (
-                      <motion.div 
-                        key={item.name} 
-                        variants={itemVariants}
+                      <motion.div
+                        key={item.name}
                         whileTap={{ scale: 0.98 }}
                       >
                         {item.isHash ? (
                           <a
                             href={item.path}
                             onClick={(e) => handleNavigation(item.path, item.isHash, e, item.name)}
-                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name ? 'bg-[#e8e6da] text-[#d4a017]' : 'text-[#5a4d3e]'} transition-colors duration-200`}
+                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name
+                              ? 'bg-[#e8e6da] text-[#d4a017]'
+                              : 'text-[#5a4d3e] hover:bg-[#e8e6da]/50'
+                              } transition-colors duration-200`}
                           >
                             {item.name}
                           </a>
                         ) : (
                           <Link
                             to={item.path}
-                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name ? 'bg-[#e8e6da] text-[#d4a017]' : 'text-[#5a4d3e]'} transition-colors duration-200`}
+                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name
+                              ? 'bg-[#e8e6da] text-[#d4a017]'
+                              : 'text-[#5a4d3e] hover:bg-[#e8e6da]/50'
+                              } transition-colors duration-200`}
                             onClick={() => {
                               setActiveItem(item.name);
                               setIsMenuOpen(false);
@@ -305,13 +400,94 @@ const Navbar = () => {
                         )}
                       </motion.div>
                     ))}
-                    <motion.div 
-                      className="px-4 py-3"
-                      variants={itemVariants}
-                    >
-                      <DonateButton isMobile />
-                    </motion.div>
                   </motion.div>
+
+                  {/* Action Buttons */}
+                  <div className="space-y-3 pt-2 border-t border-[#e8e6da]">
+                    {/* Show Your Blessing Button */}
+                    <motion.button
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.97 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                      className="w-full px-4 py-3 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-sm shadow-lg relative overflow-hidden group"
+                    >
+                      <span className="relative z-10 flex items-center justify-center gap-2">
+                        <motion.span
+                          animate={{
+                            rotate: [0, 15, -15, 0],
+                            transition: {
+                              duration: 0.6,
+                              repeat: Infinity,
+                              repeatDelay: 3
+                            }
+                          }}
+                        >
+                          ❤️
+                        </motion.span>
+                        Show Your Blessing
+                      </span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-[#ef8a17]/80 to-[#d4a017]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    </motion.button>
+
+                    {/* Donate Now Button with Dropdown */}
+                    <div className="relative">
+                      <motion.button
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.97 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                        className="w-full px-4 py-3 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-sm shadow-lg relative overflow-hidden group flex items-center justify-center gap-2"
+                      >
+                        <motion.span
+                          animate={{
+                            scale: [1, 1.1, 1],
+                            transition: {
+                              duration: 1.5,
+                              repeat: Infinity
+                            }
+                          }}
+                        >
+                          🚑
+                        </motion.span>
+                        Donate Now
+                        <motion.span
+                          animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                          className="ml-1"
+                        >
+                          ▼
+                        </motion.span>
+                      </motion.button>
+
+                      {/* Donation Amount Dropdown */}
+                      <AnimatePresence>
+                        {isDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 right-0 mt-1 bg-white rounded-lg shadow-xl z-50 overflow-hidden"
+                          >
+                            <div className="py-1">
+                              {[100, 200].map((amount) => (
+                                <button
+                                  key={amount}
+                                  className="w-full px-4 py-3 text-left text-gray-800 hover:bg-amber-50 flex items-center justify-between transition-colors duration-200"
+                                  onClick={() => {
+                                    console.log(`${amount} donated`);
+                                    setIsDropdownOpen(false);
+                                  }}
+                                >
+                                  <span>{amount} INR</span>
+                                  <span className="text-amber-500">🚑</span>
+                                </button>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </>

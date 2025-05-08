@@ -7,7 +7,7 @@ const DonateButton = ({ isMobile = false }) => {
 
   const donateButtonVariants = {
     initial: { scale: 1 },
-    hover: { 
+    hover: {
       scale: 1.05,
       boxShadow: "0 10px 25px -5px rgba(239, 138, 23, 0.4)",
       transition: {
@@ -51,7 +51,7 @@ const DonateButton = ({ isMobile = false }) => {
       onClick={handleClick}
     >
       <span className="relative z-10 flex items-center">
-        <motion.span 
+        <motion.span
           className="mr-2"
           animate={{
             rotate: isHovering ? [0, 20, -20, 0] : 0,
