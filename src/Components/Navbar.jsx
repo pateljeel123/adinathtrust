@@ -222,75 +222,75 @@ const Navbar = () => {
             transition={{ delay: 0.4, type: 'spring', stiffness: 100 }}
           >
 
-<div className="relative group"
-     onMouseLeave={() => setIsDropdownOpen(false)}>
-  <motion.button
-    onMouseEnter={() => setIsDropdownOpen(true)}
-    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-    aria-haspopup="true"
-    aria-expanded={isDropdownOpen}
-    className="px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-300"
-    whileHover={{ scale: 1.03 }}
-  >
-    <motion.span
-      animate={{
-        scale: [1, 1.1, 1],
-        transition: { duration: 1.5, repeat: Infinity }
-      }}
-    >
-      🚑
-    </motion.span>
-    <span>Ambulance</span>
-    <motion.span
-      animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-      transition={{ duration: 0.2 }}
-      className="ml-1 text-xs"
-    >
-      ▼
-    </motion.span>
-  </motion.button>
+            <div className="relative group"
+              onMouseLeave={() => setIsDropdownOpen(false)}>
+              <motion.button
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                aria-haspopup="true"
+                aria-expanded={isDropdownOpen}
+                className="px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-300"
+                whileHover={{ scale: 1.03 }}
+              >
+                <motion.span
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    transition: { duration: 1.5, repeat: Infinity }
+                  }}
+                >
+                  🚑
+                </motion.span>
+                <span>Ambulance</span>
+                <motion.span
+                  animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="ml-1 text-xs"
+                >
+                  ▼
+                </motion.span>
+              </motion.button>
 
-  <AnimatePresence>
-    {isDropdownOpen && (
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.2 }}
-        className="absolute top-full right-0 mt-1 w-56 bg-white rounded-md shadow-lg z-50 border border-gray-200"
-        onMouseEnter={() => setIsDropdownOpen(true)}
-      >
-        <div className="py-1" role="menu">
-          <button
-            className="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-amber-50 flex items-center justify-between transition-colors"
-            onClick={(e) => {
-              e.stopPropagation();
-              console.log('Primary number selected');
-              setIsDropdownOpen(false);
-            }}
-            role="menuitem"
-          >
-            <span className="truncate">+91 78250 96000</span>
-            <span className="text-amber-500 ml-2">🚑</span>
-          </button>
-          <div className="border-t border-gray-100 my-1"></div>
-          <button
-            className="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-amber-50 flex items-center justify-between transition-colors"
-            onClick={(e) => {
-              e.stopPropagation();
-              console.log('Secondary number selected');
-              setIsDropdownOpen(false);
-            }}
-            role="menuitem"
-          >
-            <span className="truncate">+91 74340 96000</span>
-            <span className="text-amber-500 ml-2">🚑</span>
-          </button>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</div>
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 mt-1 w-56 bg-white rounded-md shadow-lg z-50 border border-gray-200"
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                  >
+                    <div className="py-1" role="menu">
+                      <button
+                        className="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-amber-50 flex items-center justify-between transition-colors"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          console.log('Primary number selected');
+                          setIsDropdownOpen(false);
+                        }}
+                        role="menuitem"
+                      >
+                        <span className="truncate">+91 78250 96000</span>
+                        <span className="text-amber-500 ml-2">🚑</span>
+                      </button>
+                      <div className="border-t border-gray-100 my-1"></div>
+                      <button
+                        className="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-amber-50 flex items-center justify-between transition-colors"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          console.log('Secondary number selected');
+                          setIsDropdownOpen(false);
+                        }}
+                        role="menuitem"
+                      >
+                        <span className="truncate">+91 74340 96000</span>
+                        <span className="text-amber-500 ml-2">🚑</span>
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Show Your Blessing Button */}
             <motion.button

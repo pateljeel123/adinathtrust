@@ -262,7 +262,7 @@ const ExcellenceCard = ({ title, icon, color, bgColor, onClick, isHealthCare = f
         className="mt-3 px-4 py-2 text-sm font-medium bg-green-800 text-white rounded-full hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
         onClick={onClick}
       >
-        {isHealthCare ? <Link to={'/doctors'}>Find Doctors</Link> : "Read More"}
+        {isHealthCare ? "Find Doctors" : "Read More"}
       </motion.button>
     </div>
   </motion.div>
