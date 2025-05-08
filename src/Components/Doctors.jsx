@@ -1,126 +1,100 @@
-import React, { useState } from "react";
-import { FaCalendarAlt, FaClock, FaPhone, FaWhatsapp } from "react-icons/fa";
+import React from "react";
+import { FaCalendarAlt, FaClock, FaStethoscope } from "react-icons/fa";
 import { doctorsBySpecialty } from "./Centers_Data";
+import dImage from '../assets/DoctorImages/team-2.jpg';
+
+const defaultDoctorImage = dImage;
 
 const Doctors = () => {
-  const [activeCategory, setActiveCategory] = useState("Physician");
-  const [selectedDoctor, setSelectedDoctor] = useState(null);
-
   const specialties = Object.keys(doctorsBySpecialty);
 
   return (
-    <div className="max-w-8xl mx-auto px-4 py-12" style={{ backgroundColor: "#F6F5ED" }}>
-      <h2 className="text-4xl font-bold text-center mb-10 tracking-wide relative" style={{ color: "#C4A65F" }}>
-        <span className="relative z-10">Our Honorable Doctors</span>
-        <span
-          className="absolute left-1/2 -bottom-2 w-16 h-1 rounded-full transform -translate-x-1/2"
-          style={{ backgroundColor: "#C4A65F" }}
-        ></span>
-      </h2>
+    <div className="max-w-8xl mx-auto px-4 py-12 bg-cream pt-25">
+      {/* Section Header */}
+      <div className="text-center mb-8">
+        <h2 className="text-4xl font-bold text-gold mb-4 tracking-wide">Doctors Team</h2>
+        <div className="w-20 h-1 bg-gold mx-auto rounded-full"></div>
+      </div>
 
-      {/* Specialty Filter */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
+      {/* Specialties Sections */}
+      <div className="space-y-20">
         {specialties.map((specialty) => (
-          <button
-            key={specialty}
-            onClick={() => setActiveCategory(specialty)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-              activeCategory === specialty
-                ? "text-white"
-                : "bg-gray-100 text-black hover:bg-gray-200"
-            }`}
-            style={{
-              backgroundColor: activeCategory === specialty ? "#C4A65F" : undefined,
-            }}
-          >
-            {specialty}
-          </button>
+          <section key={specialty} className="mb-16">
+            {/* Specialty Header */}
+            <div className="flex items-center mb-10 pl-4 border-l-4 border-gold">
+              <FaStethoscope className="text-gold text-2xl mr-4" />
+              <h3 className="text-3xl font-bold text-navy">{specialty}</h3>
+            </div>
+
+            {/* Doctors Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {doctorsBySpecialty[specialty].map((doctor, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-1"
+                >
+                  {/* Doctor Image - Cropped to show top half */}
+                  <div className="h-70 overflow-hidden relative">
+                    <img
+                      src={doctor.image || defaultDoctorImage}
+                      alt={doctor.name}
+                      className="w-full h-full object-cover object-top" // object-top ensures top of image is shown
+                      style={{ objectPosition: "top center" }} // Ensures top of image is always visible
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-10"></div>
+                  </div>
+
+                  {/* Doctor Details */}
+                  <div className="p-6">
+                    <div className="mb-5">
+                      <h3 className="text-xl font-bold text-gray-800 mb-1">{doctor.name}</h3>
+                      <p className="text-sm font-semibold text-gold">
+                        {doctor.qualification}
+                      </p>
+                    </div>
+
+                    {/* Availability */}
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <div className="text-gold mr-3 pt-1">
+                          <FaCalendarAlt />
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Available Days</p>
+                          <p className="text-gray-700 font-medium">{doctor.days}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start">
+                        <div className="text-gold mr-3 pt-1">
+                          <FaClock />
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">Consultation Hours</p>
+                          <p className="text-gray-700 font-medium">{doctor.time || "By Appointment"}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         ))}
       </div>
-
-      {/* Doctors Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {doctorsBySpecialty[activeCategory]?.map((doctor, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition"
-            onClick={() => setSelectedDoctor(doctor)}
-          >
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-black mb-1">{doctor.name}</h3>
-              <p className="font-medium mb-4" style={{ color: "#C4A65F" }}>{doctor.qualification}</p>
-
-              <div className="flex items-start gap-3 mb-3">
-                <FaCalendarAlt style={{ color: "#C4A65F", marginTop: "0.25rem" }} />
-                <div>
-                  <p className="text-sm font-medium text-gray-600">Available Days</p>
-                  <p className="text-black">{doctor.days}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <FaClock style={{ color: "#C4A65F", marginTop: "0.25rem" }} />
-                <div>
-                  <p className="text-sm font-medium text-gray-600">Consultation Hours</p>
-                  <p className="text-black">{doctor.time || "By Appointment"}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Doctor Detail Modal */}
-      {selectedDoctor && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 relative">
-            <button
-              onClick={() => setSelectedDoctor(null)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-
-            <h3 className="text-2xl font-bold text-black mb-2">{selectedDoctor.name}</h3>
-            <p className="font-medium mb-6" style={{ color: "#C4A65F" }}>{selectedDoctor.qualification}</p>
-
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <FaCalendarAlt style={{ color: "#C4A65F", marginTop: "0.25rem" }} />
-                <div>
-                  <p className="text-sm font-medium text-gray-600">Available Days</p>
-                  <p className="text-black">{selectedDoctor.days}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <FaClock style={{ color: "#C4A65F", marginTop: "0.25rem" }} />
-                <div>
-                  <p className="text-sm font-medium text-gray-600">Consultation Hours</p>
-                  <p className="text-black">{selectedDoctor.time || "By Appointment"}</p>
-                </div>
-              </div>
-
-              {/* <div className="pt-4 mt-4 border-t border-gray-200">
-                <button
-                  className="w-full py-2 text-white rounded-lg transition flex items-center justify-center gap-2"
-                  style={{ backgroundColor: "#C4A65F" }}
-                >
-                  <FaPhone /> Book Appointment
-                </button>
-                <button
-                  className="w-full py-2 mt-3 text-black rounded-lg transition flex items-center justify-center gap-2"
-                  style={{ backgroundColor: "#F6F5ED", border: "1px solid #C4A65F" }}
-                >
-                  <FaWhatsapp /> Chat on WhatsApp
-                </button>
-              </div> */}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
+
+// Add these to your tailwind.config.js
+// theme: {
+//   extend: {
+//     colors: {
+//       gold: '#C4A65F',
+//       navy: '#2c3e50',
+//       cream: '#F6F5ED',
+//     }
+//   }
+// }
 
 export default Doctors;

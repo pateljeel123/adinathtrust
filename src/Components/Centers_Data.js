@@ -1,3 +1,26 @@
+import dImage1 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.23 AM (1).jpeg';
+import dImage2 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.23 AM (2).jpeg';
+import dImage3 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.24 AM.jpeg';
+import dImage4 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.25 AM (1).jpeg';
+import dImage5 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.25 AM (2).jpeg';
+import dImage6 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.25 AM (3).jpeg';
+import dImage7 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.26 AM.jpeg';
+import dImage8 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.26 AM (1).jpeg';
+import dImage9 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.26 AM (2).jpeg';
+import dImage10 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.27 AM.jpeg';
+import dImage11 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.27 AM (1).jpeg';
+import dImage12 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.28 AM.jpeg';
+import dImage13 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.28 AM (1).jpeg';
+import dImage14 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.28 AM (2).jpeg';
+import dImage15 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.25 AM.jpeg';
+import dImage16 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.24 AM (2).jpeg';
+import dImage17 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.24 AM.jpeg';
+import dImage18 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.23 AM.jpeg';
+import dImage19 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.27 AM.jpeg';
+import dImage20 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.24 AM (1).jpeg';
+import dImage21 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.27 AM (2).jpeg';
+import dImage22 from '../assets/DoctorImages/1000038226.jpg';
+
 export const medicalLocations = {
   "Medicines": [
     {
@@ -122,7 +145,6 @@ export const medicalLocations = {
   ]
 };
 
-
 export const Hospitalimages = [
   { id: 1, url: 'https://adinathtrust.org/assets/img/gallery/CC_S1677.jpg', title: 'Modern Operating Theater', description: 'State-of-the-art surgical facilities' },
   { id: 2, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.58_316908dd.webp', title: 'Comfortable Patient Rooms', description: 'Private rooms with scenic views' },
@@ -142,7 +164,7 @@ export const Hospitalimages = [
   { id: 13, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.56_75380886.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
 ]
 
-export const NewsImages= [
+export const NewsImages = [
   { id: 20, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.07_b9d7f7d2.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
   { id: 21, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.05_8eeec80c.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
   { id: 22, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.57_3de235cf.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
@@ -150,476 +172,438 @@ export const NewsImages= [
 ]
 
 export const doctorsBySpecialty = {
-  "Physician": [
+  "MD PHYSICIAN": [
     {
-      name: "Dr. Hiren Shah",
-      qualification: "MD Physician",
-      days: "Tuesday to Friday",
-      time: "9:00 AM to 10:00 AM"
-    },
-    {
-      name: "Dr. Manish Singhvi",
-      qualification: "MD Physician",
-      days: "Saturday",
-      time: "5:00 PM to 6:00 PM"
-    },
-    {
-      name: "Dr. Priyank Shah",
-      qualification: "MD Physician",
-      days: "Monday to Saturday",
-      time: "9:30 AM to 10:30 AM"
-    },
-    {
-      name: "Dr. Ankit Gajjar",
-      qualification: "MD Physician",
-      days: "Tuesday, Friday",
-      time: "1:00 PM to 2:00 PM"
-    },
-    {
+      image: "",
       name: "Dr. Parshwa Shah",
-      qualification: "MD Physician",
-      days: "Tuesday, Thursday, Friday",
-      time: "4:00 PM to 5:00 PM"
+      qualification: "M.D. (Medicine)",
+      days: "On Appointment",
+      time: "On Call"
     },
     {
+      image: "",
       name: "Dr. Priyank Shah",
-      qualification: "M.B.B.S, M.D. (Medicine) Physician",
+      qualification: "M.D. (Medicine)",
       days: "Monday to Saturday",
-      time: "12:30 PM to 1:30 PM"
-    },
-    {
-      name: "Dr. Pratik Savla",
-      qualification: "DNB Medicine (FID, FNB Infectious Disease)",
-      days: "Monday to Friday",
-      time: "4:00 PM to 6:00 PM"
-    },
-    {
-      name: "Dr. Ankit Gandhi",
-      qualification: "M.D. Physician",
-      days: "Tuesday, Wednesday, Friday",
-      time: "12:00 PM to 1:00 PM"
-    },
-    {
-      name: "Dr. Ishan Shah",
-      qualification: "M.B.B.S, DTMH, CCEBDM, Physician",
-      days: "Wednesday",
-      time: "3:00 PM to 4:00 PM"
-    }
-  ],
-  "Orthopaedic": [
-    {
-      name: "Dr. Kaushal Shah",
-      qualification: "Orthopaedic",
-      days: "Wednesday, Saturday",
-      time: "10:30 AM to 11:30 AM"
-    },
-    {
-      name: "Dr. Shrujal Shah",
-      qualification: "Orthopaedic",
-      days: "Tuesday (Only M.S.)",
       time: "10:00 AM to 11:00 AM"
     },
     {
-      name: "Dr. Niral Shah",
-      qualification: "Orthopaedic",
-      days: "Thursday",
-      time: "11:00 AM to 12:00 PM"
-    },
-    {
-      name: "Dr. Akash Shah",
-      qualification: "Orthopaedic",
-      days: "Monday to Friday",
-      time: "7:00 PM to 8:00 PM"
-    },
-    {
-      name: "Dr. Pavan D Desai",
-      qualification: "Orthopaedic",
-      days: "Thursday",
-      time: "4:00 PM to 5:00 PM"
-    },
-    {
-      name: "Dr. Akash Shah",
-      qualification: "M.B.B.S, M.S. Orthopaedic - FIAS",
-      days: "Monday to Friday",
-      time: "4:00 PM to 5:00 PM"
+      image: dImage12,
+      name: "Dr. Arvind Jain",
+      qualification: "M.D. (Medicine)",
+      days: "Monday to Saturday",
+      time: "11:00 AM to 1:00 PM, 5:00 PM to 7:00 PM"
     }
   ],
-  "Cardiologist": [
+  "ORTHOPAEDIC": [
     {
+      image: "",
+      name: "Dr. Rajiv Raj Chaudhary",
+      qualification: "M.S, M.CH",
+      days: "2nd & 4th Wednesday",
+      time: "8:00 PM to 9:00 PM"
+    },
+    {
+      image: dImage11,
+      name: "Dr. Shiv Aacharya",
+      qualification: "M.S - ORTHO., D.N.B. - ORTHO.",
+      days: "Monday, Wednesday, Saturday",
+      time: "5:00 PM to 6:00 PM"
+    },
+    {
+      image: "",
+      name: "Dr. Pavan D Desai",
+      qualification: "M.S - ORTHO., D.N.B. - ORTHO.",
+      days: "Tuesday & Friday",
+      time: "10:00 AM to 11:00 AM"
+    },
+    {
+      image: "",
+      name: "Dr. Akash Shah",
+      qualification: "M.S, Ortho, (HIP SPECIALIST)",
+      days: "Tuesday & Thursday",
+      time: "3:00 PM to 4:00 PM"
+    },
+    {
+      image: "",
+      name: "Dr. Kaushal Shah",
+      qualification: "DNB Orthopaedics",
+      days: "Wednesday & Saturday",
+      time: "11:00 AM to 12:00 PM"
+    }
+  ],
+  "CARDIOLOGIST": [
+    {
+      image: "",
       name: "Dr. Dhaval Shah",
-      qualification: "Cardiologist",
+      qualification: "DM (Cardiology) MD (Medicine)",
       days: "Friday",
       time: "8:30 AM to 9:30 AM"
     },
     {
-      name: "Dr. Dhaval Shah",
-      qualification: "DM (Cardiology) MD (Medicine)",
-      days: "Saturday",
-      time: "1:00 PM to 2:00 PM"
-    }
-  ],
-  "ENT Specialist": [
-    {
-      name: "Dr. Harit Trivedi",
-      qualification: "ENT Specialist",
-      days: "Saturday",
-      time: "1:00 PM to 2:00 PM"
-    },
-    {
-      name: "Dr. Harshad S. Trivedi",
-      qualification: "ENT Specialist",
-      days: "Tuesday, Friday",
-      time: "4:30 PM to 5:30 PM"
-    }
-  ],
-  "Rheumatologist": [
-    {
-      name: "Dr. Romi Shah",
-      qualification: "Rheumatologist",
-      days: "Friday",
-      time: "9:00 AM to 10:00 AM"
-    }
-  ],
-  "Infectious Diseases Specialist": [
-    {
-      name: "Dr. Pratik Savaj",
-      qualification: "HIV / TB / Fever / Infectious Diseases Specialist",
-      days: "Tuesday, Friday",
-      time: "6:00 PM to 7:00 PM"
-    },
-    {
-      name: "Dr. Ishan Sheth",
-      qualification: "HIV / TB / Fever / Infectious Diseases Specialist",
-      days: "Monday to Friday",
-      time: "6:00 PM to 7:00 PM"
-    }
-  ],
-  "Pulmonologist": [
-    {
-      name: "Dr. Chandrakant Ghevariya",
-      qualification: "Chest, Allergy & Pulmonologist",
-      days: "Monday, Wednesday",
-      time: "6:00 PM to 7:00 PM"
-    },
-    {
-      name: "Dr. Nirav Gondaliya",
-      qualification: "Chest, Allergy & Pulmonologist",
-      days: "Tuesday, Thursday",
-      time: "6:00 PM to 7:00 PM"
-    },
-    {
-      name: "Dr. Ronak Yagnik",
-      qualification: "Chest, Allergy & Pulmonologist",
-      days: "Tuesday, Friday",
-      time: "3:00 PM to 4:00 PM"
-    }
-  ],
-  "Gastroloist": [
-    {
-      name: "Dr. Rajiv Mehta",
-      qualification: "Gastroloist",
-      days: "On Appointment",
-      time: null
-    },
-    {
-      name: "Dr. Nisharg Patel",
-      qualification: "Gastroloist",
-      days: "Wednesday",
-      time: "9:00 AM to 10:00 AM"
-    },
-    {
-      name: "Dr. Mohit Sethia",
-      qualification: "Gastroloist",
-      days: "Friday",
-      time: "6:00 PM to 7:00 PM"
-    },
-    {
-      name: "Dr. Mohit Shethia",
-      qualification: "MD. DNB (Gastroologist)",
-      days: "Monday, Thursday",
-      time: "6:00 PM to 7:00 PM"
-    }
-  ],
-  "Ophthalmologist": [
-    {
-      name: "Dr. Nirav Shah",
-      qualification: "Ophthalmologist",
-      days: "On Appointment",
-      time: null
-    },
-    {
-      name: "Dr. Pareen Shah",
-      qualification: "Ophthalmologist",
-      days: "Tuesday, Friday",
-      time: "8:30 AM to 10:30 AM"
-    },
-    {
-      name: "Dr. Utkarsh Parmar",
-      qualification: "Ophthalmologist",
-      days: "Monday, Wednesday",
-      time: "9:30 AM to 10:30 AM"
-    },
-    {
-      name: "Dr. Mansi Shah",
-      qualification: "Ophthalmologist",
-      days: "Thursday, Saturday",
-      time: "5:00 PM to 6:00 PM"
-    },
-    {
-      name: "Dr. Jinay P. Shah",
-      qualification: "Ophthalmologist",
-      days: "Monday to Friday (On Call)",
-      time: "3:00 PM to 4:00 PM"
-    }
-  ],
-  "Gynaecologist": [
-    {
-      name: "Dr. Milind Wadekar",
-      qualification: "Gynaecologist",
-      days: "Monday, Thursday",
+      image: "",
+      name: "Dr. Shilpesh Champaneria (Shah)",
+      qualification: "M.D. (Med.), DNB (Cardiologist)",
+      days: "Monday",
       time: "4:00 PM to 5:00 PM"
     },
     {
-      name: "Dr. Mansi Wadekar",
-      qualification: "Gynaecologist",
-      days: "Tuesday, Friday",
-      time: "12:00 PM to 1:00 PM"
+      image: "",
+      name: "Dr. Rahul Thakkar",
+      qualification: "MBBS, PGD, DCC, MBA, (For 2D Eco)",
+      days: "On Call",
+      time: null
     }
   ],
-  "Dermatologist": [
+  "ENT SPECIALIST": [
     {
-      name: "Dr. Jeet Gandhi",
-      qualification: "Dermatologist",
-      days: "Monday, Wednesday",
-      time: "9:30 AM to 10:30 AM"
-    },
-    {
-      name: "Dr. Kopal Mehta",
-      qualification: "Dermatologist",
-      days: "Tuesday, Friday",
-      time: "11:30 AM to 12:30 PM"
-    },
-    {
-      name: "Dr. Dharm Mehta",
-      qualification: "MBBS, MD Skin",
-      days: "Tuesday, Friday",
-      time: "4:15 PM to 5:15 PM"
+      image: "",
+      name: "Dr. Shivani Bhansali",
+      qualification: "M.B.B.S, M.S, ENT",
+      days: "Thursday, Friday, Saturday",
+      time: "1:00 PM to 2:00 PM"
     }
   ],
-  "Endocrinologist": [
+  "PSYCHOLOGIST": [
     {
-      name: "Dr. Mehul Virani",
-      qualification: "Endocrinologist",
-      days: "Wednesday",
+      image: "",
+      name: "Dr. Rashi Shah",
+      qualification: "",
+      days: "Tuesday",
       time: "3:00 PM to 4:00 PM"
     }
   ],
-  "Neuro. + Spine Surgeon": [
+  "GASTROLOGIST": [
     {
-      name: "Dr. Keyur Prajapati",
-      qualification: "Neuro. + Spine Surgeon",
-      days: "Monday, Thursday",
-      time: "9:00 AM to 10:00 AM"
-    },
-    {
-      name: "Dr. Mohit Goyal",
-      qualification: "Neuro. + Spine Surgeon",
-      days: "Wednesday",
-      time: "5:00 PM to 6:00 PM"
-    },
-    {
-      name: "Dr. Nilay Shah",
-      qualification: "Neuro. + Spine Surgeon",
-      days: "Tuesday, Friday",
-      time: "7:00 PM to 8:00 PM"
+      image: dImage2,
+      name: "Dr. Bhavin K Dhavra",
+      qualification: "MD, DNB",
+      days: "Tuesday, Thursday, Saturday",
+      time: "1:00 PM to 2:00 PM"
     }
   ],
-  "Psychiatrist": [
+  "OPHTHALMOLOGIST": [
     {
-      name: "Dr. Shivani Shah Goyal",
-      qualification: "Psychiatrist",
+      image: "",
+      name: "Dr. Nirav Shah",
+      qualification: "M.S DO (OPTHAL)",
+      days: "On Appointment (Only For M.S.)",
+      time: "11:30 AM to 12:30 PM"
+    },
+    {
+      image: "",
+      name: "Dr. Ashish Bharoliya",
+      qualification: "M.B.B.S, M.S (OPTHAL)",
+      days: "Monday, Wednesday, Friday",
+      time: "10:30 AM to 11:30 AM"
+    },
+    {
+      image: "",
+      name: "Dr. Vrushal Bhansali",
+      qualification: "M.B.B.S, DNB ( OPTHAL )",
+      days: "Tuesday, Thursday, Saturday",
+      time: "11:30 AM to 12:30 PM"
+    }
+  ],
+  "GYNAECOLOGIST": [
+    {
+      image: "",
+      name: "Dr. Mansi Wadekar",
+      qualification: "M.D, D.G.O - Obstretrician, Gynaecologist & infertility specialist",
+      days: "Tuesday & Friday",
+      time: "12:30 PM to 1:30 PM"
+    },
+    {
+      image: dImage6,
+      name: "Dr. Kriti Sharma",
+      qualification: null,
+      days: "Monday, Thursday",
+      time: "1:30 PM to 2:30 PM"
+    }
+  ],
+  "DERMATOLOGIST": [
+    {
+      image: dImage4,
+      name: "Dr. Jeet Gandhi",
+      qualification: "MBBS, MD (SKIN & VD), (GOLD MEDALIST)",
+      days: "Monday & Thursday",
+      time: "10:00 AM to 11:00 AM"
+    },
+    {
+      image: "",
+      name: "Dr. Kopal Mehta",
+      qualification: "MBBS, MD, DNB",
+      days: "Tuesday & Friday",
+      time: "11:30 AM to 12:30 PM"
+    }
+  ],
+  "ENDOCRINOLOGIST": [
+    {
+      image: "",
+      name: "Dr. Mehul Virani",
+      qualification: "MRCP Endocrinology & Diabetes",
+      days: "2nd & 4th Monday",
+      time: "3:00 PM to 4:00 PM"
+    },
+    {
+      image: "",
+      name: "Dr. Vitrag Shah",
+      qualification: "Metabolic Physician",
+      days: "ONLY FOR M.S.",
+      time: null
+    }
+  ],
+  "PHYCHIATRIST": [
+    {
+      image: "",
+      name: "Dr. Shivan Shah Goyal",
+      qualification: "MD Psychiatry, R-TMS, Specialist",
       days: "Thursday",
       time: "4:30 PM to 5:30 PM"
     }
   ],
-  "Nephrologist": [
+  "NEURO + SPINE SURGEON": [
     {
-      name: "Dr. Jinesh Purohit",
-      qualification: "Nephrologist",
-      days: "Friday",
+      image: "",
+      name: "Dr. Mohit Goyal",
+      qualification: "(MS, MCH – Neuro Surgery),   Fellow Minimally Invasive & Endoscopic Spine Surgery   ",
+      days: "On Appointment",
+      time: null
+    },
+    {
+      image: dImage7,
+      name: "Dr. Nilay Shah",
+      qualification: "DNB Neuro + Spine Surgeon (Gold Medalist)",
+      days: "On Appointment",
+      time: null
+    },
+    {
+      image: dImage8,
+      name: "Dr. Pratik K Patel (Shah)",
+      qualification: "Neuro Physician",
+      days: "Monday, Wednesday, Saturday",
       time: "12:00 PM to 1:00 PM"
+    },
+    {
+      image: "",
+      name: "Dr. Rutu Savaj (Ruta)",
+      qualification: null,
+      days: "On Appointment",
+      time: null
     }
   ],
-  "Dental Surgeon": [
+  "NEPHROLOGIST": [
     {
-      name: "Dr. Sapan Chokshi",
-      qualification: "Dental Surgeon",
-      days: "Tuesday, Thursday",
-      time: "4:00 PM to 5:00 PM"
-    },
+      image: "",
+      name: "Dr. Jignesh Purohit",
+      qualification: "MD MEDICINE, DNB-NEPHROLOGY",
+      days: "Friday",
+      time: "12:00PM to 1:00 PM"
+    }
+  ],
+  "DENTIST": [
     {
-      name: "Dr. Apurva Mehta",
-      qualification: "MDS (Oral & Maxillofacial Surgeon)",
-      days: "Tuesday, Thursday",
-      time: "10:00 AM to 11:00 AM"
-    },
-    {
-      name: "Dr. Ruchi A Mehta",
-      qualification: "B.D.S., Dental Surgeon",
-      days: "Tuesday, Wednesday",
-      time: "8:30 AM to 10:30 AM"
-    },
-    {
+      image: dImage18,
       name: "Dr. Gargi Dabhelia",
-      qualification: "B.D.S., Dental Surgeon",
-      days: "Monday to Friday",
+      qualification: "B.D.S, Dental Surgeon",
+      days: "Monday to Saturday",
       time: "9:00 AM to 1:00 PM"
     },
     {
-      name: "Dr. Aman Kanetwala",
-      qualification: "Dentist",
-      days: "Monday, Tuesday, Saturday",
-      time: "3:00 PM to 6:00 PM"
-    }
-  ],
-  "Maxillofacial Surgeon": [
-    {
-      name: "Dr. Nirav Shah",
-      qualification: "MDS (Maxillofacial Surgeon)",
+      image: "",
+      name: "Dr. Hetal Sachanandani",
+      qualification: "Dental Pedodontist",
       days: "On Call",
-      time: ""
+      time: null
     },
     {
-      name: "Dr. Rashesh Shah",
-      qualification: "MDS (Maxillofacial Plastic Surgeon)",
-      days: "Monday",
-      time: "7:00 PM to 8:00 PM"
-    }
-  ],
-  "Surgical Oncologist": [
+      image: dImage14,
+      name: "Dr. Yash Jethwani",
+      qualification: "MDS",
+      days: "Monday to Saturday",
+      time: "9:00 AM to 1:00 PM"
+    },
     {
-      name: "Dr. Ashutosh Shah",
-      qualification: "M.B., M.S., M.Ch., D.N.B.",
+      image: "",
+      name: "Dr. Mallika Patwa",
+      qualification: "B.D.S",
+      days: "Monday to Saturday",
+      time: "3:00 PM to 7:00 PM"
+    },
+    {
+      image: dImage5,
+      name: "Dr. Khushi Sharma",
+      qualification: "B.D.S",
+      days: "Monday to Saturday",
+      time: "3:00 PM to 7:00 PM"
+    },
+    {
+      image: dImage17,
+      name: "Dr. Bhranti Mehta",
+      qualification: null,
+      days: "Monday & Wednesday",
+      time: "1:00 PM to 3:00 PM"
+    },
+    {
+      image: "",
+      name: "Dr. Nirav Jain",
+      qualification: "MDS (Maxillofacial Surgeon)",
       days: "On Appointment",
       time: ""
     },
     {
-      name: "Dr. Priyansh Jain",
-      qualification: "M.S., M.Ch Surgical Oncology",
-      days: "Monday",
-      time: "6:00 PM (On Call)"
+      image: dImage19,
+      name: "Dr. Rashesh Shah",
+      qualification: "MDS (Maxillofacial Plastic Surgeon)",
+      days: "On Appointment",
+      time: "7:00 PM to 8:00 PM"
+    },
+    {
+      image: dImage20,
+      name: "Dr. Dhwani Morakhiya",
+      qualification: "ENDO-DONTIST",
+      days: "On Appointment",
+      time: null
     }
   ],
-  "Homeopathic": [
+  "RADIOLOGIST": [
     {
+      image: dImage15,
+      name: "Dr. Harsad Patel",
+      qualification: "Radiologist",
+      days: "Monday to Saturday",
+      time: "5:30 PM to 6:30 PM"
+    }
+  ],
+  "HOMEOPATHY": [
+    {
+      image: "",
       name: "Dr. Mansi Shah",
-      qualification: "B.H.M.S.",
-      days: "Monday, Thursday",
+      qualification: "B.H.M.S",
+      days: "Monday & Thursday",
       time: "10:00 AM to 12:00 PM"
     },
     {
+      image: "",
       name: "Dr. Jinal Shah",
-      qualification: "B.H.M.S.",
-      days: "Wednesday, Friday",
-      time: "3:00 PM to 5:00 PM"
-    },
-    {
-      name: "Dr. Vitrag Shah",
-      qualification: "MBBS, C. Diab",
-      days: "ONLY FOR M.S.",
-      time: ""
-    },
-    {
-      name: "Dr. Nirva Mehta",
-      qualification: "B.A.M.S",
-      days: "Monday to Saturday",
-      time: "1:00 PM to 2:00 PM"
-    },
-    {
-      name: "Dr. Divya Sonawala",
-      qualification: "B.H.M.S (MUHS), CCH, CGO",
-      days: "Monday to Saturday",
-      time: "9:00 AM to 8:00 PM"
-    },
-    {
-      name: "Dr. Kruti Kapadiya",
-      qualification: "B.A.M.S",
-      days: "Monday, Wednesday, Friday",
-      time: "4:00 PM to 5:30 PM"
-    },
-    {
-      name: "Dr. Jana J. Gadhvi",
-      qualification: "Homeopathic (BHMS-NDDY)",
-      days: "Monday to Friday",
-      time: "10:00 AM to 11:00 AM"
-    },
-    {
-      name: "Dr. Manasi Patel",
-      qualification: "BHMS, C.C.H.",
-      days: "Monday to Saturday",
-      time: "10:00 AM to 12:00 PM"
-    },
-    {
-      name: "Dr. Hiral Solanki",
-      qualification: "BHMS, C.C.H.",
-      days: "Monday to Saturday",
-      time: "5:00 PM to 8:00 PM"
+      qualification: "B.H.M.S",
+      days: "Tuesday",
+      time: "5:00 PM to 7:00 PM"
     }
   ],
-  "Physiotherapist": [
+  "PEDIATRICIAN": [
     {
-      name: "Dr. Khushboo Joshi",
+      image: dImage16,
+      name: "Dr. Garima Mehta",
+      qualification: null,
+      days: "Monday to Saturday",
+      time: "5:00 PM to 6:00 PM"
+    }
+  ],
+  "FAMILY PHYSICIAN":
+    [
+      {
+        image: "",
+        name: "Dr. Divya Solapurwala",
+        qualification: "B.H.M.S",
+        days: "Monday to Saturday",
+        time: "12:00 PM to 5:00 PM"
+      }
+    ],
+  "PHYSIOTHERAPIST": [
+    {
+      image: dImage1,
+      name: "Dr. Bhaskar Ghoghari",
       qualification: "MPT",
       days: "Monday to Saturday",
-      time: "8:00 AM to 8:00 PM"
+      time: "9:00 AM to 1:00 PM"
     },
     {
+      image: "",
       name: "Dr. Suchi Parikh",
       qualification: "BPT",
       days: "Monday to Saturday",
-      time: "1:00 PM to 4:00 PM"
+      time: "ON CALL"
     },
     {
-      name: "Dr. Yashan Vasa",
-      qualification: "Physiotherapy",
+      image: dImage21,
+      name: "Dr. Jugal Pawar",
+      qualification: "MPT",
       days: "Monday to Saturday",
-      time: "8:00 AM to 1:00 PM"
+      time: "1:00 PM to 7:00 PM"
+    }
+  ],
+  "YOGA & DIETICIAN": [
+    {
+      image: dImage13,
+      name: "Dr. Kruti Kapadiya",
+      qualification: "B.A.M.S - (YOGA & DIETICIAN)",
+      days: "Monday to Saturday",
+      time: `4:00 PM to 5:00 PM`
     },
     {
-      name: "Dr. Anita Dodhari",
-      qualification: "Physiotherapy",
+      image: null,
+      name: "Dr. Vishwa Bhansali",
+      qualification: "BSC, FSN - (DIETICIAN)",
       days: "Monday to Saturday",
-      time: "1:00 PM to 5:00 PM"
+      time: `10:00 AM to 11:00 AM`
+    }
+  ],
+  "GARBH SANSKAR": [
+    {
+      image: dImage22,
+      name: "Dr. Nidhi Khandor",
+      qualification: null,
+      days: "Wednesday ",
+      time: "On Call"
+    }
+  ],
+  "NATUROPATHY - AYURVEDIC": [
+    {
+      image: null,
+      name: "Dr. Zalak Shah",
+      qualification: null,
+      days: "Monday, Tuesday, Wednesday",
+      time: "10:00 AM to 12:00 PM"
     },
     {
-      name: "Dr. Janak Dicholkar",
-      qualification: "Physiotherapy",
+      image: null,
+      name: "Dr. Komal Agrawal",
+      qualification: null,
+      days: "Thursday, Friday, Saturday",
+      time: "10:00 AM to 12:00 PM"
+    },
+    {
+      image: dImage9,
+      name: "Dr. Priyal Shah",
+      qualification: null,
       days: "Monday to Saturday",
-      time: "5:00 PM to 8:00 PM"
+      time: "2:00 PM to 7:00 PM"
     }
   ],
-  "Pediatrician": [
+  "ACUPRESSURE": [
     {
-      name: "Dr. Hiral N. Kataria",
-      qualification: "Pediatrician (MBDCH)",
-      days: "Monday, Thursday",
-      time: "12:30 PM to 1:30 PM"
+      image: "",
+      name: "Dr.Manoj Poptani",
+      qualification: null,
+      days: "Monday to Saturday",
+      time: "2:00 PM to 6:00 PM"
     }
   ],
-  "Radiologist": [
+  "MEDICATED MASSAGE": [
     {
-      name: "Dr. Amilsh Somani",
-      qualification: "Radiologist",
-      days: "Prior Appointment",
-      time: "undefined"
-    }
-  ],
-  "Medical Officer": [
+      image: "",
+      name: "Divyesh Garvare",
+      qualification: null,
+      days: "Monday to Saturday",
+      time: "10:00 AM to 5:00 PM"
+    },
     {
-      name: "Dr. Bhavesh Upadhyay",
-      qualification: "Asutosh Hospital Medical Officer",
-      days: "Saturday",
-      time: "5:00 PM to 6:00 PM"
+      image: "",
+      name: "Swati Bhdkar",
+      qualification: null,
+      days: "Monday to Saturday",
+      time: "9:00 AM to 12:00 PM"
     }
   ]
 };
