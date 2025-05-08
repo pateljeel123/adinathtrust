@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import harsh from '../assets/harsh.webp';
 import cow from '../assets/bafelow.webp';
 import healthcare from '../assets/healthcare.webp';
 import modi from '../assets/modi.webp';
 import content1 from '../assets/content1.png'
 import content2 from '../assets/content2.png'
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 
 // Animation variants
 const containerVariants = {
@@ -43,20 +43,27 @@ const imageVariants = {
   }
 };
 
+// Scroll-based animation for dots
 const dotVariants = {
-  hidden: { scale: 0, opacity: 0 },
+  hidden: { scale: 0, opacity: 0, y: -50 },
   visible: { 
-    scale: [1, 1.2, 1],
+    scale: 1,
     opacity: 1,
+    y: 0,
     transition: { 
       duration: 0.8,
-      repeat: Infinity,
-      repeatDelay: 2
+      ease: "easeOut"
     } 
   }
 };
 
 const OurStory = () => {
+  // Create refs for each section to track scroll position
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
   const sections = [
     {
       id: 1,
@@ -137,20 +144,48 @@ const OurStory = () => {
         </motion.div>
 
         <motion.div 
+          ref={containerRef}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           className="relative"
         >
-          {/* Vertical timeline line with gradient */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-300 via-amber-400 to-amber-300 transform -translate-x-1/2 hidden md:block"></div>
+          {/* Vertical timeline line with gradient - animated with scroll */}
+          <motion.div 
+            className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-300 via-amber-400 to-amber-300 transform -translate-x-1/2 hidden md:block"
+            style={{
+              scaleY: scrollYProgress,
+              originY: 0
+            }}
+          />
+          
+          {/* Timeline progress indicator */}
+          <motion.div 
+            className="absolute left-1/2 top-0 w-3 h-3 bg-amber-500 rounded-full transform -translate-x-1/2 hidden md:block z-10"
+            style={{
+              top: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]),
+              boxShadow: "0 0 10px rgba(217, 119, 6, 0.7)"
+            }}
+          />
 
           {sections.map((section, index) => (
             <motion.div
               key={section.id}
               variants={sectionVariants}
               className={`relative mb-24 flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}
+              style={{
+                opacity: useTransform(
+                  scrollYProgress,
+                  [Math.max(0, (index - 0.5) / sections.length), index / sections.length, (index + 0.5) / sections.length, Math.min(1, (index + 1) / sections.length)],
+                  [0.3, 1, 1, 0.3]
+                ),
+                y: useTransform(
+                  scrollYProgress,
+                  [Math.max(0, (index - 0.5) / sections.length), index / sections.length, (index + 0.5) / sections.length, Math.min(1, (index + 1) / sections.length)],
+                  [50, 0, 0, 50]
+                )
+              }}
             >
               {/* Image Section with enhanced hover effects */}
               <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
@@ -187,12 +222,46 @@ const OurStory = () => {
                   className="bg-white p-8 rounded-2xl shadow-lg relative border-l-4 border-amber-400"
                 >
                   {/* Timeline dot - visible only on md+ screens */}
-                  <div className="hidden md:block absolute top-1/2 -translate-y-1/2 -ml-14 left-0 w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-lg flex items-center justify-center">
+                  <motion.div 
+                    className="hidden md:block absolute top-1/2 -translate-y-1/2 -ml-14 left-0 w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow-lg flex items-center justify-center overflow-hidden"
+                    initial="hidden"
+                    animate="visible"
+                    style={{
+                      opacity: useTransform(
+                        scrollYProgress,
+                        [0, index / sections.length, (index + 0.5) / sections.length, 1],
+                        [0.3, 1, 1, 0.3]
+                      ),
+                      scale: useTransform(
+                        scrollYProgress,
+                        [0, index / sections.length, (index + 0.5) / sections.length, 1],
+                        [0.6, 1.2, 1.2, 0.6]
+                      )
+                    }}
+                  >
+                    {/* Pulse animation for active dot */}
                     <motion.div
-                      variants={dotVariants}
+                      className="absolute inset-0 bg-amber-300 rounded-full"
+                      style={{
+                        opacity: useTransform(
+                          scrollYProgress,
+                          [Math.max(0, (index - 0.2) / sections.length), index / sections.length, (index + 0.2) / sections.length],
+                          [0, 0.5, 0]
+                        )
+                      }}
+                      animate={{
+                        scale: [1, 1.5, 1],
+                      }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 2,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <motion.div
                       className="w-3 h-3 rounded-full bg-white"
                     />
-                  </div>
+                  </motion.div>
                   
                   <h3 className="text-3xl font-bold text-amber-700 mb-3">{section.title}</h3>
                   <p className="text-gray-600 mb-4 font-medium">{section.subtitle}</p>
@@ -219,12 +288,26 @@ const OurStory = () => {
               </div>
 
               {/* Mobile timeline dot */}
-              <div className="md:hidden absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-10 w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow flex items-center justify-center">
+              <motion.div 
+                className="md:hidden absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-10 w-6 h-6 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 shadow flex items-center justify-center"
+                initial={{ scale: 0.6, opacity: 0.3 }}
+                style={{
+                  opacity: useTransform(
+                    scrollYProgress,
+                    [0, index / sections.length, (index + 0.5) / sections.length, 1],
+                    [0.3, 1, 1, 0.3]
+                  ),
+                  scale: useTransform(
+                    scrollYProgress,
+                    [0, index / sections.length, (index + 0.5) / sections.length, 1],
+                    [0.6, 1, 1, 0.6]
+                  )
+                }}
+              >
                 <motion.div
-                  variants={dotVariants}
                   className="w-2 h-2 rounded-full bg-white"
                 />
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
