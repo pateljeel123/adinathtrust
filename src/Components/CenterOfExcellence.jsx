@@ -7,7 +7,7 @@ import {
 import { MdOutlineMedicalServices } from "react-icons/md";
 import { motion } from "framer-motion";
 import { medicalLocations } from "./Centers_Data";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   { title: "Health Care", icon: <MdOutlineMedicalServices size={30} />, color: "text-yellow-600", bgColor: "bg-[#E4EFE7]" },
@@ -28,12 +28,13 @@ const LocationPopup = ({ location, onClose, onBack }) => {
   };
 
   return (
-      <motion.div
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-      onClick={(e) => e.target === e.currentTarget && onClose()}>
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -120,7 +121,9 @@ const SpecialServicePopup = ({ location, onClose, onBack }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-      onClick={(e) => e.target === e.currentTarget && onClose()} id="service">
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+      id="service"
+    >
       <motion.div 
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -271,11 +274,11 @@ const ExcellenceCard = ({ title, icon, color, bgColor, onClick, isHealthCare = f
 const CenterOfExcellence = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const navigate = useNavigate();
 
   const handleCardClick = (title) => {
     if (title === "Health Care") {
-      // Redirect to doctor page for Health Care only
-      window.location.href = '/doctors'; // or your doctor page route
+      navigate('/doctors');
       return;
     }
     
