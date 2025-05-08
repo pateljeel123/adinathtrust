@@ -7,6 +7,7 @@ import {
 import { MdOutlineMedicalServices } from "react-icons/md";
 import { motion } from "framer-motion";
 import { medicalLocations } from "./Centers_Data";
+import { useNavigate,Link } from "react-router-dom";
 
 const data = [
   { title: "Health Care", icon: <MdOutlineMedicalServices size={30} />, color: "text-yellow-600", bgColor: "bg-[#E4EFE7]" },
@@ -261,7 +262,7 @@ const ExcellenceCard = ({ title, icon, color, bgColor, onClick, isHealthCare = f
         className="mt-3 px-4 py-2 text-sm font-medium bg-green-800 text-white rounded-full hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
         onClick={onClick}
       >
-        {isHealthCare ? "Find Doctors" : "Read More"}
+        {isHealthCare ? <Link to={'/doctors'}>Find Doctors</Link> : "Read More"}
       </motion.button>
     </div>
   </motion.div>
