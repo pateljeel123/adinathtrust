@@ -240,7 +240,7 @@ const Navbar = () => {
     >
       🚑
     </motion.span>
-    <span>Ambulance Contacts</span>
+    <span>Ambulance</span>
     <motion.span
       animate={{ rotate: isDropdownOpen ? 180 : 0 }}
       transition={{ duration: 0.2 }}
