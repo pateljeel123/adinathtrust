@@ -124,7 +124,7 @@ const OurStory = () => {
       title: "Aadinath School",
       subtitle: "Excellence in Education & Character Building",
       content: `Aadinath School, managed by Shree Aadinath Yuva Charitable Trust, Surat, stands as a beacon of modern education. With a world-class infrastructure, lush green campus, and a commitment to holistic development, the school nurtures future leaders with knowledge, discipline, and values.`,
-      year: "Established (to be confirmed, can add later)",
+      year: " (to be confirmed, can add later)",
       icon: "🏫"
     },
     {
