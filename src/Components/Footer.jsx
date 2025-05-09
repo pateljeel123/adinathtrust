@@ -453,18 +453,45 @@ const Footer = () => {
             </div>
             
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden shadow-xl flex-grow" style={{ minHeight: '300px' }}>
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.1696072541392!2d72.86848841493582!3d21.233893985889966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f3c8b953361%3A0x9e2235b31e1106d4!2sPP%20Maniya%20Hospital!5e0!3m2!1sen!2sin!4v1625647417283!5m2!1sen!2sin" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy"
-                title="PP Maniya Hospital Location"
-                aria-label="Google Map showing PP Maniya Hospital location"
-              ></iframe>
-            </div>
+            {/* Map with Location Pin */}
+<div className="rounded-2xl overflow-hidden shadow-xl flex-grow relative" style={{ minHeight: '300px' }}>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.1696072541392!2d72.86848841493582!3d21.233893985889966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f3c8b953361%3A0x9e2235b31e1106d4!2sMAHAVIDEH%20DHAM%2C%20Maharana%20Pratap%20Rd%2C%20Vesu%2C%20Surat%2C%20Gujarat%20395006!5e0!3m2!1sen!2sin!4v1625647417283!5m2!1sen!2sin" 
+    width="100%" 
+    height="100%" 
+    style={{ border: 0 }} 
+    allowFullScreen="" 
+    loading="lazy"
+    title="MAHAVIDEH DHAM Location"
+    aria-label="Google Map showing MAHAVIDEH DHAM location"
+  ></iframe>
+  
+  {/* Location Pin Button */}
+  <motion.a
+    href="https://www.google.com/maps/dir/?api=1&destination=MAHAVIDEH+DHAM,+Maharana+Pratap+Rd,+Vesu,+Surat,+Gujarat+395006"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="absolute bottom-4 right-4 bg-white p-3 rounded-full shadow-lg flex items-center justify-center"
+    aria-label="Get directions to MAHAVIDEH DHAM"
+    style={{ zIndex: 100 }}
+  >
+    <div className="relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="#A48B4B"
+        width="24"
+        height="24"
+      >
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+      </svg>
+      <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-ping opacity-75"></div>
+    </div>
+    <span className="ml-2 text-sm font-medium text-[#5D5342] hidden sm:inline">Get Directions</span>
+  </motion.a>
+</div>
           </div>
         </div>
         
