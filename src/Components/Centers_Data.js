@@ -21,7 +21,10 @@ import dImage20 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.
 import dImage21 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.27 AM (2).jpeg';
 import dImage22 from '../assets/DoctorImages/1000038226.jpg';
 import dImage23 from '../assets/DoctorImages/IMG-20250509-WA0002.jpg';
-import dImage24 from '../assets/DoctorImages/IMG-20250509-WA0003.jpg';
+import dImage24 from '../assets/DoctorImages/IMG-20250509-WA0006.jpg';
+import dImage25 from '../assets/DoctorImages/IMG-20250509-WA0004.jpg';
+import dImage26 from '../assets/DoctorImages/IMG-20250509-WA0005.jpg';
+import dImage27 from '../assets/DoctorImages/IMG-20250509-WA0007.jpg';
 
 export const medicalLocations = {
   "Medicines": [
@@ -541,12 +544,13 @@ export const doctorsBySpecialty = {
       qualification: null,
       days: "Monday to Saturday",
       time: "5:00 PM to 6:00 PM",
+
       gender: "female"
     }
   ],
   "FAMILY PHYSICIAN": [
     {
-      image: "",
+      image: dImage26,
       name: "Dr. Divya Solapurwala",
       qualification: "B.H.M.S",
       days: "Monday to Saturday",
@@ -610,7 +614,7 @@ export const doctorsBySpecialty = {
   ],
   "NATUROPATHY - AYURVEDIC": [
     {
-      image: null,
+      image: dImage25,
       name: "Dr. Zalak Shah",
       qualification: null,
       days: "Monday, Tuesday, Wednesday",
@@ -618,7 +622,7 @@ export const doctorsBySpecialty = {
       gender: "female"
     },
     {
-      image: null,
+      image: dImage27,
       name: "Dr. Komal Agrawal",
       qualification: null,
       days: "Thursday, Friday, Saturday",
