@@ -34,12 +34,13 @@ const Doctors = () => {
                   className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-1"
                 >
                   {/* Doctor Image - Cropped to show top half */}
-                  <div className="h-70 overflow-hidden relative">
+                  <div className="relative aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/4] lg:aspect-[4/4] overflow-hidden">
                     <img
                       src={doctor.image || defaultDoctorImage}
                       alt={doctor.name}
-                      className="w-full h-full object-cover object-top" // object-top ensures top of image is shown
-                      style={{ objectPosition: "top center" }} // Ensures top of image is always visible
+                      className="w-full h-full object-cover objec
+                      t-top"
+                      style={{ objectPosition: "top center" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-10"></div>
                   </div>
