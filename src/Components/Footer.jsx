@@ -142,33 +142,40 @@ const Footer = () => {
 
   const quickLinks = [
     {
-      title: 'Departments',
+      title: 'Medical Services',
       links: [
-        { name: 'Cardiology', url: '#' },
-        { name: 'Pediatric', url: '#' },
-        { name: 'IVF Center', url: '#' },
-        { name: 'Orthopedic', url: '#' },
-        { name: 'Dialysis', url: '#' }
+        { name: 'OPD', url: '#' },
+        { name: 'LABORATORY', url: '#' },
+        { name: 'X-RAY', url: '#' },
+        { name: 'SONOGRAPHY', url: '#' },
+        { name: 'OPHTHALMOLOGY', url: '#' },
+        { name: 'DENTAL', url: '#' },
+        { name: 'ENT', url: '#' },
+        { name: 'AUDIOMETRY', url: '#' }
       ]
     },
     {
-      title: 'Services',
+      title: 'Diagnostic Services',
       links: [
-        { name: 'Neuro Surgery', url: '#' },
-        { name: 'Onco Surgery', url: '#' },
-        { name: 'Gynecology', url: '#' },
-        { name: 'Nephrology', url: '#' },
-        { name: 'Physiotherapy', url: '#' }
+        { name: 'ECG', url: '#' },
+        { name: '2D ECHO - TMT', url: '#' },
+        { name: 'PHYSIOTHERAPY', url: '#' },
+        { name: 'DERMATOLOGIST', url: '#' },
+        { name: 'DAY CARE', url: '#' },
+        { name: 'MEDICAL STORE', url: '#' },
+        { name: 'AMBULANCE', url: '#' },
+        { name: 'RENTAL EQUIPMENT', url: '#' }
       ]
     },
     {
-      title: 'Information',
+      title: 'Wellness Services',
       links: [
-        { name: 'Visit Our Lab', url: '#' },
-        { name: 'About Us', url: '#' },
-        { name: 'Contact Us', url: '#' },
-        { name: 'Privacy Policy', url: '#' },
-        { name: 'Terms of Use', url: '#' }
+        { name: 'AYURVEDIC', url: '#' },
+        { name: 'PANCHKARMA', url: '#' },
+        { name: 'ACUPRESSURE', url: '#' },
+        { name: 'YOGA', url: '#' },
+        { name: 'MEDICATED MASSAGE', url: '#' },
+        { name: 'GARBH SANSKAR', url: '#' }
       ]
     }
   ];
