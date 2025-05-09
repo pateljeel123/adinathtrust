@@ -1,9 +1,11 @@
 import React from "react";
 import { FaCalendarAlt, FaClock, FaStethoscope } from "react-icons/fa";
 import { doctorsBySpecialty } from "./Centers_Data";
-import dImage from '../assets/DoctorImages/team-2.jpg';
+import MdImage from '../assets/DoctorImages/team-2.jpg';
+import FdImage from '../assets/DoctorImages/team-1.jpg';
 
-const defaultDoctorImage = dImage;
+const MdefaultDoctorImage = MdImage;
+const FdefaultDoctorImage = FdImage;
 
 const Doctors = () => {
   const specialties = Object.keys(doctorsBySpecialty);
@@ -36,7 +38,7 @@ const Doctors = () => {
                   {/* Doctor Image - Cropped to show top half */}
                   <div className="relative aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/4] lg:aspect-[4/4] overflow-hidden">
                     <img
-                      src={doctor.image || defaultDoctorImage}
+                      src={doctor.image || (doctor.gender == "male" ? MdefaultDoctorImage : FdefaultDoctorImage)}
                       alt={doctor.name}
                       className="w-full h-full object-cover objec
                       t-top"

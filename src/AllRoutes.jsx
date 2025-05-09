@@ -10,6 +10,7 @@ import ChakraWithImage from './Components/Hero'
 import OurStory from './Components/OurStory'
 import Document from './Components/Document'
 import GalleryContent from './Components/GalleryContent'
+import HealthCheckupCarousel from './Components/HealthCheckupCarousel'
 
 const FirstPages = () => {
     return (
@@ -17,7 +18,7 @@ const FirstPages = () => {
             <ChakraWithImage />
             <AstrologyHero />
             <OurStory />
-                        <HealthCheckupCarousel/>
+                        <HealthCheckupCarousel />
 
             <MedicalReport />
             <CenterOfExcellence />

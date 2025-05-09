@@ -20,6 +20,8 @@ import dImage19 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.
 import dImage20 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.24 AM (1).jpeg';
 import dImage21 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.27 AM (2).jpeg';
 import dImage22 from '../assets/DoctorImages/1000038226.jpg';
+import dImage23 from '../assets/DoctorImages/IMG-20250509-WA0002.jpg';
+import dImage24 from '../assets/DoctorImages/IMG-20250509-WA0003.jpg';
 
 export const medicalLocations = {
   "Medicines": [
@@ -178,58 +180,66 @@ export const doctorsBySpecialty = {
       name: "Dr. Parshwa Shah",
       qualification: "M.D. (Medicine)",
       days: "On Appointment",
-      time: "On Call"
+      time: "On Call",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Priyank Shah",
       qualification: "M.D. (Medicine)",
       days: "Monday to Saturday",
-      time: "10:00 AM to 11:00 AM"
+      time: "10:00 AM to 11:00 AM",
+      gender: "male"
     },
     {
       image: dImage12,
       name: "Dr. Arvind Jain",
       qualification: "M.D. (Medicine)",
       days: "Monday to Saturday",
-      time: "11:00 AM to 1:00 PM, 5:00 PM to 7:00 PM"
+      time: "11:00 AM to 1:00 PM, 5:00 PM to 7:00 PM",
+      gender: "male"
     }
   ],
   "ORTHOPAEDIC": [
     {
-      image: "",
+      image: dImage24,
       name: "Dr. Rajiv Raj Chaudhary",
       qualification: "M.S, M.CH",
       days: "2nd & 4th Wednesday",
-      time: "8:00 PM to 9:00 PM"
+      time: "8:00 PM to 9:00 PM",
+      gender: "male"
     },
     {
       image: dImage11,
       name: "Dr. Shiv Aacharya",
       qualification: "M.S - ORTHO., D.N.B. - ORTHO.",
       days: "Monday, Wednesday, Saturday",
-      time: "5:00 PM to 6:00 PM"
+      time: "5:00 PM to 6:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Pavan D Desai",
       qualification: "M.S - ORTHO., D.N.B. - ORTHO.",
       days: "Tuesday & Friday",
-      time: "10:00 AM to 11:00 AM"
+      time: "10:00 AM to 11:00 AM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Akash Shah",
       qualification: "M.S, Ortho, (HIP SPECIALIST)",
       days: "Tuesday & Thursday",
-      time: "3:00 PM to 4:00 PM"
+      time: "3:00 PM to 4:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Kaushal Shah",
       qualification: "DNB Orthopaedics",
       days: "Wednesday & Saturday",
-      time: "11:00 AM to 12:00 PM"
+      time: "11:00 AM to 12:00 PM",
+      gender: "male"
     }
   ],
   "CARDIOLOGIST": [
@@ -238,21 +248,24 @@ export const doctorsBySpecialty = {
       name: "Dr. Dhaval Shah",
       qualification: "DM (Cardiology) MD (Medicine)",
       days: "Friday",
-      time: "8:30 AM to 9:30 AM"
+      time: "8:30 AM to 9:30 AM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Shilpesh Champaneria (Shah)",
       qualification: "M.D. (Med.), DNB (Cardiologist)",
       days: "Monday",
-      time: "4:00 PM to 5:00 PM"
+      time: "4:00 PM to 5:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Rahul Thakkar",
       qualification: "MBBS, PGD, DCC, MBA, (For 2D Eco)",
       days: "On Call",
-      time: null
+      time: null,
+      gender: "male"
     }
   ],
   "ENT SPECIALIST": [
@@ -261,7 +274,8 @@ export const doctorsBySpecialty = {
       name: "Dr. Shivani Bhansali",
       qualification: "M.B.B.S, M.S, ENT",
       days: "Thursday, Friday, Saturday",
-      time: "1:00 PM to 2:00 PM"
+      time: "1:00 PM to 2:00 PM",
+      gender: "female"
     }
   ],
   "PSYCHOLOGIST": [
@@ -270,7 +284,8 @@ export const doctorsBySpecialty = {
       name: "Dr. Rashi Shah",
       qualification: "",
       days: "Tuesday",
-      time: "3:00 PM to 4:00 PM"
+      time: "3:00 PM to 4:00 PM",
+      gender: "female"
     }
   ],
   "GASTROLOGIST": [
@@ -279,7 +294,8 @@ export const doctorsBySpecialty = {
       name: "Dr. Bhavin K Dhavra",
       qualification: "MD, DNB",
       days: "Tuesday, Thursday, Saturday",
-      time: "1:00 PM to 2:00 PM"
+      time: "1:00 PM to 2:00 PM",
+      gender: "male"
     }
   ],
   "OPHTHALMOLOGIST": [
@@ -288,21 +304,24 @@ export const doctorsBySpecialty = {
       name: "Dr. Nirav Shah",
       qualification: "M.S DO (OPTHAL)",
       days: "On Appointment (Only For M.S.)",
-      time: "11:30 AM to 12:30 PM"
+      time: "11:30 AM to 12:30 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Ashish Bharoliya",
       qualification: "M.B.B.S, M.S (OPTHAL)",
       days: "Monday, Wednesday, Friday",
-      time: "10:30 AM to 11:30 AM"
+      time: "10:30 AM to 11:30 AM",
+      gender: "male"
     },
     {
-      image: "",
+      image: dImage23,
       name: "Dr. Vrushal Bhansali",
       qualification: "M.B.B.S, DNB ( OPTHAL )",
       days: "Tuesday, Thursday, Saturday",
-      time: "11:30 AM to 12:30 PM"
+      time: "11:30 AM to 12:30 PM",
+      gender: "male"
     }
   ],
   "GYNAECOLOGIST": [
@@ -311,14 +330,16 @@ export const doctorsBySpecialty = {
       name: "Dr. Mansi Wadekar",
       qualification: "M.D, D.G.O - Obstretrician, Gynaecologist & infertility specialist",
       days: "Tuesday & Friday",
-      time: "12:30 PM to 1:30 PM"
+      time: "12:30 PM to 1:30 PM",
+      gender: "female"
     },
     {
       image: dImage6,
       name: "Dr. Kriti Sharma",
       qualification: null,
       days: "Monday, Thursday",
-      time: "1:30 PM to 2:30 PM"
+      time: "1:30 PM to 2:30 PM",
+      gender: "female"
     }
   ],
   "DERMATOLOGIST": [
@@ -327,14 +348,16 @@ export const doctorsBySpecialty = {
       name: "Dr. Jeet Gandhi",
       qualification: "MBBS, MD (SKIN & VD), (GOLD MEDALIST)",
       days: "Monday & Thursday",
-      time: "10:00 AM to 11:00 AM"
+      time: "10:00 AM to 11:00 AM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Kopal Mehta",
       qualification: "MBBS, MD, DNB",
       days: "Tuesday & Friday",
-      time: "11:30 AM to 12:30 PM"
+      time: "11:30 AM to 12:30 PM",
+      gender: "female"
     }
   ],
   "ENDOCRINOLOGIST": [
@@ -343,14 +366,16 @@ export const doctorsBySpecialty = {
       name: "Dr. Mehul Virani",
       qualification: "MRCP Endocrinology & Diabetes",
       days: "2nd & 4th Monday",
-      time: "3:00 PM to 4:00 PM"
+      time: "3:00 PM to 4:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Vitrag Shah",
       qualification: "Metabolic Physician",
       days: "ONLY FOR M.S.",
-      time: null
+      time: null,
+      gender: "male"
     }
   ],
   "PHYCHIATRIST": [
@@ -359,7 +384,8 @@ export const doctorsBySpecialty = {
       name: "Dr. Shivan Shah Goyal",
       qualification: "MD Psychiatry, R-TMS, Specialist",
       days: "Thursday",
-      time: "4:30 PM to 5:30 PM"
+      time: "4:30 PM to 5:30 PM",
+      gender: "male"
     }
   ],
   "NEURO + SPINE SURGEON": [
@@ -368,28 +394,32 @@ export const doctorsBySpecialty = {
       name: "Dr. Mohit Goyal",
       qualification: "(MS, MCH – Neuro Surgery),   Fellow Minimally Invasive & Endoscopic Spine Surgery   ",
       days: "On Appointment",
-      time: null
+      time: null,
+      gender: "male"
     },
     {
       image: dImage7,
       name: "Dr. Nilay Shah",
       qualification: "DNB Neuro + Spine Surgeon (Gold Medalist)",
       days: "On Appointment",
-      time: null
+      time: null,
+      gender: "male"
     },
     {
       image: dImage8,
       name: "Dr. Pratik K Patel (Shah)",
       qualification: "Neuro Physician",
       days: "Monday, Wednesday, Saturday",
-      time: "12:00 PM to 1:00 PM"
+      time: "12:00 PM to 1:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Rutu Savaj (Ruta)",
       qualification: null,
       days: "On Appointment",
-      time: null
+      time: null,
+      gender: "female"
     }
   ],
   "NEPHROLOGIST": [
@@ -398,7 +428,8 @@ export const doctorsBySpecialty = {
       name: "Dr. Jignesh Purohit",
       qualification: "MD MEDICINE, DNB-NEPHROLOGY",
       days: "Friday",
-      time: "12:00PM to 1:00 PM"
+      time: "12:00PM to 1:00 PM",
+      gender: "male"
     }
   ],
   "DENTIST": [
@@ -407,63 +438,72 @@ export const doctorsBySpecialty = {
       name: "Dr. Gargi Dabhelia",
       qualification: "B.D.S, Dental Surgeon",
       days: "Monday to Saturday",
-      time: "9:00 AM to 1:00 PM"
+      time: "9:00 AM to 1:00 PM",
+      gender: "female"
     },
     {
       image: "",
       name: "Dr. Hetal Sachanandani",
       qualification: "Dental Pedodontist",
       days: "On Call",
-      time: null
+      time: null,
+      gender: "female"
     },
     {
       image: dImage14,
       name: "Dr. Yash Jethwani",
       qualification: "MDS",
       days: "Monday to Saturday",
-      time: "9:00 AM to 1:00 PM"
+      time: "9:00 AM to 1:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Mallika Patwa",
       qualification: "B.D.S",
       days: "Monday to Saturday",
-      time: "3:00 PM to 7:00 PM"
+      time: "3:00 PM to 7:00 PM",
+      gender: "female"
     },
     {
       image: dImage5,
       name: "Dr. Khushi Sharma",
       qualification: "B.D.S",
       days: "Monday to Saturday",
-      time: "3:00 PM to 7:00 PM"
+      time: "3:00 PM to 7:00 PM",
+      gender: "female"
     },
     {
       image: dImage17,
       name: "Dr. Bhranti Mehta",
       qualification: null,
       days: "Monday & Wednesday",
-      time: "1:00 PM to 3:00 PM"
+      time: "1:00 PM to 3:00 PM",
+      gender: "female"
     },
     {
       image: "",
       name: "Dr. Nirav Jain",
       qualification: "MDS (Maxillofacial Surgeon)",
       days: "On Appointment",
-      time: ""
+      time: "",
+      gender: "male"
     },
     {
       image: dImage19,
       name: "Dr. Rashesh Shah",
       qualification: "MDS (Maxillofacial Plastic Surgeon)",
       days: "On Appointment",
-      time: "7:00 PM to 8:00 PM"
+      time: "7:00 PM to 8:00 PM",
+      gender: "male"
     },
     {
       image: dImage20,
       name: "Dr. Dhwani Morakhiya",
       qualification: "ENDO-DONTIST",
       days: "On Appointment",
-      time: null
+      time: null,
+      gender: "female"
     }
   ],
   "RADIOLOGIST": [
@@ -472,7 +512,8 @@ export const doctorsBySpecialty = {
       name: "Dr. Harsad Patel",
       qualification: "Radiologist",
       days: "Monday to Saturday",
-      time: "5:30 PM to 6:30 PM"
+      time: "5:30 PM to 6:30 PM",
+      gender: "male"
     }
   ],
   "HOMEOPATHY": [
@@ -481,14 +522,16 @@ export const doctorsBySpecialty = {
       name: "Dr. Mansi Shah",
       qualification: "B.H.M.S",
       days: "Monday & Thursday",
-      time: "10:00 AM to 12:00 PM"
+      time: "10:00 AM to 12:00 PM",
+      gender: "female"
     },
     {
       image: "",
       name: "Dr. Jinal Shah",
       qualification: "B.H.M.S",
       days: "Tuesday",
-      time: "5:00 PM to 7:00 PM"
+      time: "5:00 PM to 7:00 PM",
+      gender: "female"
     }
   ],
   "PEDIATRICIAN": [
@@ -497,40 +540,44 @@ export const doctorsBySpecialty = {
       name: "Dr. Garima Mehta",
       qualification: null,
       days: "Monday to Saturday",
-      time: "5:00 PM to 6:00 PM"
+      time: "5:00 PM to 6:00 PM",
+      gender: "female"
     }
   ],
-  "FAMILY PHYSICIAN":
-    [
-      {
-        image: "",
-        name: "Dr. Divya Solapurwala",
-        qualification: "B.H.M.S",
-        days: "Monday to Saturday",
-        time: "12:00 PM to 5:00 PM"
-      }
-    ],
+  "FAMILY PHYSICIAN": [
+    {
+      image: "",
+      name: "Dr. Divya Solapurwala",
+      qualification: "B.H.M.S",
+      days: "Monday to Saturday",
+      time: "12:00 PM to 5:00 PM",
+      gender: "female"
+    }
+  ],
   "PHYSIOTHERAPIST": [
     {
       image: dImage1,
       name: "Dr. Bhaskar Ghoghari",
       qualification: "MPT",
       days: "Monday to Saturday",
-      time: "9:00 AM to 1:00 PM"
+      time: "9:00 AM to 1:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Dr. Suchi Parikh",
       qualification: "BPT",
       days: "Monday to Saturday",
-      time: "ON CALL"
+      time: "ON CALL",
+      gender: "female"
     },
     {
       image: dImage21,
       name: "Dr. Jugal Pawar",
       qualification: "MPT",
       days: "Monday to Saturday",
-      time: "1:00 PM to 7:00 PM"
+      time: "1:00 PM to 7:00 PM",
+      gender: "male"
     }
   ],
   "YOGA & DIETICIAN": [
@@ -539,14 +586,16 @@ export const doctorsBySpecialty = {
       name: "Dr. Kruti Kapadiya",
       qualification: "B.A.M.S - (YOGA & DIETICIAN)",
       days: "Monday to Saturday",
-      time: `4:00 PM to 5:00 PM`
+      time: "4:00 PM to 5:00 PM",
+      gender: "female"
     },
     {
       image: null,
       name: "Dr. Vishwa Bhansali",
       qualification: "BSC, FSN - (DIETICIAN)",
       days: "Monday to Saturday",
-      time: `10:00 AM to 11:00 AM`
+      time: "10:00 AM to 11:00 AM",
+      gender: "male"
     }
   ],
   "GARBH SANSKAR": [
@@ -555,7 +604,8 @@ export const doctorsBySpecialty = {
       name: "Dr. Nidhi Khandor",
       qualification: null,
       days: "Wednesday ",
-      time: "On Call"
+      time: "On Call",
+      gender: "female"
     }
   ],
   "NATUROPATHY - AYURVEDIC": [
@@ -564,21 +614,24 @@ export const doctorsBySpecialty = {
       name: "Dr. Zalak Shah",
       qualification: null,
       days: "Monday, Tuesday, Wednesday",
-      time: "10:00 AM to 12:00 PM"
+      time: "10:00 AM to 12:00 PM",
+      gender: "female"
     },
     {
       image: null,
       name: "Dr. Komal Agrawal",
       qualification: null,
       days: "Thursday, Friday, Saturday",
-      time: "10:00 AM to 12:00 PM"
+      time: "10:00 AM to 12:00 PM",
+      gender: "female"
     },
     {
       image: dImage9,
       name: "Dr. Priyal Shah",
       qualification: null,
       days: "Monday to Saturday",
-      time: "2:00 PM to 7:00 PM"
+      time: "2:00 PM to 7:00 PM",
+      gender: "female"
     }
   ],
   "ACUPRESSURE": [
@@ -587,7 +640,8 @@ export const doctorsBySpecialty = {
       name: "Dr.Manoj Poptani",
       qualification: null,
       days: "Monday to Saturday",
-      time: "2:00 PM to 6:00 PM"
+      time: "2:00 PM to 6:00 PM",
+      gender: "male"
     }
   ],
   "MEDICATED MASSAGE": [
@@ -596,14 +650,16 @@ export const doctorsBySpecialty = {
       name: "Divyesh Garvare",
       qualification: null,
       days: "Monday to Saturday",
-      time: "10:00 AM to 5:00 PM"
+      time: "10:00 AM to 5:00 PM",
+      gender: "male"
     },
     {
       image: "",
       name: "Swati Bhdkar",
       qualification: null,
       days: "Monday to Saturday",
-      time: "9:00 AM to 12:00 PM"
+      time: "9:00 AM to 12:00 PM",
+      gender: "female"
     }
   ]
 };
