@@ -17,6 +17,8 @@ const FirstPages = () => {
             <ChakraWithImage />
             <AstrologyHero />
             <OurStory />
+                        <HealthCheckupCarousel/>
+
             <MedicalReport />
             <CenterOfExcellence />
             <Gallery images={Hospitalimages} />
