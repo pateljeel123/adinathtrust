@@ -20,7 +20,7 @@ import dImage19 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.
 import dImage20 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.24 AM (1).jpeg';
 import dImage21 from '../assets/DoctorImages/WhatsApp Image 2025-05-07 at 10.56.27 AM (2).jpeg';
 import dImage22 from '../assets/DoctorImages/1000038226.jpg';
-import dImage23 from '../assets/DoctorImages/IMG-20250509-WA0002.jpg';
+import dImage23 from '../assets/DoctorImages/IMG-20250509-WA0009.jpg';
 import dImage24 from '../assets/DoctorImages/IMG-20250509-WA0006.jpg';
 import dImage25 from '../assets/DoctorImages/IMG-20250509-WA0004.jpg';
 import dImage26 from '../assets/DoctorImages/IMG-20250509-WA0005.jpg';
