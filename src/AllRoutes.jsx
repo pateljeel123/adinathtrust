@@ -11,6 +11,7 @@ import OurStory from './Components/OurStory'
 import Document from './Components/Document'
 import GalleryContent from './Components/GalleryContent'
 import HealthCheckupCarousel from './Components/HealthCheckupCarousel'
+import DoctorProfile from './Components/DoctorProfile'
 
 const FirstPages = () => {
     return (
@@ -22,6 +23,7 @@ const FirstPages = () => {
 
             <MedicalReport />
             <CenterOfExcellence />
+            <DoctorProfile/>
             <Gallery images={Hospitalimages} />
         </>
     )
