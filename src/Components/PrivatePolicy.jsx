@@ -9,6 +9,13 @@ const PrivacyPolicy = () => {
   const accentColor = "#D1D5C7"; // Light beige
   const textColor = "#333333"; // Dark gray
 
+  // Get current date for "Effective Date"
+  const currentDate = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
   return (
     <div className="min-h-screen bg-gray-50 mt-23">
       {/* Header Section */}
@@ -20,7 +27,7 @@ const PrivacyPolicy = () => {
           <FaShieldAlt className="mx-auto text-5xl mb-4" style={{ color: "white" }} />
           <h1 className="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
           <p className="text-xl text-white opacity-90">
-            Your trust is our priority. Learn how we protect your information at Aadinath Healthcare.
+            Your trust is our priority. Learn how we protect your information at Aadinath Yuva Charitable Trust.
           </p>
         </div>
       </div>
@@ -59,123 +66,115 @@ const PrivacyPolicy = () => {
             <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-sm">
               <FaLock className="text-3xl mb-3" style={{ color: primaryColor }} />
               <h3 className="font-bold text-lg mb-2">Data Protection</h3>
-              <p className="text-sm">We use industry-standard encryption to safeguard your information</p>
+              <p className="text-sm">We implement industry-standard security measures to protect your information</p>
             </div>
             
             <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-sm">
               <FaUserShield className="text-3xl mb-3" style={{ color: primaryColor }} />
-              <h3 className="font-bold text-lg mb-2">No Unnecessary Data</h3>
-              <p className="text-sm">We only collect what's essential for your healthcare needs</p>
+              <h3 className="font-bold text-lg mb-2">Transparent Practices</h3>
+              <p className="text-sm">Clear explanations of how we handle your information</p>
             </div>
             
             <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-sm">
               <FaFileContract className="text-3xl mb-3" style={{ color: primaryColor }} />
-              <h3 className="font-bold text-lg mb-2">Transparent Policies</h3>
-              <p className="text-sm">Clear explanations of how we handle your information</p>
+              <h3 className="font-bold text-lg mb-2">Your Control</h3>
+              <p className="text-sm">You have rights over how your data is collected and used</p>
             </div>
           </div>
 
           {/* Detailed Policy */}
           <div className="p-8 md:p-12">
             <div className="prose max-w-none" style={{ color: textColor }}>
+              <div className="mb-6 text-sm italic">
+                Effective Date: {currentDate}
+              </div>
+              
+              <p className="mb-8">
+                At Aadinath Yuva Charitable Trust, accessible from <a href="https://adinathtrust.org" className="text-blue-600 hover:underline">https://adinathtrust.org</a>, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or interact with our forms and services.
+              </p>
+
               <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4 pb-2" style={{ color: secondaryColor, borderBottom: `2px solid ${accentColor}` }}>
-                  Information We Collect
+                  1. Information We Collect
                 </h2>
                 <p className="mb-4">
-                  At Aadinath Healthcare, we collect only the essential information needed to provide you with quality healthcare services. This may include:
+                  We may collect the following types of personal information:
                 </p>
                 <ul className="list-disc pl-6 mb-4 space-y-2">
-                  <li>Personal identification details (name, date of birth, contact information)</li>
-                  <li>Medical history and current health information</li>
-                  <li>Insurance and payment information</li>
-                  <li>Website usage data through secure analytics</li>
+                  <li><strong>Personal Identification Information:</strong> Name, email address, phone number, and other contact details when you fill out forms or donate.</li>
+                  <li><strong>Donation Information:</strong> Amount, payment method, and transaction details (processed securely via third-party gateways).</li>
+                  <li><strong>Usage Data:</strong> Information about your interaction with our website such as pages visited, browser type, and time spent.</li>
                 </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4 pb-2" style={{ color: secondaryColor, borderBottom: `2px solid ${accentColor}` }}>
-                  How We Use Your Information
+                  2. How We Use Your Information
                 </h2>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-gray-50 p-5 rounded-lg">
-                    <h3 className="font-semibold mb-2" style={{ color: primaryColor }}>Healthcare Services</h3>
-                    <p>To provide personalized medical care and treatment plans</p>
-                  </div>
-                  <div className="bg-gray-50 p-5 rounded-lg">
-                    <h3 className="font-semibold mb-2" style={{ color: primaryColor }}>Appointment Management</h3>
-                    <p>To schedule and remind you about upcoming appointments</p>
-                  </div>
-                  <div className="bg-gray-50 p-5 rounded-lg">
-                    <h3 className="font-semibold mb-2" style={{ color: primaryColor }}>Billing & Insurance</h3>
-                    <p>To process payments and communicate with insurers</p>
-                  </div>
-                  <div className="bg-gray-50 p-5 rounded-lg">
-                    <h3 className="font-semibold mb-2" style={{ color: primaryColor }}>Service Improvement</h3>
-                    <p>To enhance our facilities and patient experience</p>
-                  </div>
-                </div>
+                <p className="mb-4">
+                  We use the collected data for the following purposes:
+                </p>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                  <li>To respond to your inquiries and requests.</li>
+                  <li>To process and acknowledge donations.</li>
+                  <li>To send updates about our activities, events, and impact (only if you opt-in).</li>
+                  <li>To improve our website experience and service offerings.</li>
+                </ul>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4 pb-2" style={{ color: secondaryColor, borderBottom: `2px solid ${accentColor}` }}>
-                  Data Security Measures
+                  3. Sharing Your Information
+                </h2>
+                <p className="mb-4">
+                  We do not sell, trade, or rent your personal information. We may share your data with:
+                </p>
+                <ul className="list-disc pl-6 mb-4 space-y-2">
+                  <li>Trusted third-party service providers (e.g., payment processors, email service providers) strictly for operations related to our services.</li>
+                  <li>Law enforcement or regulatory authorities if required by law.</li>
+                </ul>
+              </section>
+
+              <section className="mb-12">
+                <h2 className="text-2xl font-bold mb-4 pb-2" style={{ color: secondaryColor, borderBottom: `2px solid ${accentColor}` }}>
+                  4. Data Security
                 </h2>
                 <div className="bg-blue-50 p-6 rounded-lg border-l-4" style={{ borderColor: primaryColor }}>
-                  <h3 className="font-bold text-lg mb-3" style={{ color: primaryColor }}>Our Security Commitment</h3>
                   <p className="mb-3">
-                    We implement robust security measures including:
+                    We adopt industry-standard practices to ensure your personal data is secure and protected against unauthorized access, alteration, or disclosure.
                   </p>
-                  <ul className="list-disc pl-6 space-y-1">
-                    <li>256-bit SSL encryption for all data transmissions</li>
-                    <li>Regular security audits and vulnerability testing</li>
-                    <li>Strict access controls with multi-factor authentication</li>
-                    <li>Compliance with HIPAA and other healthcare data protection standards</li>
-                  </ul>
                 </div>
               </section>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-bold mb-4 pb-2" style={{ color: secondaryColor, borderBottom: `2px solid ${accentColor}` }}>
-                  Your Rights
+                  5. Cookies & Tracking
                 </h2>
-                <div className="grid gap-4">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1 mr-3 text-green-600">✓</div>
-                    <div>
-                      <h3 className="font-semibold">Right to Access</h3>
-                      <p>Request copies of your personal health records</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1 mr-3 text-green-600">✓</div>
-                    <div>
-                      <h3 className="font-semibold">Right to Correction</h3>
-                      <p>Update or correct inaccurate information</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 mt-1 mr-3 text-green-600">✓</div>
-                    <div>
-                      <h3 className="font-semibold">Right to Restriction</h3>
-                      <p>Limit how we use your data in certain circumstances</p>
-                    </div>
-                  </div>
-                </div>
+                <p className="mb-4">
+                  Our website may use cookies to enhance user experience. You can choose to disable cookies through your browser settings.
+                </p>
+              </section>
+
+              <section className="mb-12">
+                <h2 className="text-2xl font-bold mb-4 pb-2" style={{ color: secondaryColor, borderBottom: `2px solid ${accentColor}` }}>
+                  6. Changes to This Policy
+                </h2>
+                <p className="mb-4">
+                  We reserve the right to update this policy at any time. Any changes will be reflected on this page with an updated effective date.
+                </p>
               </section>
 
               <section>
                 <h2 className="text-2xl font-bold mb-4 pb-2" style={{ color: secondaryColor, borderBottom: `2px solid ${accentColor}` }}>
-                  Contact Our Privacy Officer
+                  7. Contact Us
                 </h2>
                 <p className="mb-4">
-                  For any questions about this policy or your personal data:
+                  If you have questions about this Privacy Policy, please contact:
                 </p>
                 <div className="bg-gray-50 p-5 rounded-lg inline-block">
-                  <p className="font-semibold" style={{ color: primaryColor }}>Aadinath Healthcare Privacy Team</p>
-                  <p>Email: <a href="mailto:aadinathtrust@gmail.com" className="text-blue-600 hover:underline">privacy@aadinathhealthcare.com</a></p>
-                  <p>Phone: +91 95746 96000</p>
-                  <p>Address: MAHAVIDEH DHAM 3rd Floor', 'Maharana Pratap', 'Road, Vesu - 395006</p>
+                  <p className="font-semibold" style={{ color: primaryColor }}>Aadinath Yuva Charitable Trust</p>
+                  <p>Email: <a href="mailto:adinathtrustsurat@gmail.com" className="text-blue-600 hover:underline">adinathtrustsurat@gmail.com</a></p>
+                  <p>Website: <a href="https://adinathtrust.org" className="text-blue-600 hover:underline">https://adinathtrust.org</a></p>
                 </div>
               </section>
             </div>
