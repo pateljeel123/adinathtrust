@@ -1,5 +1,5 @@
 import React from "react";
-import adminImage from "../assets/DoctorImages/team-2.jpg";
+import aiimage from "../assets/DoctorImages/aiimage.jpeg";
 import hrimage from "../assets/DoctorImages/hrimage.jpeg";
 
 export default function OtherAdminProfile() {
@@ -48,7 +48,7 @@ export default function OtherAdminProfile() {
                 >
                     <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
                         <img
-                            src={adminImage}
+                            src={aiimage}
                             alt="Mr. Nihar Shah"
                             className="w-full h-full object-cover"
                         />
