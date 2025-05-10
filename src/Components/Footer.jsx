@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import FooterImg from "../assets/FooterImg.jpeg";
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ const Footer = () => {
   const [isSubscribing, setIsSubscribing] = useState(false);
   const [showSubscribeSuccess, setShowSubscribeSuccess] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);
+  const navigate=useNavigate()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -707,7 +709,7 @@ const Footer = () => {
             <div className="flex flex-wrap items-center justify-center text-white text-sm gap-x-6 gap-y-2">
               <motion.a 
                 whileHover={{ x: 3 }}
-                href="/privacy-policy" 
+                onClick={()=>navigate('/privacy-policy')} 
                 className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1"
               >
                 <span>Privacy Policy</span>

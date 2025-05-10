@@ -12,30 +12,40 @@ export default function OtherAdminProfile() {
 
     return (
         <div className="space-y-10 py-10 px-4 max-w-7xl mx-auto">
-            {/* Admin Corner Heading */}
-            <div className="text-center mb-8">
-                <h1 
-                    className="text-4xl font-bold mb-3 relative inline-block"
-                    style={{ color: primaryDarker }}
-                >
-                    Admin Corner
-                    <span 
-                        className="absolute bottom-0 left-0 w-full h-1"
-                        style={{ 
-                            background: `linear-gradient(90deg, ${primaryColor}, ${primaryLight})`,
-                            transform: 'scaleX(0.8)',
-                            transformOrigin: 'center'
-                        }}
-                    ></span>
-                </h1>
-                <p 
-                    className="text-lg max-w-2xl mx-auto"
-                    style={{ color: primaryDark }}
-                >
-                    Meet the administrative team dedicated to ensuring smooth operations and a supportive work environment at Aadinath Healthcare.
-                </p>
+            {/* Admin Corner Header */}
+            <div className="relative overflow-hidden rounded-2xl shadow-lg mb-12">
+                <div 
+                    className="absolute inset-0 z-0"
+                    style={{
+                        background: `linear-gradient(135deg, ${primaryColor}, ${primaryDark})`,
+                        opacity: 0.9
+                    }}
+                ></div>
+                <div className="relative z-10 p-8 md:p-12 lg:p-16 text-center">
+                    <h1 
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white"
+                        style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+                    >
+                        Admin Corner
+                    </h1>
+                    <div className="max-w-3xl mx-auto">
+                        <p 
+                            className="text-lg md:text-xl text-white opacity-90 mb-6"
+                            style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.2)' }}
+                        >
+                            The backbone of Aadinath Healthcare's operational excellence
+                        </p>
+                        <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
+                        <p 
+                            className="text-base md:text-lg text-white opacity-80"
+                            style={{ textShadow: '1px 1px 1px rgba(0,0,0,0.1)' }}
+                        >
+                            Meet the dedicated team that ensures seamless healthcare delivery through exceptional administration and human resource management.
+                        </p>
+                    </div>
+                </div>
             </div>
-            
+
             {/* Administrative Head Profile */}
             <div 
                 className="flex flex-col lg:flex-row bg-white rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.01] transition-all duration-300"
