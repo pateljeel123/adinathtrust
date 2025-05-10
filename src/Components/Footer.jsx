@@ -707,7 +707,7 @@ const Footer = () => {
             <div className="flex flex-wrap items-center justify-center text-white text-sm gap-x-6 gap-y-2">
               <motion.a 
                 whileHover={{ x: 3 }}
-                href="#" 
+                href="/privacy-policy" 
                 className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1"
               >
                 <span>Privacy Policy</span>

@@ -11,7 +11,8 @@ import OurStory from './Components/OurStory'
 import Document from './Components/Document'
 import GalleryContent from './Components/GalleryContent'
 import HealthCheckupCarousel from './Components/HealthCheckupCarousel'
-import DoctorProfile from './Components/DoctorProfile'
+import OtherAdminProfile from './Components/DoctorProfile'
+import PrivacyPolicy from './Components/PrivatePolicy'
 
 const FirstPages = () => {
     return (
@@ -23,7 +24,7 @@ const FirstPages = () => {
 
             <MedicalReport />
             <CenterOfExcellence />
-            <DoctorProfile/>
+            {/* <DoctorProfile/> */}
             <Gallery images={Hospitalimages} />
         </>
     )
@@ -37,6 +38,8 @@ const AllRoutes = () => {
                 <Route path='/document' element={<Document />} />
                 <Route path="/" element={<FirstPages />} />
                 <Route path="/gallery" element={<GalleryContent />} />
+                <Route path="/admincorner" element={<OtherAdminProfile />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Routes>
         </div>
     )
