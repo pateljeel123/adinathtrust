@@ -706,32 +706,32 @@ const Footer = () => {
               </p>
             </motion.div>
             
-            <div className="flex flex-wrap items-center justify-center text-white text-sm gap-x-6 gap-y-2">
-              <motion.a 
-                whileHover={{ x: 3 }}
-                onClick={()=>navigate('/privacy-policy')} 
-                className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1"
-              >
-                <span>Privacy Policy</span>
-                <span className="h-px w-0 group-hover:w-full transition-all duration-300 bg-[#E0DBC7]"></span>
-              </motion.a>
-              <motion.a 
-                whileHover={{ x: 3 }}
-                href="#" 
-                className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1"
-              >
-                <span>Terms of Service</span>
-                <span className="h-px w-0 group-hover:w-full transition-all duration-300 bg-[#E0DBC7]"></span>
-              </motion.a>
-              <motion.a 
-                whileHover={{ x: 3 }}
-                href="#" 
-                className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1"
-              >
-                <span>Sitemap</span>
-                <span className="h-px w-0 group-hover:w-full transition-all duration-300 bg-[#E0DBC7]"></span>
-              </motion.a>
-            </div>
+         <div className="flex flex-wrap items-center justify-center text-white text-sm gap-x-6 gap-y-2">
+  <motion.a 
+    whileHover={{ x: 3 }}
+    onClick={()=>navigate('/privacy-policy')} 
+    className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1 cursor-pointer"
+  >
+    <span>Privacy Policy</span>
+    <span className="h-px w-0 group-hover:w-full transition-all duration-300 bg-[#E0DBC7]"></span>
+  </motion.a>
+  <motion.a 
+    whileHover={{ x: 3 }}
+    href="#" 
+    className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1 cursor-pointer"
+  >
+    <span>Terms of Service</span>
+    <span className="h-px w-0 group-hover:w-full transition-all duration-300 bg-[#E0DBC7]"></span>
+  </motion.a>
+  <motion.a 
+    whileHover={{ x: 3 }}
+    href="#" 
+    className="hover:text-[#E0DBC7] transition-colors duration-300 flex items-center gap-1 cursor-pointer"
+  >
+    <span>Sitemap</span>
+    <span className="h-px w-0 group-hover:w-full transition-all duration-300 bg-[#E0DBC7]"></span>
+  </motion.a>
+</div>
           </div>
           
           <div className="text-center mt-6 text-xs text-white/60">
