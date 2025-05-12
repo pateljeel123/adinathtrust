@@ -25,6 +25,7 @@ import dImage24 from '../assets/DoctorImages/IMG-20250509-WA0006.jpg';
 import dImage25 from '../assets/DoctorImages/IMG-20250509-WA0004.jpg';
 import dImage26 from '../assets/DoctorImages/IMG-20250509-WA0005.jpg';
 import dImage27 from '../assets/DoctorImages/IMG-20250509-WA0007.jpg';
+import dImage28 from '../assets/DoctorImages/DR Divya Img.jpg';
 
 export const medicalLocations = {
   "Medicines": [
@@ -550,7 +551,7 @@ export const doctorsBySpecialty = {
   ],
   "FAMILY PHYSICIAN": [
     {
-      image: dImage26,
+      image: dImage28,
       name: "Dr. Divya Solapurwala",
       qualification: "B.H.M.S",
       days: "Monday to Saturday",
