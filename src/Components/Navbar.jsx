@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { smoothScrollTo } from '../utiles/smoothScroll';
+import TrustLogo from '../logo/Trust Logo.png';
+import TrustName from '../logo/Trust Name.webp';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,11 +59,20 @@ const Navbar = () => {
     };
   }, []);
 
-  // Smooth scroll when URL has a hash
+  // Smooth scroll when URL has a hash or when navigating with state
   useEffect(() => {
+    // हैश के साथ URL के लिए स्मूथ स्क्रॉल
     if (location.hash && location.pathname === '/') {
       const timer = setTimeout(() => {
         smoothScrollTo(location.hash);
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+    
+    // state.scrollTo के साथ नेविगेशन के लिए स्मूथ स्क्रॉल
+    if (location.state?.scrollTo) {
+      const timer = setTimeout(() => {
+        smoothScrollTo(location.state.scrollTo);
       }, 100);
       return () => clearTimeout(timer);
     }
@@ -72,11 +83,8 @@ const Navbar = () => {
 
     if (isHash) {
       e?.preventDefault();
-      if (location.pathname === '/') {
-        smoothScrollTo(path);
-      } else {
-        navigate('/', { state: { scrollTo: path } });
-      }
+      // सीधे होम पेज पर नेविगेट करें और हैश लिंक पर स्क्रॉल करें
+      navigate('/', { state: { scrollTo: path } });
     } else {
       navigate(path);
     }
@@ -138,86 +146,113 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed w-full z-50 ${scrolled ? 'bg-[#F6F5EC] shadow-md' : 'bg-[#F6F5EC]'} transition-all duration-300`}
     >
-      <div className="container mx-auto px-4 sm:px-6 py-3 ">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center z-10"> 
             <motion.div
-              className="flex items-center space-x-2 md:space-x-4"
-              variants={logoVariants}
+              className="flex items-center space-x-2 xs:space-x-3 sm:space-x-3 md:space-x-4"
+              variants={{
+                initial: { opacity: 0, x: -20 },
+                animate: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
               initial="initial"
               animate="animate"
             >
               <motion.div
-                className="h-12 w-12 md:h-16 md:w-16"
-                whileHover={{ scale: 1.05 }}
+                className="h-11 w-11 xs:h-12 xs:w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-18 lg:w-18"
+                whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 <img
-                  src="https://adinathtrust.org/assets/img/logos/Trust%20Logo.png"
+                  src={TrustLogo}
                   alt="Trust Logo"
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-contain drop-shadow-sm"
                   loading="lazy"
                 />
               </motion.div>
-              <img
-                src="https://adinathtrust.org/assets/img/logos/Trust%20Name.webp"
+
+              <motion.img
+                src={TrustName}
                 alt="Trust Name"
-                className="h-8 md:h-10 w-auto object-contain"
+                className="h-7 xs:h-8 sm:h-9 md:h-10 lg:h-12 w-auto object-contain drop-shadow-sm"
                 loading="lazy"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
               />
             </motion.div>
           </Link>
 
           {/* Desktop Nav */}
           <motion.div
-            className="hidden lg:flex items-center space-x-1 bg-[#F6F5EC] rounded-full px-6 py-2"
-            variants={navVariants}
+            className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-[#F6F5EC] rounded-full px-4 xl:px-6 py-2"
+            variants={{
+              hidden: { opacity: 0, y: -20 },
+              visible: { 
+                opacity: 1, 
+                y: 0, 
+                transition: { 
+                  duration: 0.5, 
+                  ease: "easeOut",
+                  staggerChildren: 0.1 
+                } 
+              }
+            }}
             initial="hidden"
             animate="visible"
           >
-            {navItems.map((item) => (
-              <React.Fragment key={item.name}>
+            {navItems.map((item, index) => (
+              <motion.div 
+                key={item.name}
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0 }
+                }}
+              >
                 {item.isHash ? (
                   <a
                     href={item.path}
                     onClick={(e) => handleNavigation(item.path, item.isHash, e, item.name)}
-                    className={`px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017]' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
+                    className={`px-2 xl:px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017] font-semibold' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
                   >
                     {item.name}
                   </a>
                 ) : (
                   <Link
                     to={item.path}
-                    className={`px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017]' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
+                    className={`px-2 xl:px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017] font-semibold' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
                     onClick={() => setActiveItem(item.name)}
                   >
                     {item.name}
                   </Link>
                 )}
-              </React.Fragment>
+              </motion.div>
             ))}
           </motion.div>
 
           {/* Desktop Buttons */}
           <motion.div
-            className="hidden lg:flex items-center gap-4"
+            className="hidden lg:flex items-center gap-2 xl:gap-4"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
           >
             <div className="relative" ref={dropdownRef}>
               <motion.button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 bg-white border border-[#e8e6da] hover:bg-gray-50 transition-colors"
-                whileHover={{ scale: 1.03 }}
+                className="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium flex items-center gap-2 bg-white border border-[#e8e6da] hover:bg-gray-50 transition-colors shadow-sm"
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400 }}
               >
                 <span>🚑 Ambulance</span>
                 <motion.span
                   animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
                   className="text-xs"
                 >
                   ▼
@@ -230,21 +265,24 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute top-full right-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200"
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full right-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50"
                   >
                     <div className="py-1">
                       {["+91 78250 96000", "+91 74340 96000"].map((number) => (
-                        <button
+                        <motion.button
                           key={number}
                           className="w-full px-4 py-2.5 text-left hover:bg-amber-50 transition-colors flex items-center justify-between"
                           onClick={() => {
                             console.log(`Calling ${number}`);
                             setIsDropdownOpen(false);
                           }}
+                          whileHover={{ x: 2 }}
+                          whileTap={{ scale: 0.98 }}
                         >
                           <span>{number}</span>
                           <span className="text-amber-500">🚑</span>
-                        </button>
+                        </motion.button>
                       ))}
                     </div>
                   </motion.div>
@@ -253,101 +291,158 @@ const Navbar = () => {
             </div>
 
             <motion.button
-              whileHover={{ y: -2 }}
+              whileHover={{ y: -3, scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="px-4 py-2.5 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-sm shadow-md"
+              transition={{ type: "spring", stiffness: 400 }}
+              className="px-3 sm:px-4 py-2 sm:py-2.5 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-xs sm:text-sm shadow-md whitespace-nowrap"
             >
-            Show Your Blessing by donation
+              Show Your Blessing by donation
             </motion.button>
           </motion.div>
 
           {/* Mobile menu toggle */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden flex items-center justify-center p-2 rounded-full bg-white border border-[#e8e6da]"
+            className="lg:hidden flex items-center justify-center p-3 rounded-full bg-white border border-[#e8e6da] shadow-sm"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400 }}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <svg className="h-6 w-6 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6 sm:h-7 sm:w-7 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="h-6 w-6 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6 sm:h-7 sm:w-7 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="fixed inset-0 bg-black/30 z-40 lg:hidden"
-                onClick={() => setIsMenuOpen(false)}
-              />
+          {/* AnimatePresence for mobile menu */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setIsMenuOpen(false)}
+                />
 
-              <motion.div
-                ref={menuRef}
-                variants={mobileMenuVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="fixed lg:hidden w-full left-0 right-0 bg-[#F6F5EC] shadow-xl z-50"
-                style={{ top: '80px' }}
-              >
-                <div className="container mx-auto px-4 py-4">
-                  <motion.div className="space-y-2 mb-4">
-                    {navItems.map((item) => (
+                {/* Mobile Menu */}
+                <motion.div
+                  className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-[#F6F5EC] z-50 lg:hidden overflow-y-auto rounded-l-2xl shadow-xl"
+                  variants={mobileMenuVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                >
+                  <div className="sticky top-0 bg-[#F6F5EC] z-10 p-5 border-b border-amber-100 flex justify-between items-center">
+                    <div className="flex items-center space-x-3">
+                      <img src={TrustLogo} alt="Trust Logo" className="h-12 w-12 object-contain" />
+                      <img src={TrustName} alt="Trust Name" className="h-8 w-auto object-contain" />
+                    </div>
+                    <motion.button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="p-3 rounded-full bg-white border border-[#e8e6da] shadow-sm"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <svg className="h-6 w-6 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </motion.button>
+                  </div>
+
+                  <div className="p-5">
+                    <motion.div 
+                      className="grid grid-cols-1 gap-4 mb-6"
+                      variants={{
+                        visible: {
+                          transition: {
+                            staggerChildren: 0.08
+                          }
+                        }
+                      }}
+                    >
+                    {navItems.map((item, index) => (
                       <motion.div
                         key={item.name}
-                        variants={itemVariants}
+                        variants={{
+                          hidden: { opacity: 0, x: 20 },
+                          visible: { opacity: 1, x: 0 },
+                          exit: { opacity: 0, x: 20 }
+                        }}
+                        whileHover={{ x: 5 }}
                         whileTap={{ scale: 0.98 }}
                       >
                         {item.isHash ? (
                           <a
                             href={item.path}
-                            onClick={(e) => handleNavigation(item.path, item.isHash, e, item.name)}
-                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name ? 'bg-[#e8e6da] text-[#d4a017]' : 'text-[#5a4d3e] hover:bg-[#e8e6da]'} transition-colors`}
+                            onClick={(e) => {
+                              handleNavigation(item.path, item.isHash, e, item.name);
+                              setIsMenuOpen(false);
+                            }}
+                            className={`block px-5 py-4 text-lg font-medium rounded-xl ${activeItem === item.name ? 'bg-gradient-to-r from-amber-100 to-amber-50 text-[#d4a017] shadow-sm' : 'text-[#5a4d3e] hover:bg-amber-50'} transition-all duration-200 flex items-center justify-between`}
                           >
-                            {item.name}
+                            <span>{item.name}</span>
+                            {activeItem === item.name && (
+                              <motion.span 
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="text-amber-500 text-xl"
+                              >•</motion.span>
+                            )}
                           </a>
                         ) : (
                           <Link
                             to={item.path}
-                            className={`block px-4 py-3 text-base font-medium rounded-lg ${activeItem === item.name ? 'bg-[#e8e6da] text-[#d4a017]' : 'text-[#5a4d3e] hover:bg-[#e8e6da]'} transition-colors`}
-                            onClick={() => setActiveItem(item.name)}
+                            className={`block px-5 py-4 text-lg font-medium rounded-xl ${activeItem === item.name ? 'bg-gradient-to-r from-amber-100 to-amber-50 text-[#d4a017] shadow-sm' : 'text-[#5a4d3e] hover:bg-amber-50'} transition-all duration-200 flex items-center justify-between`}
+                            onClick={() => {
+                              setActiveItem(item.name);
+                              setIsMenuOpen(false);
+                            }}
                           >
-                            {item.name}
+                            <span>{item.name}</span>
+                            {activeItem === item.name && (
+                              <motion.span 
+                                initial={{ scale: 0 }}
+                                animate={{ scale: 1 }}
+                                className="text-amber-500 text-xl"
+                              >•</motion.span>
+                            )}
                           </Link>
                         )}
                       </motion.div>
                     ))}
                   </motion.div>
 
-                  <div className="space-y-3 pt-2 border-t border-[#e8e6da]">
+                  {/* Mobile Menu Buttons - Only visible in mobile menu */}
+                  <div className="space-y-4 pt-4 border-t border-[#e8e6da]">
                     <motion.button
+                      whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
-                      className="w-full px-4 py-3 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-sm shadow-md"
+                      className="w-full px-4 py-3 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-xl text-sm shadow-md flex items-center justify-center space-x-2"
                     >
-                      Show Your Blessing by donation
+                      <span>Show Your Blessing by donation</span>
+                      <span>🙏</span>
                     </motion.button>
-
                     <div className="relative">
                       <motion.button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="w-full px-4 py-3 bg-white border border-[#e8e6da] text-[#5a4d3e] font-medium rounded-full text-sm shadow-md flex items-center justify-center gap-2"
+                        className="w-full px-4 py-3 bg-white border border-[#e8e6da] text-[#5a4d3e] font-medium rounded-xl text-sm shadow-md flex items-center justify-center gap-2"
                       >
                         <span>🚑 Ambulance</span>
                         <motion.span
                           animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
                         >
                           ▼
                         </motion.span>
@@ -356,28 +451,39 @@ const Navbar = () => {
                       <AnimatePresence>
                         {isDropdownOpen && (
                           <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="mt-1 bg-white rounded-lg shadow-md border border-[#e8e6da] overflow-hidden"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-2 bg-white rounded-xl shadow-md border border-[#e8e6da] overflow-hidden z-50"
                           >
-                            {["+91 78250 96000", "+91 74340 96000"].map((number) => (
-                              <button
+                            {["+91 78250 96000", "+91 74340 96000"].map((number, index) => (
+                              <motion.button
                                 key={number}
-                                className="w-full px-4 py-2.5 text-left hover:bg-amber-50 transition-colors flex items-center justify-between"
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ 
+                                  opacity: 1, 
+                                  y: 0,
+                                  transition: { delay: index * 0.1 }
+                                }}
+                                className="w-full px-4 py-3 text-left hover:bg-amber-50 transition-colors flex items-center justify-between"
                                 onClick={() => {
                                   console.log(`Calling ${number}`);
                                   setIsDropdownOpen(false);
                                 }}
                               >
-                                <span>{number}</span>
-                                <span className="text-amber-500">🚑</span>
-                              </button>
+                                <span className="font-medium">{number}</span>
+                                <span className="text-amber-500 bg-amber-50 p-1.5 rounded-full">🚑</span>
+                              </motion.button>
                             ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
+                  </div>
+
+                  <div className="mt-8 pt-4 border-t border-[#e8e6da] text-center text-xs text-gray-500">
+                    <p>© 2023 Aadinath Trust. All rights reserved.</p>
                   </div>
                 </div>
               </motion.div>

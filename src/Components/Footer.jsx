@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   FaPhone,
   FaEnvelope,
@@ -16,6 +16,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import FooterImg from "../assets/FooterImg.jpeg";
 import { useNavigate } from 'react-router-dom';
+import TrustLogo from '../logo/Trust Logo.png';
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,23 @@ const Footer = () => {
     phone: '',
     message: ''
   });
+
+  // Add focus state for each input field
+  const [focusedField, setFocusedField] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    phone: false,
+    message: false
+  });
+
+  // Add refs for all input fields
+  const firstNameInputRef = useRef(null);
+  const lastNameInputRef = useRef(null);
+  const emailInputRef = useRef(null);
+  const phoneInputRef = useRef(null);
+  const messageInputRef = useRef(null);
+  const contactFormRef = useRef(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -40,6 +58,27 @@ const Footer = () => {
       ...prev,
       [name]: value
     }));
+  };
+
+  // Handle focus and blur events
+  const handleFocus = (name) => {
+    setFocusedField(prev => ({
+      ...prev,
+      [name]: true
+    }));
+  };
+
+  const handleBlur = (name) => {
+    setFocusedField(prev => ({
+      ...prev,
+      [name]: false
+    }));
+  };
+
+  const scrollToContactForm = () => {
+    if (contactFormRef.current) {
+      contactFormRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -240,8 +279,13 @@ const Footer = () => {
             style={{
               backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(224, 219, 199, 0.03) 0%, rgba(255, 255, 255, 0) 90%)'
             }}
+            ref={contactFormRef}
           >
-            <h2 id="contact-form-heading" className="text-2xl sm:text-3xl font-bold font-sans mb-6 sm:mb-8 relative inline-block">
+            <h2 
+              id="contact-form-heading" 
+              className="text-2xl sm:text-3xl font-bold font-sans mb-6 sm:mb-8 relative inline-block cursor-pointer"
+              onClick={scrollToContactForm}
+            >
               <span className="relative z-10 font-semibold" style={{ color: '#A48B4B' }}>
                 SEND US A MESSAGE
               </span>
@@ -280,17 +324,21 @@ const Footer = () => {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}
+                    onFocus={() => handleFocus('firstName')}
+                    onBlur={() => handleBlur('firstName')}
                     className="w-full p-3 sm:p-4 rounded-lg border-2 border-[#E0DBC7] bg-white focus:border-[#A48B4B] focus:outline-none focus:ring-2 focus:ring-[#A48B4B]/30 transition-all duration-300 group-hover:border-[#A48B4B]/50"
                     placeholder=" "
                     required
                     aria-required="true"
                     aria-labelledby="firstName-label"
+                    ref={firstNameInputRef}
                   />
                   <label
                     id="firstName-label"
                     htmlFor="firstName"
-                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 pointer-events-none"
-                    style={{ transform: formData.firstName ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 cursor-text"
+                    style={{ transform: formData.firstName || focusedField.firstName ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    onClick={() => firstNameInputRef.current.focus()}
                   >
                     First Name
                   </label>
@@ -308,17 +356,21 @@ const Footer = () => {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleInputChange}
+                    onFocus={() => handleFocus('lastName')}
+                    onBlur={() => handleBlur('lastName')}
                     className="w-full p-3 sm:p-4 rounded-lg border-2 border-[#E0DBC7] bg-white focus:border-[#A48B4B] focus:outline-none focus:ring-2 focus:ring-[#A48B4B]/30 transition-all duration-300 group-hover:border-[#A48B4B]/50"
                     placeholder=" "
                     required
                     aria-required="true"
                     aria-labelledby="lastName-label"
+                    ref={lastNameInputRef}
                   />
                   <label
                     id="lastName-label"
                     htmlFor="lastName"
-                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 pointer-events-none"
-                    style={{ transform: formData.lastName ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 cursor-text"
+                    style={{ transform: formData.lastName || focusedField.lastName ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    onClick={() => lastNameInputRef.current.focus()}
                   >
                     Last Name
                   </label>
@@ -338,17 +390,21 @@ const Footer = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    onFocus={() => handleFocus('email')}
+                    onBlur={() => handleBlur('email')}
                     className="w-full p-3 sm:p-4 rounded-lg border-2 border-[#E0DBC7] bg-white focus:border-[#A48B4B] focus:outline-none focus:ring-2 focus:ring-[#A48B4B]/30 transition-all duration-300 group-hover:border-[#A48B4B]/50"
                     placeholder=" "
                     required
                     aria-required="true"
                     aria-labelledby="email-label"
+                    ref={emailInputRef}
                   />
                   <label
                     id="email-label"
                     htmlFor="email"
-                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 pointer-events-none"
-                    style={{ transform: formData.email ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 cursor-text"
+                    style={{ transform: formData.email || focusedField.email ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    onClick={() => emailInputRef.current.focus()}
                   >
                     Email
                   </label>
@@ -366,17 +422,21 @@ const Footer = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
+                    onFocus={() => handleFocus('phone')}
+                    onBlur={() => handleBlur('phone')}
                     className="w-full p-3 sm:p-4 rounded-lg border-2 border-[#E0DBC7] bg-white focus:border-[#A48B4B] focus:outline-none focus:ring-2 focus:ring-[#A48B4B]/30 transition-all duration-300 group-hover:border-[#A48B4B]/50"
                     placeholder=" "
                     required
                     aria-required="true"
                     aria-labelledby="phone-label"
+                    ref={phoneInputRef}
                   />
                   <label
                     id="phone-label"
                     htmlFor="phone"
-                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-100 pointer-events-none"
-                    style={{ transform: formData.phone ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-100 cursor-text"
+                    style={{ transform: formData.phone || focusedField.phone ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                    onClick={() => phoneInputRef.current.focus()}
                   >
                     Phone Number
                   </label>
@@ -394,18 +454,22 @@ const Footer = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
+                  onFocus={() => handleFocus('message')}
+                  onBlur={handleBlur}
                   rows="4"
-                  className="w-full p-3 sm:p-4 rounded-lg border-2 border-[#E0DBC7] bg-white focus:border-[#A48B4B] focus:outline-none focus:ring-2 focus:ring-[#A48B4B]/30 transition-all duration-300 group-hover:border-[#A48B4B]/50"
+                  className="w-full p-3 sm:p-4 rounded-lg border-2 border-[#E0DBC7] bg-white focus:border-[#A48B4B] focus:outline-none focus:ring-2 focus:ring-[#A48B4B]/30 transition-all duration-300 group-hover:border-[#A48B4B]/50 min-h-[120px] resize-y"
                   placeholder=" "
                   required
                   aria-required="true"
                   aria-labelledby="message-label"
+                  ref={messageInputRef}
                 ></textarea>
                 <label
                   id="message-label"
                   htmlFor="message"
-                  className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 pointer-events-none"
-                  style={{ transform: formData.message ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                  className="absolute left-3 sm:left-4 top-3 sm:top-4 px-1 bg-white text-[#5D5342] text-sm sm:text-base transition-all duration-300 cursor-text font-medium"
+                  style={{ transform: formData.message || focusedField === 'message' ? 'translateY(-1.5rem) scale(0.9)' : 'none' }}
+                  onClick={() => messageInputRef.current.focus()}
                 >
                   Message
                 </label>
@@ -697,7 +761,7 @@ const Footer = () => {
               className="flex items-center"
             >
               <img 
-                src="https://adinathtrust.org/assets/img/logos/Trust%20Logo.png" 
+                src={TrustLogo} 
                 alt="Aadinath Trust Logo" 
                 className="h-10 w-10 mr-3 object-contain"
               />
@@ -735,7 +799,7 @@ const Footer = () => {
           </div>
           
           <div className="text-center mt-6 text-xs text-white/60">
-            <p>Designed with <FaHeart className="inline-block text-red-400 mx-1" size={12} /> for better healthcare access</p>
+            <p>Designed for a 💗 healthier tomorrow — powered by Deepnex.</p>
           </div>
         </div>
       </div>
@@ -744,3 +808,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

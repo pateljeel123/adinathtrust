@@ -11,7 +11,7 @@ export default function OtherAdminProfile() {
     const primaryDarker = "#393F2A";
 
     return (
-        <div className="space-y-10 py-10 px-4 max-w-7xl mx-auto">
+        <div className="space-y-10 py-10 px-4 max-w-7xl mx-auto mt-15">
             {/* Admin Corner Header */}
             <div className="relative overflow-hidden rounded-2xl shadow-lg mb-12">
                 <div 

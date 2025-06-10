@@ -27,6 +27,9 @@ import dImage26 from '../assets/DoctorImages/IMG-20250509-WA0005.jpg';
 import dImage27 from '../assets/DoctorImages/IMG-20250509-WA0007.jpg';
 import dImage28 from '../assets/DoctorImages/DR Divya Img.jpg';
 
+
+
+
 export const medicalLocations = {
   "Medicines": [
     {
@@ -119,7 +122,7 @@ export const medicalLocations = {
   "Cardiac Ambulance": [
     {
       name: "Cardiac Ambulance Services",
-      address: "ventilator, Dr. consulting, Suction machine, ECG, Medicines, Infusion Service, Blood Pressure Machine, Diabetes Check-up, Emergency Critical Care, Pressure Syringe Pump, Difibhrillator Machine, Nebulizer, Oxygen, Oxymeter, Ambulance Service",
+      address: "ventilator, Dr. consulting, Suction machine, ECG, Medicines, Infusion Service, Blood Pressure Machine, Diabetes Check-up, Pressure Syringe Pump, Difibhrillator Machine, Nebulizer, Oxygen, Oxymeter, Ambulance Service",
       phone: "7826096000",
       isSpecial: true,
       note: "માનનીય સંસદસભ્ય શ્રી દર્શનાબેન જરદોશ ની ગાંસમાંથી ફાળવણી."
@@ -151,24 +154,17 @@ export const medicalLocations = {
   ]
 };
 
-export const Hospitalimages = [
-  { id: 1, url: 'https://adinathtrust.org/assets/img/gallery/CC_S1677.jpg', title: 'Modern Operating Theater', description: 'State-of-the-art surgical facilities' },
-  { id: 2, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.58_316908dd.webp', title: 'Comfortable Patient Rooms', description: 'Private rooms with scenic views' },
-  { id: 3, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.34_cdcaf2ea.webp', title: 'Advanced Imaging Center', description: 'Latest diagnostic technology' },
-  { id: 4, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.35_f74350a2.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 5, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.35_e4a0958e.webp', title: 'Modern Operating Theater', description: 'State-of-the-art surgical facilities' },
-  { id: 6, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.37_afa7478f.webp', title: 'Comfortable Patient Rooms', description: 'Private rooms with scenic views' },
-  { id: 11, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.59_e2b9ee79.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 14, url: 'https://adinathtrust.org/assets/img/photos/15.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 15, url: 'https://adinathtrust.org/assets/img/photos/14.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 7, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.39_2c222f69.webp', title: 'Advanced Imaging Center', description: 'Latest diagnostic technology' },
-  { id: 8, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.40_b5869fe1.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 9, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.41_7f7ce9bb.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 10, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.07_b9d7f7d2.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 10, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.05_8eeec80c.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 12, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.57_3de235cf.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-  { id: 13, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.20.56_75380886.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
-]
+import image1 from '../infrastrure_images/0O3A1600.jpg';
+import image2 from '../infrastrure_images/0O3A1603.jpg';
+import image3 from '../infrastrure_images/0O3A1606.jpg';
+import image4 from '../infrastrure_images/0O3A1609.jpg';
+import image5 from '../infrastrure_images/0O3A1611.jpg';
+import image6 from '../infrastrure_images/0O3A1699.jpg';
+import image7 from '../infrastrure_images/0O3A1717.jpg';
+import image8 from '../infrastrure_images/0O3A1779.jpg';
+import image9 from '../infrastrure_images/0O3A1783.jpg';
+import image10 from '../infrastrure_images/0O3A1837.jpg';
+import image11 from '../infrastrure_images/0O3A1844.jpg';
 
 export const NewsImages = [
   { id: 20, url: 'https://adinathtrust.org/assets/img/gallery/new%2031.8.24/WhatsApp%20Image%202024-08-31%20at%2017.21.07_b9d7f7d2.webp', title: 'Pediatric Wing', description: 'Child-friendly environment' },
@@ -668,3 +664,17 @@ export const doctorsBySpecialty = {
     }
   ]
 };
+
+export const Hospitalimages = [
+  { id: 1, url: image1, title: 'Hospital Infrastructure', description: 'Modern hospital facilities' },
+  { id: 2, url: image2, title: 'Hospital Infrastructure', description: 'State-of-the-art equipment' },
+  { id: 3, url: image3, title: 'Hospital Infrastructure', description: 'Advanced medical technology' },
+  { id: 4, url: image4, title: 'Hospital Infrastructure', description: 'Comfortable patient areas' },
+  { id: 5, url: image5, title: 'Hospital Infrastructure', description: 'Modern medical facilities' },
+  { id: 6, url: image6, title: 'Hospital Infrastructure', description: 'Well-equipped treatment rooms' },
+  { id: 7, url: image7, title: 'Hospital Infrastructure', description: 'Advanced healthcare infrastructure' },
+  { id: 8, url: image8, title: 'Hospital Infrastructure', description: 'Quality healthcare environment' },
+  { id: 9, url: image9, title: 'Hospital Infrastructure', description: 'Modern medical infrastructure' },
+  { id: 10, url: image10, title: 'Hospital Infrastructure', description: 'State-of-the-art hospital facilities' },
+  { id: 11, url: image11, title: 'Hospital Infrastructure', description: 'Advanced healthcare facilities' },
+]

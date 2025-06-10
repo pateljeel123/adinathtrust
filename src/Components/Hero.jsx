@@ -121,7 +121,7 @@ const ChakraWithParticles = () => {
       <div className="absolute z-15 w-[500px] h-[500px] rounded-full bg-gradient-radial from-yellow-300/30 via-transparent to-transparent blur-[150px] opacity-40 animate-pulse-slow"></div>
 
       {/* Chakra & Murti */}
-      <div className="relative z-20 w-[500px] h-[500px] md:w-[600px] md:h-[600px]">
+      <div className="relative z-20 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px]">
         <div className="absolute inset-0 flex items-center justify-center">
           <img
             src={chakraImg}
