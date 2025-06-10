@@ -149,12 +149,12 @@ const Navbar = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed w-full z-50 ${scrolled ? 'bg-[#F6F5EC] shadow-md' : 'bg-[#F6F5EC]'} transition-all duration-300`}
     >
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center z-10"> 
             <motion.div
-              className="flex items-center space-x-2 xs:space-x-3 sm:space-x-3 md:space-x-4"
+              className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-2.5 md:space-x-3"
               variants={{
                 initial: { opacity: 0, x: -20 },
                 animate: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -163,7 +163,7 @@ const Navbar = () => {
               animate="animate"
             >
               <motion.div
-                className="h-11 w-11 xs:h-12 xs:w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-18 lg:w-18"
+                className="h-9 w-9 xs:h-10 xs:w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-14 lg:w-14"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -179,7 +179,7 @@ const Navbar = () => {
               <motion.img
                 src={TrustName}
                 alt="Trust Name"
-                className="h-7 xs:h-8 sm:h-9 md:h-10 lg:h-12 w-auto object-contain drop-shadow-sm"
+                className="h-6 xs:h-7 sm:h-8 md:h-9 lg:h-10 w-auto object-contain drop-shadow-sm"
                 loading="lazy"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -189,7 +189,7 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <motion.div
-            className="hidden lg:flex items-center space-x-1 xl:space-x-2 bg-[#F6F5EC] rounded-full px-4 xl:px-6 py-2"
+            className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 bg-[#F6F5EC] rounded-full px-3 xl:px-4 py-1.5"
             variants={{
               hidden: { opacity: 0, y: -20 },
               visible: { 
@@ -217,14 +217,14 @@ const Navbar = () => {
                   <a
                     href={item.path}
                     onClick={(e) => handleNavigation(item.path, item.isHash, e, item.name)}
-                    className={`px-2 xl:px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017] font-semibold' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
+                    className={`px-1.5 xl:px-2.5 py-1.5 rounded-full text-xs font-medium ${activeItem === item.name ? 'text-[#d4a017] font-semibold' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
                   >
                     {item.name}
                   </a>
                 ) : (
                   <Link
                     to={item.path}
-                    className={`px-2 xl:px-3 py-2 rounded-full text-sm font-medium ${activeItem === item.name ? 'text-[#d4a017] font-semibold' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
+                    className={`px-1.5 xl:px-2.5 py-1.5 rounded-full text-xs font-medium ${activeItem === item.name ? 'text-[#d4a017] font-semibold' : 'text-[#5a4d3e]'} hover:text-[#d4a017] transition-colors duration-200`}
                     onClick={() => setActiveItem(item.name)}
                   >
                     {item.name}
@@ -236,7 +236,7 @@ const Navbar = () => {
 
           {/* Desktop Buttons */}
           <motion.div
-            className="hidden lg:flex items-center gap-2 xl:gap-4"
+            className="hidden lg:flex items-center gap-1.5 xl:gap-3"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
@@ -244,12 +244,15 @@ const Navbar = () => {
             <div className="relative" ref={dropdownRef}>
               <motion.button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium flex items-center gap-2 bg-white border border-[#e8e6da] hover:bg-gray-50 transition-colors shadow-sm"
-                whileHover={{ scale: 1.03, y: -2 }}
+                className="px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 bg-red-50 border border-red-100 hover:bg-red-100 transition-colors shadow-sm text-red-700"
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <span>🚑 Ambulance</span>
+                <span className="flex items-center gap-1">
+                  <span className="text-base">🚑</span>
+                  <span>Ambulance</span>
+                </span>
                 <motion.span
                   animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -266,23 +269,33 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full right-0 mt-1 w-56 bg-white rounded-md shadow-lg border border-gray-200 z-50"
+                    className="absolute top-full right-0 mt-1.5 w-56 bg-white rounded-lg shadow-lg border border-gray-100 z-50 overflow-hidden"
                   >
-                    <div className="py-1">
-                      {["+91 78250 96000", "+91 74340 96000"].map((number) => (
-                        <motion.button
+                    <div className="py-1.5">
+                      <div className="px-3 py-1.5 bg-red-50 text-red-700 font-medium text-xs border-b border-gray-100">
+                        Emergency Contact Numbers
+                      </div>
+                      {["+91 78250 96000", "+91 74340 96000"].map((number, index) => (
+                        <motion.a
                           key={number}
-                          className="w-full px-4 py-2.5 text-left hover:bg-amber-50 transition-colors flex items-center justify-between"
+                          href={`tel:${number.replace(/\s+/g, '')}`}
+                          className="w-full px-3 py-2 text-left hover:bg-amber-50 transition-colors flex items-center justify-between"
                           onClick={() => {
-                            console.log(`Calling ${number}`);
                             setIsDropdownOpen(false);
                           }}
-                          whileHover={{ x: 2 }}
+                          whileHover={{ x: 2, backgroundColor: "rgba(251, 191, 36, 0.1)" }}
                           whileTap={{ scale: 0.98 }}
                         >
-                          <span>{number}</span>
-                          <span className="text-amber-500">🚑</span>
-                        </motion.button>
+                          <div className="flex flex-col">
+                            <span className="font-medium text-gray-800 text-xs">{number}</span>
+                            <span className="text-xs text-gray-500">{index === 0 ? "Primary" : "Secondary"}</span>
+                          </div>
+                          <span className="h-6 w-6 flex items-center justify-center bg-red-100 text-red-500 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                            </svg>
+                          </span>
+                        </motion.a>
                       ))}
                     </div>
                   </motion.div>
@@ -291,10 +304,10 @@ const Navbar = () => {
             </div>
 
             <motion.button
-              whileHover={{ y: -3, scale: 1.03 }}
+              whileHover={{ y: -2, scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400 }}
-              className="px-3 sm:px-4 py-2 sm:py-2.5 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-xs sm:text-sm shadow-md whitespace-nowrap"
+              className="px-2.5 sm:px-3 py-1.5 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-full text-xs shadow-sm whitespace-nowrap"
             >
               Show Your Blessing by donation
             </motion.button>
@@ -303,18 +316,18 @@ const Navbar = () => {
           {/* Mobile menu toggle */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden flex items-center justify-center p-3 rounded-full bg-white border border-[#e8e6da] shadow-sm"
+            className="lg:hidden flex items-center justify-center p-2 rounded-full bg-white border border-[#e8e6da] shadow-sm"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 400 }}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <svg className="h-6 w-6 sm:h-7 sm:w-7 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5 sm:h-6 sm:w-6 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="h-6 w-6 sm:h-7 sm:w-7 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5 sm:h-6 sm:w-6 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -342,26 +355,26 @@ const Navbar = () => {
                   animate="visible"
                   exit="exit"
                 >
-                  <div className="sticky top-0 bg-[#F6F5EC] z-10 p-5 border-b border-amber-100 flex justify-between items-center">
-                    <div className="flex items-center space-x-3">
-                      <img src={TrustLogo} alt="Trust Logo" className="h-12 w-12 object-contain" />
-                      <img src={TrustName} alt="Trust Name" className="h-8 w-auto object-contain" />
+                  <div className="sticky top-0 bg-[#F6F5EC] z-10 p-4 border-b border-amber-100 flex justify-between items-center">
+                    <div className="flex items-center space-x-2.5">
+                      <img src={TrustLogo} alt="Trust Logo" className="h-10 w-10 object-contain" />
+                      <img src={TrustName} alt="Trust Name" className="h-7 w-auto object-contain" />
                     </div>
                     <motion.button
                       onClick={() => setIsMenuOpen(false)}
-                      className="p-3 rounded-full bg-white border border-[#e8e6da] shadow-sm"
+                      className="p-2.5 rounded-full bg-white border border-[#e8e6da] shadow-sm"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <svg className="h-6 w-6 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="h-5 w-5 text-[#5a4d3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </motion.button>
                   </div>
 
-                  <div className="p-5">
+                  <div className="p-4">
                     <motion.div 
-                      className="grid grid-cols-1 gap-4 mb-6"
+                      className="grid grid-cols-1 gap-3 mb-5"
                       variants={{
                         visible: {
                           transition: {
@@ -388,21 +401,21 @@ const Navbar = () => {
                               handleNavigation(item.path, item.isHash, e, item.name);
                               setIsMenuOpen(false);
                             }}
-                            className={`block px-5 py-4 text-lg font-medium rounded-xl ${activeItem === item.name ? 'bg-gradient-to-r from-amber-100 to-amber-50 text-[#d4a017] shadow-sm' : 'text-[#5a4d3e] hover:bg-amber-50'} transition-all duration-200 flex items-center justify-between`}
+                            className={`block px-4 py-3 text-base font-medium rounded-xl ${activeItem === item.name ? 'bg-gradient-to-r from-amber-100 to-amber-50 text-[#d4a017] shadow-sm' : 'text-[#5a4d3e] hover:bg-amber-50'} transition-all duration-200 flex items-center justify-between`}
                           >
                             <span>{item.name}</span>
                             {activeItem === item.name && (
                               <motion.span 
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
-                                className="text-amber-500 text-xl"
+                                className="text-amber-500 text-lg"
                               >•</motion.span>
                             )}
                           </a>
                         ) : (
                           <Link
                             to={item.path}
-                            className={`block px-5 py-4 text-lg font-medium rounded-xl ${activeItem === item.name ? 'bg-gradient-to-r from-amber-100 to-amber-50 text-[#d4a017] shadow-sm' : 'text-[#5a4d3e] hover:bg-amber-50'} transition-all duration-200 flex items-center justify-between`}
+                            className={`block px-4 py-3 text-base font-medium rounded-xl ${activeItem === item.name ? 'bg-gradient-to-r from-amber-100 to-amber-50 text-[#d4a017] shadow-sm' : 'text-[#5a4d3e] hover:bg-amber-50'} transition-all duration-200 flex items-center justify-between`}
                             onClick={() => {
                               setActiveItem(item.name);
                               setIsMenuOpen(false);
@@ -413,7 +426,7 @@ const Navbar = () => {
                               <motion.span 
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
-                                className="text-amber-500 text-xl"
+                                className="text-amber-500 text-lg"
                               >•</motion.span>
                             )}
                           </Link>
@@ -423,11 +436,11 @@ const Navbar = () => {
                   </motion.div>
 
                   {/* Mobile Menu Buttons - Only visible in mobile menu */}
-                  <div className="space-y-4 pt-4 border-t border-[#e8e6da]">
+                  <div className="space-y-3 pt-3 border-t border-[#e8e6da]">
                     <motion.button
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
-                      className="w-full px-4 py-3 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-xl text-sm shadow-md flex items-center justify-center space-x-2"
+                      className="w-full px-4 py-2.5 bg-gradient-to-r from-[#ef8a17] to-[#d4a017] text-white font-medium rounded-xl text-xs shadow-md flex items-center justify-center space-x-2"
                     >
                       <span>Show Your Blessing by donation</span>
                       <span>🙏</span>
@@ -437,9 +450,12 @@ const Navbar = () => {
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="w-full px-4 py-3 bg-white border border-[#e8e6da] text-[#5a4d3e] font-medium rounded-xl text-sm shadow-md flex items-center justify-center gap-2"
+                        className="w-full px-4 py-2.5 bg-red-50 border border-red-100 text-red-700 font-medium rounded-xl text-xs shadow-md flex items-center justify-center gap-2"
                       >
-                        <span>🚑 Ambulance</span>
+                        <span className="flex items-center gap-1">
+                          <span className="text-base">🚑</span>
+                          <span>Ambulance</span>
+                        </span>
                         <motion.span
                           animate={{ rotate: isDropdownOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
@@ -455,26 +471,36 @@ const Navbar = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
                             transition={{ duration: 0.3 }}
-                            className="mt-2 bg-white rounded-xl shadow-md border border-[#e8e6da] overflow-hidden z-50"
+                            className="mt-1.5 bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden z-50"
                           >
+                            <div className="px-3 py-1.5 bg-red-50 text-red-700 font-medium text-xs border-b border-gray-100">
+                              Emergency Contact Numbers
+                            </div>
                             {["+91 78250 96000", "+91 74340 96000"].map((number, index) => (
-                              <motion.button
+                              <motion.a
                                 key={number}
+                                href={`tel:${number.replace(/\s+/g, '')}`}
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ 
                                   opacity: 1, 
                                   y: 0,
                                   transition: { delay: index * 0.1 }
                                 }}
-                                className="w-full px-4 py-3 text-left hover:bg-amber-50 transition-colors flex items-center justify-between"
+                                className="w-full px-3 py-2.5 text-left hover:bg-amber-50 transition-colors flex items-center justify-between"
                                 onClick={() => {
-                                  console.log(`Calling ${number}`);
                                   setIsDropdownOpen(false);
                                 }}
                               >
-                                <span className="font-medium">{number}</span>
-                                <span className="text-amber-500 bg-amber-50 p-1.5 rounded-full">🚑</span>
-                              </motion.button>
+                                <div className="flex flex-col">
+                                  <span className="font-medium text-gray-800 text-xs">{number}</span>
+                                  <span className="text-xs text-gray-500">{index === 0 ? "Primary" : "Secondary"}</span>
+                                </div>
+                                <span className="h-6 w-6 flex items-center justify-center bg-red-100 text-red-500 rounded-full">
+                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                  </svg>
+                                </span>
+                              </motion.a>
                             ))}
                           </motion.div>
                         )}
@@ -482,7 +508,7 @@ const Navbar = () => {
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-4 border-t border-[#e8e6da] text-center text-xs text-gray-500">
+                  <div className="mt-6 pt-3 border-t border-[#e8e6da] text-center text-xs text-gray-500">
                     <p>© 2023 Aadinath Trust. All rights reserved.</p>
                   </div>
                 </div>
