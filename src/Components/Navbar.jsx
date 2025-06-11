@@ -154,7 +154,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center z-10"> 
             <motion.div
-              className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-2.5 md:space-x-3"
+              className="flex items-center space-x-1 xxs:space-x-1.5 xs:space-x-2 sm:space-x-2.5 md:space-x-3 lg:space-x-4"
               variants={{
                 initial: { opacity: 0, x: -20 },
                 animate: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -163,7 +163,7 @@ const Navbar = () => {
               animate="animate"
             >
               <motion.div
-                className="h-9 w-9 xs:h-10 xs:w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-14 lg:w-14"
+                className="h-7 w-7 xxs:h-8 xxs:w-8 xs:h-9 xs:w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 lg:h-12 lg:w-12 xl:h-14 xl:w-14 2xl:h-16 2xl:w-16"
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -179,7 +179,7 @@ const Navbar = () => {
               <motion.img
                 src={TrustName}
                 alt="Trust Name"
-                className="h-6 xs:h-7 sm:h-8 md:h-9 lg:h-10 w-auto object-contain drop-shadow-sm"
+                className="h-5 xxs:h-6 xs:h-7 sm:h-8 md:h-9 lg:h-10 xl:h-11 2xl:h-12 w-auto object-contain drop-shadow-sm"
                 loading="lazy"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
