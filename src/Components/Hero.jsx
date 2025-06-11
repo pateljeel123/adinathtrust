@@ -22,6 +22,7 @@ const ChakraWithParticles = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isSmallMobile, setIsSmallMobile] = useState(false);
+  const [isChakraLoaded, setIsChakraLoaded] = useState(false);
 
   useEffect(() => {
     const checkDeviceSize = () => {
@@ -29,14 +30,19 @@ const ChakraWithParticles = () => {
       setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
       setIsSmallMobile(window.innerWidth < 380);
     };
-
+    
     checkDeviceSize();
     window.addEventListener('resize', checkDeviceSize);
-
+    
     return () => {
       window.removeEventListener('resize', checkDeviceSize);
     };
   }, []);
+
+  // Handle chakra image loading
+  const handleChakraLoad = () => {
+    setIsChakraLoaded(true);
+  };
 
   // Adjust number of symbols based on device size
   const symbolCount = isMobile ? 10 : isTablet ? 15 : 20;
@@ -147,16 +153,23 @@ const ChakraWithParticles = () => {
       <div className={`absolute z-15 ${isMobile ? 'w-[250px] h-[250px]' : isTablet ? 'w-[350px] h-[350px]' : 'w-[500px] h-[500px]'} rounded-full bg-gradient-radial from-yellow-300/30 via-transparent to-transparent blur-[150px] opacity-40 animate-pulse-slow`}></div>
 
       {/* Chakra & Murti - Adjust size and position for mobile */}
-      <div className={`relative z-20 ${isSmallMobile ? 'w-[280px] h-[280px] mt-10' : isMobile ? 'w-[320px] h-[320px] mt-8' : isTablet ? 'w-[450px] h-[450px] mt-4' : 'w-[600px] h-[600px]'}`}>
+      <div className={`relative z-20 ${isSmallMobile ? 'w-[290px] h-[290px] mt-10' : isMobile ? 'w-[320px] h-[320px] mt-8' : isTablet ? 'w-[450px] h-[450px] mt-4' : 'w-[600px] h-[600px] mt-20'}`}>
         <div className="absolute inset-0 flex items-center justify-center">
+          {!isChakraLoaded && (
+            <div className="w-full h-full flex items-center justify-center">
+              {/* <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div> */}
+            </div>
+          )}
           <img
             src={chakraImg}
             alt="Chakra"
-            className="w-full h-full object-contain spin-anticlockwise-animation"
+            loading="lazy"
+            onLoad={handleChakraLoad}
+            className={`w-full h-full object-contain spin-anticlockwise-animation ${isChakraLoaded ? 'opacity-95' : 'opacity-0'}`}
             style={{
               filter: "drop-shadow(0 0 40px rgba(255, 215, 0, 0.7)) brightness(1.2)",
-              opacity: 0.95,
-              transform: isSmallMobile ? "scale(1.15)" : isMobile ? "scale(1.12)" : "scale(1.1)"
+              transform: isSmallMobile ? "scale(1.15)" : isMobile ? "scale(1.12)" : "scale(1.1)",
+              transition: "opacity 0.5s ease-in-out"
             }}
           />
         </div>
@@ -164,6 +177,7 @@ const ChakraWithParticles = () => {
           <img
             src={murtiImg}
             alt="Murti"
+            loading="lazy"
             className={`object-contain gentle-pulse-animation ${isSmallMobile ? 'w-[85%] h-[85%]' : isMobile ? 'w-[80%] h-[80%]' : 'w-3/4 h-3/4'}`}
             style={{
               filter: "drop-shadow(0 0 40px rgba(255, 255, 255, 0.7)) brightness(1.1)"

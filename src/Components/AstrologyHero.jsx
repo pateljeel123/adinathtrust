@@ -20,7 +20,7 @@ const AstrologyHero = () => {
 
           {/* Sanskrit Verse - Om symbol */}
           <div className="mb-8 relative">
-            <div className="hidden lg:block absolute -top-3 left-0 text-4xl lg:text-5xl xl:text-6xl text-orange-400">
+            <div className="hidden lg:block absolute -top-3 -left-8 text-4xl lg:text-5xl xl:text-6xl text-orange-400">
               ॐ
             </div>
             <p className="text-2xl lg:text-3xl xl:text-4xl font-sanskrit text-orange-800 leading-tight text-center mb-6">

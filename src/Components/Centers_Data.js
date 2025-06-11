@@ -666,15 +666,14 @@ export const doctorsBySpecialty = {
 };
 
 export const Hospitalimages = [
-  { id: 1, url: image1, title: 'Hospital Infrastructure', description: 'Modern hospital facilities' },
-  { id: 2, url: image2, title: 'Hospital Infrastructure', description: 'State-of-the-art equipment' },
-  { id: 3, url: image3, title: 'Hospital Infrastructure', description: 'Advanced medical technology' },
-  { id: 4, url: image4, title: 'Hospital Infrastructure', description: 'Comfortable patient areas' },
-  { id: 5, url: image5, title: 'Hospital Infrastructure', description: 'Modern medical facilities' },
-  { id: 6, url: image6, title: 'Hospital Infrastructure', description: 'Well-equipped treatment rooms' },
-  { id: 7, url: image7, title: 'Hospital Infrastructure', description: 'Advanced healthcare infrastructure' },
-  { id: 8, url: image8, title: 'Hospital Infrastructure', description: 'Quality healthcare environment' },
-  { id: 9, url: image9, title: 'Hospital Infrastructure', description: 'Modern medical infrastructure' },
-  { id: 10, url: image10, title: 'Hospital Infrastructure', description: 'State-of-the-art hospital facilities' },
-  { id: 11, url: image11, title: 'Hospital Infrastructure', description: 'Advanced healthcare facilities' },
+  { id: 1, url: image1, title: 'Entrance'},
+  { id: 2, url: image2, title: 'Waiting Area' },
+  { id: 3, url: image3, title: 'Ayurveda',  },
+  { id: 4, url: image4, title: 'Day Care',  },
+  { id: 5, url: image5, title: 'Physiotherapy',  },
+  { id: 6, url: image6, title: 'Reception', },
+  { id: 7, url: image7, title: 'Blood Testing',  },
+  { id: 8, url: image8, title: 'Dental',  },
+  { id: 9, url: image9, title: 'Counselling',  },
+  { id: 10, url: image10, title: 'Diseases Related to Blood', }
 ]

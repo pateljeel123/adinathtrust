@@ -60,13 +60,42 @@ const Gallery = ({ images }) => {
         slideWidth = 420; // Desktop size
       }
       
-      offset = currentIndex * slideWidth;
+      // Calculate maximum index to prevent showing empty space at the end
+      const visibleSlides = Math.floor(window.innerWidth / slideWidth);
+      const maxIndex = Math.max(0, images.length - visibleSlides);
+      
+      // Ensure currentIndex doesn't exceed maxIndex
+      const boundedIndex = Math.min(currentIndex, maxIndex);
+      if (boundedIndex !== currentIndex) {
+        setCurrentIndex(boundedIndex);
+      }
+      
+      offset = boundedIndex * slideWidth;
       centerOffset = (window.innerWidth - slideWidth) / 2;
       
       // Apply centering transformation with smoother animation
       sliderRef.current.style.transform = `translateX(${-offset + centerOffset}px)`;
     }
-  }, [currentIndex, isMobile, isTablet]);
+  }, [currentIndex, isMobile, isTablet, images.length]);
+
+  // Calculate scroll progress
+  useEffect(() => {
+    // Calculate maximum valid index for progress bar
+    const visibleSlides = isMobile 
+      ? Math.floor(window.innerWidth / (window.innerWidth * 0.85))
+      : isTablet 
+        ? Math.floor(window.innerWidth / (window.innerWidth * 0.75))
+        : Math.floor(window.innerWidth / 420);
+    
+    const maxValidIndex = Math.max(0, images.length - visibleSlides);
+    
+    // Calculate progress based on current position relative to max valid position
+    const progress = maxValidIndex > 0 
+      ? (currentIndex / maxValidIndex) * 100
+      : 100;
+    
+    setScrollProgress(progress);
+  }, [currentIndex, images.length, isMobile, isTablet]);
 
   const handleImageClick = (image, index) => {
     setSelectedImage(image);
@@ -206,6 +235,7 @@ const Gallery = ({ images }) => {
         <motion.div
           ref={sliderRef}
           className={`flex ${isMobile ? 'px-0' : isTablet ? 'px-3' : 'px-4 md:px-10'} py-4 sm:py-5`}
+          style={{ width: 'fit-content', minWidth: '100%' }}
           animate={{
             x: isMobile 
               ? -currentIndex * (window.innerWidth * 0.85) + ((window.innerWidth - (window.innerWidth * 0.85)) / 2)
@@ -315,20 +345,8 @@ const Gallery = ({ images }) => {
           </motion.button>
         </div>
 
-        {/* Auto Play Toggle Button - Repositioned for better mobile access */}
-        <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 md:bottom-8 md:right-8 z-20">
-          <motion.button
-            className={`p-1.5 sm:p-2 md:p-3 rounded-full shadow-lg transition-all ${autoPlay ? 'bg-[#A48B4B] text-white' : 'bg-gray-200 text-gray-600'}`}
-            onClick={() => setAutoPlay(!autoPlay)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            title={autoPlay ? "Pause auto-slide" : "Resume auto-slide"}
-          >
-            <span className="text-xs sm:text-xs md:text-sm font-medium">
-              {autoPlay ? "Auto" : "Manual"}
-            </span>
-          </motion.button>
-        </div>
+        {/* Remove Auto Play Toggle Button */}
+
       </div>
 
       {/* Progress Bar - Optimized for all screen sizes */}
@@ -344,7 +362,7 @@ const Gallery = ({ images }) => {
       {/* Dots Indicator - Enhanced for better visibility on all devices */}
       <div className="flex justify-center mt-3 sm:mt-4 md:mt-6 overflow-x-auto pb-1 sm:pb-2 px-3 sm:px-4">
         <div className="flex space-x-1 sm:space-x-1.5 md:space-x-2">
-          {images.map((_, index) => (
+          {images.slice(0, images.length - 2).map((_, index) => (
             <motion.button
               key={index}
               className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all ${currentIndex === index ? 'bg-[#727B4E]' : 'bg-gray-300'}`}
@@ -479,4 +497,4 @@ const swipePower = (offset, velocity) => {
 
 const swipeConfidenceThreshold = 10000;
 
-export default Gallery;
+export default Gallery;10
