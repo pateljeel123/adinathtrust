@@ -308,14 +308,6 @@ export const doctorsBySpecialty = {
       gender: "male"
     },
     {
-      image: "",
-      name: "Dr. Ashish Bharoliya",
-      qualification: "M.B.B.S, M.S (OPTHAL)",
-      days: "Monday, Wednesday, Friday",
-      time: "10:30 AM to 11:30 AM",
-      gender: "male"
-    },
-    {
       image: dImage23,
       name: "Dr. Vrushal Bhansali",
       qualification: "M.B.B.S, DNB ( OPTHAL )",
@@ -361,14 +353,6 @@ export const doctorsBySpecialty = {
     }
   ],
   "ENDOCRINOLOGIST": [
-    {
-      image: "",
-      name: "Dr. Mehul Virani",
-      qualification: "MRCP Endocrinology & Diabetes",
-      days: "2nd & 4th Monday",
-      time: "3:00 PM to 4:00 PM",
-      gender: "male"
-    },
     {
       image: "",
       name: "Dr. Vitrag Shah",
@@ -443,22 +427,6 @@ export const doctorsBySpecialty = {
     },
     {
       image: "",
-      name: "Dr. Hetal Sachanandani",
-      qualification: "Dental Pedodontist",
-      days: "On Call",
-      time: null,
-      gender: "female"
-    },
-    {
-      image: dImage14,
-      name: "Dr. Yash Jethwani",
-      qualification: "MDS",
-      days: "Monday to Saturday",
-      time: "9:00 AM to 1:00 PM",
-      gender: "male"
-    },
-    {
-      image: "",
       name: "Dr. Mallika Patwa",
       qualification: "B.D.S",
       days: "Monday to Saturday",
@@ -524,14 +492,6 @@ export const doctorsBySpecialty = {
       days: "Monday & Thursday",
       time: "10:00 AM to 12:00 PM",
       gender: "female"
-    },
-    {
-      image: "",
-      name: "Dr. Jinal Shah",
-      qualification: "B.H.M.S",
-      days: "Tuesday",
-      time: "5:00 PM to 7:00 PM",
-      gender: "female"
     }
   ],
   "PEDIATRICIAN": [
@@ -581,6 +541,17 @@ export const doctorsBySpecialty = {
       gender: "male"
     }
   ],
+  "DIETICIAN": [
+    
+    {
+      image: null,
+      name: "Dr. Vishwa Bhansali",
+      qualification: "BSC, FSN - (DIETICIAN)",
+      days: "Monday to Saturday",
+      time: "10:00 AM to 11:00 AM",
+      gender: "male"
+    }
+  ],
   "YOGA & DIETICIAN": [
     {
       image: dImage13,
@@ -590,14 +561,6 @@ export const doctorsBySpecialty = {
       time: "4:00 PM to 5:00 PM",
       gender: "female"
     },
-    {
-      image: null,
-      name: "Dr. Vishwa Bhansali",
-      qualification: "BSC, FSN - (DIETICIAN)",
-      days: "Monday to Saturday",
-      time: "10:00 AM to 11:00 AM",
-      gender: "male"
-    }
   ],
   "GARBH SANSKAR": [
     {
