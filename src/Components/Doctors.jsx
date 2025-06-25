@@ -13,7 +13,7 @@ const Doctors = () => {
   // Function to get appropriate icon for each specialty
   const getSpecialtyIcon = (specialty) => {
     if (specialty === "YOGA & DIETICIAN") {
-      return <FaYinYang className="text-[#8e44ad] text-2xl mr-4" />;
+      return <FaYinYang className="text-[#D5A017] text-2xl mr-4" />;
     }
     return <FaStethoscope className="text-[#D5A017] text-2xl mr-4" />;
   };
@@ -21,7 +21,7 @@ const Doctors = () => {
   // Function to get specialty header color
   const getSpecialtyHeaderColor = (specialty) => {
     if (specialty === "YOGA & DIETICIAN") {
-      return "text-[#8e44ad]";
+      return "text-[#D5A017]";
     }
     return "text-[#757E54]";
   };
@@ -29,7 +29,7 @@ const Doctors = () => {
   // Function to get specialty border color
   const getSpecialtyBorderColor = (specialty) => {
     if (specialty === "YOGA & DIETICIAN") {
-      return "border-[#8e44ad]";
+      return "border-[#D5A017]";
     }
     return "border-[#D5A017]";
   };
@@ -57,7 +57,7 @@ const Doctors = () => {
               {doctorsBySpecialty[specialty].map((doctor, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-1 ${specialty === "YOGA & DIETICIAN" ? "ring-2 ring-[#8e44ad]/20" : ""}`}
+                  className={`bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:transform hover:-translate-y-1 ${specialty === "YOGA & DIETICIAN" ? "ring-2 ring-[#D5A017]/20" : ""}`}
                 >
                   {/* Doctor Image - Cropped to show top half */}
                   <div className="relative aspect-[4/5] sm:aspect-[3/4] md:aspect-[4/4] lg:aspect-[4/4] overflow-hidden">
@@ -69,7 +69,7 @@ const Doctors = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-10"></div>
                     {specialty === "YOGA & DIETICIAN" && (
-                      <div className="absolute top-0 right-0 bg-[#8e44ad] text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
+                      <div className="absolute top-0 right-0 bg-[#D5A017] text-white px-3 py-1 text-xs font-bold rounded-bl-lg">
                         YOGA & DIET
                       </div>
                     )}
@@ -78,8 +78,8 @@ const Doctors = () => {
                   {/* Doctor Details */}
                   <div className="p-6">
                     <div className="mb-5">
-                      <h3 className={`text-xl font-bold ${specialty === "YOGA & DIETICIAN" ? "text-[#8e44ad]" : "text-[#757E54]"} mb-1`}>{doctor.name}</h3>
-                      <p className={`text-sm font-semibold ${specialty === "YOGA & DIETICIAN" ? "text-[#9b59b6]" : "text-[#D5A017]"}`}>
+                      <h3 className={`text-xl font-bold ${specialty === "YOGA & DIETICIAN" ? "text-[#D5A017]" : "text-[#757E54]"} mb-1`}>{doctor.name}</h3>
+                      <p className={`text-sm font-semibold ${specialty === "YOGA & DIETICIAN" ? "text-[#D5A017]" : "text-[#D5A017]"}`}>
                         {doctor.qualification}
                       </p>
                     </div>
@@ -87,7 +87,7 @@ const Doctors = () => {
                     {/* Availability */}
                     <div className="space-y-4">
                       <div className="flex items-start">
-                        <div className={`${specialty === "YOGA & DIETICIAN" ? "text-[#8e44ad]" : "text-[#D5A017]"} mr-3 pt-1`}>
+                        <div className={`${specialty === "YOGA & DIETICIAN" ? "text-[#D5A017]" : "text-[#D5A017]"} mr-3 pt-1`}>
                           <FaCalendarAlt />
                         </div>
                         <div>
@@ -97,7 +97,7 @@ const Doctors = () => {
                       </div>
 
                       <div className="flex items-start">
-                        <div className={`${specialty === "YOGA & DIETICIAN" ? "text-[#8e44ad]" : "text-[#D5A017]"} mr-3 pt-1`}>
+                        <div className={`${specialty === "YOGA & DIETICIAN" ? "text-[#D5A017]" : "text-[#D5A017]"} mr-3 pt-1`}>
                           <FaClock />
                         </div>
                         <div>
